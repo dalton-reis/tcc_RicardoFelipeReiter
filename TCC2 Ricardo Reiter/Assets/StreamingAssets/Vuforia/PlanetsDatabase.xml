@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<QCARConfig>
+    <Tracking>
+        <ImageTarget name="mars" size="5.000000 5.000000"/>
+        <ImageTarget name="star" size="10.000000 10.000000"/>
+        <ImageTarget name="sun" size="5.000000 5.000000"/>
+        <ImageTarget name="neptune" size="5.000000 5.000000"/>
+        <ImageTarget name="uranos" size="5.000000 5.000000"/>
+        <ImageTarget name="saturn" size="5.000000 5.000000"/>
+        <ImageTarget name="jupter" size="5.000000 5.000000"/>
+        <ImageTarget name="earth" size="5.000000 5.000000"/>
+        <ImageTarget name="venus" size="5.000000 5.000000"/>
+        <ImageTarget name="mercury" size="5.000000 5.000000"/>
+        <ImageTarget name="universe" size="17.000000 17.000000"/>
+        <ImageTarget name="bookRight" size="8.500000 17.000000"/>
+        <ImageTarget name="bookLeft" size="8.500000 17.000000"/>
+        <ImageTarget name="solarmodules" size="15.000000 5.016353"/>
+        <ImageTarget name="solarconfig" size="15.000000 5.016353"/>
+        <ImageTarget name="dissection" size="5.000000 5.000000"/>
+        <ImageTarget name="information" size="5.000000 5.000000"/>
+        <ImageTarget name="cubeMinor.Bottom" size="4.000000 3.980440"/>
+        <ImageTarget name="cubeMinor.Right" size="4.000000 4.000000"/>
+        <ImageTarget name="cubeMinor.Top" size="4.000000 4.000000"/>
+        <ImageTarget name="cubeMinor.Back" size="4.000000 4.000000"/>
+        <ImageTarget name="cubeMinor.Left" size="4.000000 4.000000"/>
+        <ImageTarget name="cubeMinor.Front" size="4.000000 4.000000"/>
+        <MultiTarget name="cubeMinor">
+            <Part name="cubeMinor.Left" translation="-2.0 0 0" rotation="AD: 0 1 0 -90"/>
+            <Part name="cubeMinor.Right" translation="2.0 0 0" rotation="AD: 0 1 0 90"/>
+            <Part name="cubeMinor.Front" translation="0 0 2.0" rotation="AD: 1 0 0 0"/>
+            <Part name="cubeMinor.Back" translation="0 0 -2.0" rotation="AD: 0 1 0 180"/>
+            <Part name="cubeMinor.Top" translation="0 2.0 0" rotation="AD: 1 0 0 -90"/>
+            <Part name="cubeMinor.Bottom" translation="0 -2.0 0" rotation="AD: 1 0 0 90"/>
+        </MultiTarget>
+    </Tracking>
+</QCARConfig>
