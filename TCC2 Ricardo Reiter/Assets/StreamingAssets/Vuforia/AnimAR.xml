@@ -1,12 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <QCARConfig>
     <Tracking>
+        <ImageTarget name="CuboMarkerV2.Front" size="5.000000 5.000000"/>
+        <ImageTarget name="CuboMarkerV2.Back" size="5.000000 5.000000"/>
+        <ImageTarget name="CuboMarkerV2.Right" size="5.000000 5.000000"/>
+        <ImageTarget name="CuboMarkerV2.Left" size="5.000000 5.000000"/>
+        <ImageTarget name="CuboMarkerV2.Top" size="5.000000 5.000000"/>
+        <ImageTarget name="CuboMarkerV2.Bottom" size="5.000000 5.000000"/>
         <ImageTarget name="CuboMarker.Front" size="5.000000 5.000000"/>
         <ImageTarget name="CuboMarker.Back" size="5.000000 5.000000"/>
         <ImageTarget name="CuboMarker.Right" size="5.000000 5.000000"/>
         <ImageTarget name="CuboMarker.Left" size="5.000000 5.000000"/>
         <ImageTarget name="CuboMarker.Top" size="5.000000 5.000000"/>
         <ImageTarget name="CuboMarker.Bottom" size="5.000000 5.000000"/>
+        <MultiTarget name="CuboMarkerV2">
+            <Part name="CuboMarkerV2.Left" translation="-2.5 0 0" rotation="AD: 0 1 0 -90"/>
+            <Part name="CuboMarkerV2.Right" translation="2.5 0 0" rotation="AD: 0 1 0 90"/>
+            <Part name="CuboMarkerV2.Front" translation="0 0 2.5" rotation="AD: 1 0 0 0"/>
+            <Part name="CuboMarkerV2.Back" translation="0 0 -2.5" rotation="AD: 0 1 0 180"/>
+            <Part name="CuboMarkerV2.Top" translation="0 2.5 0" rotation="AD: 1 0 0 -90"/>
+            <Part name="CuboMarkerV2.Bottom" translation="0 -2.5 0" rotation="AD: 1 0 0 90"/>
+        </MultiTarget>
         <MultiTarget name="CuboMarker">
             <Part name="CuboMarker.Left" translation="-2.5 0 0" rotation="AD: 0 1 0 -90"/>
             <Part name="CuboMarker.Right" translation="2.5 0 0" rotation="AD: 0 1 0 90"/>
