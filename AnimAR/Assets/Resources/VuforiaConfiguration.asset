@@ -24,8 +24,8 @@ MonoBehaviour:
   digitalEyewear:
     cameraOffset: 0.06
     distortionRenderingLayer: 31
-    eyewearType: 0
-    stereoFramework: 1
+    eyewearType: 2
+    stereoFramework: 2
     seeThroughConfiguration: 0
     viewerName: Generic Cardboard
     viewerManufacturer: Vuforia

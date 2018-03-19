@@ -131,7 +131,7 @@ PlayerSettings:
   xboxOneEnable7thCore: 0
   vrSettings:
     cardboard:
-      depthFormat: 0
+      depthFormat: 1
       enableTransitionView: 0
     daydream:
       depthFormat: 0
@@ -245,6 +245,7 @@ PlayerSettings:
     m_Enabled: 1
     m_Devices:
     - cardboard
+    - daydream
   m_BuildTargetEnableVuforiaSettings:
   - m_BuildTarget: Android
     m_Enabled: 1
