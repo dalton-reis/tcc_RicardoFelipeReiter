@@ -9,9 +9,9 @@ namespace Assets.Scripts {
 
         public CubeMarkerIndicatorController indicatorController;
         private const float secondsToHold = 2;
-        private const float movementTolerance = 0.16f;
+        private const float movementTolerance = 0.2f;
 
-        private GameObject scene = null;
+        private CubeMarkerObjectReceiver receiver = null;
         private GameObject objectMarkerOver = null;
         private GameObject attachedObject = null;
         private CubeMarkerStatus currentStatus = CubeMarkerStatus.NOP;
@@ -31,8 +31,8 @@ namespace Assets.Scripts {
                             attachedObject = objectMarkerOver;
                             objectMarkerOver = null;
                             UpdateStatus();
-                        } else if (attachedObject && scene) {
-                            attachedObject.transform.parent = scene.transform;
+                        } else if (attachedObject && receiver != null) {
+                            receiver.ObjectReceived(attachedObject);
                             attachedObject = null;
                             UpdateStatus();
                         }
@@ -44,30 +44,28 @@ namespace Assets.Scripts {
         }
 
         void OnTriggerEnter(Collider other) {
-            Debug.Log(other);
             switch (other.tag) {
-                case "Scene":
-                    scene = other.gameObject;
-                    break;
                 case "Movable":
                     objectMarkerOver = other.gameObject;
                     currentTime = secondsToHold;
+                    break;
+                default:
+                    receiver = other.gameObject.GetComponent<CubeMarkerObjectReceiver>();
                     break;
             }
             UpdateStatus();
         }
 
         void OnTriggerExit(Collider other) {
-            Debug.Log(other);
             switch (other.tag) {
-                case "Scene":
-                    if (other.gameObject == scene) {
-                        scene = null;
-                    }
-                    break;
                 case "Movable":
                     if (other.gameObject == objectMarkerOver) {
                         objectMarkerOver = null;
+                    }
+                    break;
+                default:
+                    if (receiver == other.gameObject.GetComponent<CubeMarkerObjectReceiver>()) {
+                        receiver = null;
                     }
                     break;
             }

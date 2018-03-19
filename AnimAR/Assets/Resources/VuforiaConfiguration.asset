@@ -15,16 +15,16 @@ MonoBehaviour:
     vuforiaLicenseKey: AU42d7r/////AAAAmY+BNw3iqEINihDYo2ZkJKgMJ38dkKXR18qqUDi2d/s0WvYdNYBxGl0tnJzKYW5fpUaBSHd7Kofl+zBNoA1sJYL/fFEIIjQBKnWxCHr8Fdc888TYsTklhjrPgJGyzPJY79N0o+IzsL6HZaljGVZhcylye2S0XDZ73wKShXg8P3+a5SPbLQ03H+0zKzV7MMJ3uT0X4BFSoiECfRgp51YvN64JMh1mdwvqF3jCbV1tlBiedIjQcWNqC4GqkJ3XeXJILYbNhamWqQkR/DYWCjBW+furV47RThmKNrgwHF40r7pOX3oVfBgMdKwB08/mZnZuVrEsGK64pUl53t3Y85zE7C/91XcJ2JDJZodj6cpbkyYK
     ufoLicenseKey: QVFjazJzTC8vLy8vQUFBQUtCQUhOOXJmcGt6d3ROazZJK3k3ak9vYUhwZ0p3OWtvL3ZPYWFidDJQb1d1TUM2NU9IMk9YMTZtaE5jOS9Db1QvZDA3NVB0R2I4bmQ4RUdFKzNDTjN5KzhUSXhSYUtrTGZ4RHh3dlRKZ01lUHZ6NElYTnhzMHU0ZlRCanVXcHh1VllqMXVQK3JicmMzQ3dlL2hDV2NaeTZOamZhWkNlWkE3cEU2dHBseVBaRVZaTUFWa0NZdUtTSVExaDJ1Y2k3cUdrK0JVTkhGRUVYcXhJS2FEK213L1NVRGIyaXdkekk5emM3WjFXMnRLL1E0TDQvWjlqWnhZVG1CQy90UG1iblFNY1Ivb0dqNHFIZzZ5akU4emR0M0hiZTcrVUVBc1VDYzZYR3BOY2JaeFphTHJhR3AwWmF2VHRaREE5VE5YbzlySUJYTFM4WjhvUklNVEZBRkE4bVcydTNPUmswWVlHY3lQUHVsb0t6Mm5HcjA=
     delayedInitialization: 0
-    cameraDeviceModeSetting: -1
-    maxSimultaneousImageTargets: 3
-    maxSimultaneousObjectTargets: 3
+    cameraDeviceModeSetting: -3
+    maxSimultaneousImageTargets: 4
+    maxSimultaneousObjectTargets: 4
     useDelayedLoadingObjectTargets: 0
     cameraDirection: 0
     mirrorVideoBackground: 0
   digitalEyewear:
     cameraOffset: 0.06
     distortionRenderingLayer: 31
-    eyewearType: 2
+    eyewearType: 0
     stereoFramework: 1
     seeThroughConfiguration: 0
     viewerName: Generic Cardboard
@@ -44,15 +44,11 @@ MonoBehaviour:
       ContainsMagnet: 0
   databaseLoad:
     dataSetsToLoad:
+    - PlanetsDatabase
     - AnimAR
-    - VuforiaMars_Images
-    - VuforiaMars_Object_OT
-    - VuforiaMars_VuMark
     dataSetsToActivate:
+    - PlanetsDatabase
     - AnimAR
-    - VuforiaMars_Images
-    - VuforiaMars_Object_OT
-    - VuforiaMars_VuMark
   videoBackground:
     clippingMode: 0
     numDivisions: 2
