@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <QCARConfig>
     <Tracking>
+        <ImageTarget name="Scene_1" size="15.000000 15.000000"/>
+        <ImageTarget name="trashbin" size="5.000000 5.000000"/>
+        <ImageTarget name="object_factory" size="15.000000 4.394531"/>
         <ImageTarget name="Scene_1_V2" size="10.000000 10.000000"/>
         <ImageTarget name="Scene_1_V1" size="10.000000 10.000000"/>
         <ImageTarget name="CuboMarkerV2.Bottom" size="5.000000 5.000000"/>

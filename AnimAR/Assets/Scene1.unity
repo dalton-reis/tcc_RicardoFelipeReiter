@@ -290,7 +290,7 @@ MonoBehaviour:
   m_Script: {fileID: -1631628248, guid: bab6fa851cf5a1a4bba3cec5f191cb8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mTrackableName: Scene_1_V2
+  mTrackableName: Scene_1
   mPreserveChildSize: 0
   mInitializedInEditor: 1
   mDataSetPath: Vuforia/AnimAR.xml
@@ -305,8 +305,8 @@ MonoBehaviour:
   mAutoSetOccluderFromTargetSize: 0
   mAspectRatio: 1
   mImageTargetType: 0
-  mWidth: 10
-  mHeight: 10
+  mWidth: 15
+  mHeight: 15
 --- !u!4 &55684170
 Transform:
   m_ObjectHideFlags: 0
@@ -314,8 +314,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 55684164}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 10, y: 10, z: 10}
+  m_LocalPosition: {x: -7.3, y: 0, z: 1.82}
+  m_LocalScale: {x: 15, y: 15, z: 15}
   m_Children:
   - {fileID: 139813347}
   m_Father: {fileID: 0}
@@ -474,7 +474,7 @@ Transform:
   m_GameObject: {fileID: 139813346}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0.041, y: 0, z: 0.018}
-  m_LocalScale: {x: 0.068, y: 0.068, z: 0.068}
+  m_LocalScale: {x: 0.06, y: 0.06, z: 0.06}
   m_Children:
   - {fileID: 1585873648}
   - {fileID: 1443662129}
@@ -1058,7 +1058,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: e3ef794318224a4d99f8c6d5dad477ed, type: 3}
+        m_Texture: {fileID: 2800000, guid: 29f2724cbda0445f8241a32652e22dca, type: 3}
         m_Scale: {x: -1, y: -1}
         m_Offset: {x: 0, y: 0}
     m_Floats: []
@@ -1158,10 +1158,10 @@ MonoBehaviour:
   m_Script: {fileID: -1631628248, guid: bab6fa851cf5a1a4bba3cec5f191cb8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mTrackableName: mars
+  mTrackableName: trashbin
   mPreserveChildSize: 0
   mInitializedInEditor: 1
-  mDataSetPath: Vuforia/PlanetsDatabase.xml
+  mDataSetPath: Vuforia/AnimAR.xml
   mExtendedTracking: 0
   mInitializeSmartTerrain: 0
   mReconstructionToInitialize: {fileID: 0}
@@ -1208,7 +1208,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 11a91de52ce4474aa6145ef7be4edd25, type: 3}
+        m_Texture: {fileID: 2800000, guid: 65f9fe9909e24771a7f593c144bb42d9, type: 3}
         m_Scale: {x: -1, y: -1}
         m_Offset: {x: 0, y: 0}
     m_Floats: []
@@ -1233,7 +1233,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 1348e4c66f30443880872d2a8d4b6930, type: 3}
+        m_Texture: {fileID: 2800000, guid: e4d20acd93a049a78fdc88c8a93ba9e4, type: 3}
         m_Scale: {x: -1, y: -1}
         m_Offset: {x: 0, y: 0}
     m_Floats: []
@@ -1752,7 +1752,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: c26897149a83433eaaef9804659df0d5, type: 3}
+        m_Texture: {fileID: 2800000, guid: 0092a87482804525a2182136418f2a15, type: 3}
         m_Scale: {x: -1, y: -1}
         m_Offset: {x: 0, y: 0}
     m_Floats: []
@@ -2112,7 +2112,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: dca57327c8ee4d4a9f09457122487db7, type: 3}
+        m_Texture: {fileID: 2800000, guid: 3c39b5743c7e400ebfc198f9d03ee880, type: 3}
         m_Scale: {x: -1, y: -1}
         m_Offset: {x: 0, y: 0}
     m_Floats: []
@@ -2280,7 +2280,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: c5baad0530ba4aeb8a7c700ea3f22d79, type: 3}
+        m_Texture: {fileID: 2800000, guid: 63e8326d447a4f6aad776f56157b14aa, type: 3}
         m_Scale: {x: -1, y: -1}
         m_Offset: {x: 0, y: 0}
     m_Floats: []
@@ -2489,7 +2489,7 @@ Material:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: Scene_1_V2Material
+  m_Name: Scene_1Material
   m_Shader: {fileID: 10752, guid: 0000000000000000f000000000000000, type: 0}
   m_ShaderKeywords: 
   m_LightmapFlags: 5
@@ -2502,7 +2502,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: c8850621c0f4450d9eda9df92e3de8c9, type: 3}
+        m_Texture: {fileID: 2800000, guid: 2fd427ced68c46d1b2b81cfc90260379, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats: []
@@ -2598,7 +2598,7 @@ Material:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: marsMaterial
+  m_Name: trashbinMaterial
   m_Shader: {fileID: 10752, guid: 0000000000000000f000000000000000, type: 0}
   m_ShaderKeywords: 
   m_LightmapFlags: 5
@@ -2611,7 +2611,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: bb6129797eaa4f2b81f5a55f0c53ff8e, type: 3}
+        m_Texture: {fileID: 2800000, guid: df86d5fa69584eadb789b4e171917b23, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats: []
