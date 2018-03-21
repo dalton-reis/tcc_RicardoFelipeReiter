@@ -5,10 +5,15 @@ using System.Text;
 using UnityEngine;
 
 namespace Assets.Scripts {
-    public class SceneController : MonoBehaviour, CubeMarkerObjectReceiver {
+    public class SceneController : MonoBehaviour, CubeMarkerInteractor {
 
-        public void ObjectReceived(GameObject obj) {
+        public bool ObjectReceived(GameObject obj) {
             obj.transform.parent = this.transform;
+            return true;
+        }
+
+        public void ObjectRemoved(GameObject obj) {
+
         }
 
     }

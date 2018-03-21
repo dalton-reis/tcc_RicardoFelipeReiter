@@ -51,10 +51,9 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4471969481201696}
-  - component: {fileID: 136003115673467450}
   m_Layer: 0
   m_Name: Eer3.1 1 (2)
-  m_TagString: Movable
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -82,9 +81,10 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4901143828041838}
+  - component: {fileID: 136167515632171238}
   m_Layer: 0
   m_Name: Eer3.1 1 (2) 1
-  m_TagString: Untagged
+  m_TagString: Movable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -240,7 +240,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1526462657309302}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.05, y: 3.722, z: -6.29}
+  m_LocalPosition: {x: -26.444067, y: 24.17371, z: 8.382326}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4471969481201696}
@@ -329,16 +329,16 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1679335702010694}
   m_Mesh: {fileID: 4300142, guid: b2c61055c4a01ad43b08434f8178e1c9, type: 3}
---- !u!136 &136003115673467450
+--- !u!136 &136167515632171238
 CapsuleCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1479032001320414}
+  m_GameObject: {fileID: 1526462657309302}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
   m_Radius: 0.8130025
   m_Height: 3.7587771
   m_Direction: 1
-  m_Center: {x: 21.27014, y: 2.31446, z: -3.392002}
+  m_Center: {x: 0, y: 0, z: 0}

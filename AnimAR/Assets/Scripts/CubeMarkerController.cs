@@ -11,7 +11,7 @@ namespace Assets.Scripts {
         private const float secondsToHold = 2;
         private const float movementTolerance = 0.2f;
 
-        private CubeMarkerObjectReceiver receiver = null;
+        private CubeMarkerInteractor interactor = null;
         private GameObject objectMarkerOver = null;
         private GameObject attachedObject = null;
         private CubeMarkerStatus currentStatus = CubeMarkerStatus.NOP;
@@ -26,16 +26,17 @@ namespace Assets.Scripts {
                 } else {
                     currentTime -= Time.fixedDeltaTime;
                     if (currentTime <= 0) {
-                        if (objectMarkerOver) {
+                        if (currentStatus == CubeMarkerStatus.MARKER_OVER_OBJECT) {
+                            interactor.ObjectRemoved(objectMarkerOver);
                             objectMarkerOver.transform.parent = this.transform;
                             attachedObject = objectMarkerOver;
                             objectMarkerOver = null;
-                            UpdateStatus();
-                        } else if (attachedObject && receiver != null) {
-                            receiver.ObjectReceived(attachedObject);
-                            attachedObject = null;
-                            UpdateStatus();
+                        } else if (attachedObject && interactor != null) {
+                            if (interactor.ObjectReceived(attachedObject)) {
+                                attachedObject = null;
+                            }
                         }
+                        UpdateStatus();
                         currentTime = secondsToHold;
                     }
                 }
@@ -46,11 +47,16 @@ namespace Assets.Scripts {
         void OnTriggerEnter(Collider other) {
             switch (other.tag) {
                 case "Movable":
-                    objectMarkerOver = other.gameObject;
-                    currentTime = secondsToHold;
+                    if (currentStatus == CubeMarkerStatus.NOP) {
+                        objectMarkerOver = other.gameObject;
+                        currentTime = secondsToHold;
+                    }
                     break;
                 default:
-                    receiver = other.gameObject.GetComponent<CubeMarkerObjectReceiver>();
+                    var newInteractor = other.gameObject.GetComponent<CubeMarkerInteractor>();
+                    if (newInteractor != null) {
+                        interactor = newInteractor;
+                    }
                     break;
             }
             UpdateStatus();
@@ -64,8 +70,8 @@ namespace Assets.Scripts {
                     }
                     break;
                 default:
-                    if (receiver == other.gameObject.GetComponent<CubeMarkerObjectReceiver>()) {
-                        receiver = null;
+                    if (interactor == other.gameObject.GetComponent<CubeMarkerInteractor>()) {
+                        interactor = null;
                     }
                     break;
             }

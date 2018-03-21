@@ -6,18 +6,20 @@ using UnityEngine;
 using Vuforia;
 
 namespace Assets.Scripts {
-    public class FactoryController : MonoBehaviour, IVirtualButtonEventHandler {
+    public class FactoryController : MonoBehaviour, IVirtualButtonEventHandler, CubeMarkerInteractor {
 
-        public VirtualButtonBehaviour NextButton;
-        public VirtualButtonBehaviour PrevButton;
+        public GameObject NextButton;
+        public GameObject PrevButton;
         public GameObject[] objList;
+        public Transform showingObjectRoot;
 
         private int currentObjIndex = 0;
         private GameObject currentObject = null;
 
         void Start() {
-            NextButton.RegisterEventHandler(this);
-            PrevButton.RegisterEventHandler(this);
+            NextButton.GetComponent<VirtualButtonBehaviour>().RegisterEventHandler(this);
+            PrevButton.GetComponent<VirtualButtonBehaviour>().RegisterEventHandler(this);
+            ChangeIndex(0);
         }
 
         public void OnButtonPressed(VirtualButtonBehaviour vb) {
@@ -39,9 +41,26 @@ namespace Assets.Scripts {
             if (currentObject) {
                 Destroy(currentObject);
             }
-            currentObject = GameObject.Instantiate(objList[currentObjIndex]);
-            currentObject.transform.parent = this.transform;
-            currentObject.transform.localPosition = new Vector3(0, 0.5f, 0);
+            NewCurrentObject(objList[currentObjIndex]);
         }
+
+        public bool ObjectReceived(GameObject obj) {
+            return false;
+        }
+
+        public void ObjectRemoved(GameObject obj) {
+            Debug.Log(currentObject);
+            Debug.Log(obj);
+            if (currentObject == obj) {
+                Debug.Log("lol2");
+                NewCurrentObject(obj);
+            }
+        }
+
+        public void NewCurrentObject(GameObject objToCopy) {
+            currentObject = GameObject.Instantiate(objToCopy, showingObjectRoot);
+            currentObject.transform.localPosition = new Vector3(0, 0, 0);
+        }
+
     }
 }

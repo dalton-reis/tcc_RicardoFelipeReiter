@@ -19,10 +19,9 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4786849933492550}
-  - component: {fileID: 135045760952080056}
   m_Layer: 0
   m_Name: rock4
-  m_TagString: Movable
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -35,9 +34,10 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4512982032766754}
+  - component: {fileID: 135694277881592442}
   m_Layer: 0
   m_Name: Rock4 1
-  m_TagString: Untagged
+  m_TagString: Movable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -66,7 +66,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1699436955156770}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.05, y: 4.2, z: -2.96}
+  m_LocalPosition: {x: -28.406096, y: 27.426842, z: 12.70499}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4786849933492550}
@@ -141,15 +141,15 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1811154412077490}
   m_Mesh: {fileID: 4300500, guid: b2c61055c4a01ad43b08434f8178e1c9, type: 3}
---- !u!135 &135045760952080056
+--- !u!135 &135694277881592442
 SphereCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1633967837772918}
+  m_GameObject: {fileID: 1699436955156770}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 1.8
-  m_Center: {x: 74.67, y: -0.55, z: -10.86}
+  m_Radius: 1.65
+  m_Center: {x: 0.27, y: 0.39, z: 0.16}

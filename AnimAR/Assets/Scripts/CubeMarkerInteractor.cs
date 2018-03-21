@@ -6,9 +6,11 @@ using UnityEngine;
 using UnityEngine.Events;
 
 namespace Assets.Scripts {
-    public interface CubeMarkerObjectReceiver {
+    public interface CubeMarkerInteractor {
 
-        void ObjectReceived(GameObject obj);
+        bool ObjectReceived(GameObject obj);
+
+        void ObjectRemoved(GameObject obj);
 
     }
 }
