@@ -19,9 +19,6 @@ namespace Assets.Scripts {
         void Start() {
             NextButton.GetComponent<VirtualButtonBehaviour>().RegisterEventHandler(this);
             PrevButton.GetComponent<VirtualButtonBehaviour>().RegisterEventHandler(this);
-            Debug.Log("lolol");
-            Debug.Log(PrevButton);
-            Debug.Log(NextButton);
             ChangeIndex(0);
         }
 
