@@ -543,8 +543,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 24.194675, y: 7.0192327, z: 21.416796}
-  m_Center: {x: 0.18724443, y: 3.0096157, z: -0.45325282}
+  m_Size: {x: 24.194675, y: 9.737748, z: 21.416796}
+  m_Center: {x: 0.18724443, y: 4.368872, z: -0.45325282}
 --- !u!114 &139813349
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -760,6 +760,10 @@ Prefab:
       propertyPath: m_LocalEulerAnglesHint.y
       value: -52.29
       objectReference: {fileID: 0}
+    - target: {fileID: 1073544406208812, guid: eea550f3de62b44498004d363009b4ad, type: 2}
+      propertyPath: m_TagString
+      value: Movable
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: eea550f3de62b44498004d363009b4ad, type: 2}
   m_IsPrefabParent: 0
@@ -826,6 +830,10 @@ Prefab:
     - target: {fileID: 4862259396680264, guid: 506980000a76666449f38c5e27dca762, type: 2}
       propertyPath: m_LocalEulerAnglesHint.y
       value: 49.72
+      objectReference: {fileID: 0}
+    - target: {fileID: 1752094540789222, guid: 506980000a76666449f38c5e27dca762, type: 2}
+      propertyPath: m_TagString
+      value: Movable
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 506980000a76666449f38c5e27dca762, type: 2}
@@ -2093,7 +2101,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1068841733}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 12.44, y: 0, z: -3.48}
+  m_LocalPosition: {x: 24.76, y: 0, z: -5.96}
   m_LocalScale: {x: 10, y: 10, z: 10}
   m_Children:
   - {fileID: 1469972932}
@@ -2311,7 +2319,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1105556774}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.32749996, y: 0.001, z: 0}
+  m_LocalPosition: {x: 0.3274996, y: 0.001, z: 0}
   m_LocalScale: {x: 0.32305583, y: 1, z: 0.35}
   m_Children:
   - {fileID: 601692491}
@@ -2388,7 +2396,7 @@ MonoBehaviour:
     e00: 3.2305584
     e01: 0
     e02: 0
-    e03: 15.714999
+    e03: 28.034996
     e10: 0
     e11: 10
     e12: 0
@@ -2396,7 +2404,7 @@ MonoBehaviour:
     e20: 0
     e21: 0
     e22: 3.5
-    e23: -3.48
+    e23: -5.96
     e30: 0
     e31: 0
     e32: 0
@@ -2883,7 +2891,7 @@ MonoBehaviour:
     e00: 3.230558
     e01: 0
     e02: 0
-    e03: 9.214
+    e03: 21.534
     e10: 0
     e11: 10
     e12: 0
@@ -2891,7 +2899,7 @@ MonoBehaviour:
     e20: 0
     e21: 0
     e22: 3.5
-    e23: -3.48
+    e23: -5.96
     e30: 0
     e31: 0
     e32: 0
@@ -2961,6 +2969,10 @@ Prefab:
     - target: {fileID: 4862259396680264, guid: 506980000a76666449f38c5e27dca762, type: 2}
       propertyPath: m_LocalScale.z
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1752094540789222, guid: 506980000a76666449f38c5e27dca762, type: 2}
+      propertyPath: m_TagString
+      value: Movable
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 506980000a76666449f38c5e27dca762, type: 2}
@@ -3219,6 +3231,10 @@ Prefab:
     - target: {fileID: 4683582314160470, guid: eea550f3de62b44498004d363009b4ad, type: 2}
       propertyPath: m_LocalScale.z
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1073544406208812, guid: eea550f3de62b44498004d363009b4ad, type: 2}
+      propertyPath: m_TagString
+      value: Movable
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: eea550f3de62b44498004d363009b4ad, type: 2}
@@ -3540,7 +3556,7 @@ MonoBehaviour:
   m_Script: {fileID: -1826476478, guid: 1e108ae5f2133934f948edded555f03e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mWorldCenterMode: 1
+  mWorldCenterMode: 2
   mWorldCenter: {fileID: 0}
 --- !u!81 &1823846887
 AudioListener:
@@ -3985,6 +4001,10 @@ Prefab:
     - target: {fileID: 4862259396680264, guid: 506980000a76666449f38c5e27dca762, type: 2}
       propertyPath: m_LocalEulerAnglesHint.y
       value: 182.55
+      objectReference: {fileID: 0}
+    - target: {fileID: 1752094540789222, guid: 506980000a76666449f38c5e27dca762, type: 2}
+      propertyPath: m_TagString
+      value: Movable
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 506980000a76666449f38c5e27dca762, type: 2}
