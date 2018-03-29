@@ -15,6 +15,7 @@ namespace Assets.Scripts {
         private GameObject objectMarkerOver = null;
         private GameObject attachedObject = null;
         private CubeMarkerStatus currentStatus = CubeMarkerStatus.NOP;
+        private LinkedList<CubeMarkerListener> listeners = new LinkedList<CubeMarkerListener>();
 
         private float currentTime = 0;
         private Vector3 lastPos = Vector3.zero;
@@ -31,9 +32,11 @@ namespace Assets.Scripts {
                             objectMarkerOver.transform.parent = this.transform;
                             attachedObject = objectMarkerOver;
                             objectMarkerOver = null;
+                            NotifyObjectAttached(attachedObject);
                         } else if (attachedObject && interactor != null) {
                             if (interactor.ObjectReceived(attachedObject)) {
                                 attachedObject = null;
+                                NotifyObjectDetached(attachedObject);
                             }
                         }
                         UpdateStatus();
@@ -76,6 +79,22 @@ namespace Assets.Scripts {
                     break;
             }
             UpdateStatus();
+        }
+
+        public void AddListener(CubeMarkerListener listener) {
+            listeners.AddLast(listener);
+        }
+
+        private void NotifyObjectAttached(GameObject obj) {
+            foreach (CubeMarkerListener listener in listeners) {
+                listener.ObjectAttached(obj);
+            }
+        }
+
+        private void NotifyObjectDetached(GameObject obj) {
+            foreach (CubeMarkerListener listener in listeners) {
+                listener.ObjectDetached(obj);
+            }
         }
 
         private void UpdateStatus() {
