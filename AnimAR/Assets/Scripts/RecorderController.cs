@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using UnityEngine;
+using UnityEditor;
 using Vuforia;
 using UnityEditor.Experimental.Animations;
 
@@ -12,12 +13,18 @@ namespace Assets.Scripts {
         public AnimationClip clip;
         public GameObject RecButton;
         public CubeMarkerController cubeMarkerController;
+        public RecorderTracker recorderTracker;
 
-        private GameObjectRecorder recorder = new GameObjectRecorder();
+        private GameObjectRecorder recorder;
         private GameObject gameObjectToRecord;
         private bool record = false;
 
         void Start() {
+            recorder = new GameObjectRecorder();
+            recorder.root = recorderTracker.gameObject;
+            recorder.BindComponent<Transform>(recorderTracker.gameObject, true);
+
+            clip = new AnimationClip();
             RecButton.GetComponent<VirtualButtonBehaviour>().RegisterEventHandler(this);
             cubeMarkerController.AddListener(this);
         }
@@ -27,6 +34,7 @@ namespace Assets.Scripts {
                 return;
 
             if (record && gameObjectToRecord) {
+                Debug.Log("Snapshot?");
                 recorder.TakeSnapshot(Time.deltaTime);
             } else if (recorder.isRecording) {
                 recorder.SaveToClip(clip);
@@ -35,17 +43,20 @@ namespace Assets.Scripts {
         }
 
         public void OnButtonPressed(VirtualButtonBehaviour vb) {
-            record = true;
+            if (record) {
+                record = false;
+                AssetDatabase.CreateAsset(clip, "Assets/Test.anim");
+            } else {
+                record = true;
+            }
         }
 
         public void OnButtonReleased(VirtualButtonBehaviour vb) {
-            record = false;
         }
 
         public void ObjectAttached(GameObject obj) {
             this.gameObjectToRecord = obj;
-            this.recorder.root = obj;
-            this.recorder.BindComponent<Transform>(obj, true);
+            recorderTracker.source = obj.transform;
         }
 
         public void ObjectDetached(GameObject obj) {

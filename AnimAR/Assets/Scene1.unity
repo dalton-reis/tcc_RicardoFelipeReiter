@@ -119,7 +119,7 @@ Material:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: object_factory_v2Material
+  m_Name: RecordToolsMarkerMaterial
   m_Shader: {fileID: 10752, guid: 0000000000000000f000000000000000, type: 0}
   m_ShaderKeywords: 
   m_LightmapFlags: 5
@@ -132,7 +132,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: c3687ccf85ef4012b9da92a5902eef4c, type: 3}
+        m_Texture: {fileID: 2800000, guid: 3dea08ff8af9405eac65fee64dc4ef1c, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats: []
@@ -1216,8 +1216,9 @@ GameObject:
   - component: {fileID: 553230365}
   - component: {fileID: 553230364}
   - component: {fileID: 553230363}
+  - component: {fileID: 553230369}
   m_Layer: 0
-  m_Name: ImageTarget
+  m_Name: RecordTools
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1297,15 +1298,15 @@ MonoBehaviour:
   m_Script: {fileID: -1631628248, guid: bab6fa851cf5a1a4bba3cec5f191cb8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mTrackableName: object_factory_v2
+  mTrackableName: RecordToolsMarker
   mPreserveChildSize: 0
   mInitializedInEditor: 1
   mDataSetPath: Vuforia/AnimAR.xml
   mExtendedTracking: 0
-  mAspectRatio: 0.390625
+  mAspectRatio: 0.375
   mImageTargetType: 0
-  mWidth: 10
-  mHeight: 10
+  mWidth: 20
+  mHeight: 7.5
 --- !u!4 &553230368
 Transform:
   m_ObjectHideFlags: 0
@@ -1313,13 +1314,28 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 553230362}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 23.48, y: 0, z: -17.81}
-  m_LocalScale: {x: 10, y: 10, z: 10}
+  m_LocalPosition: {x: 28.99, y: 0, z: -17.12}
+  m_LocalScale: {x: 20, y: 20, z: 20}
   m_Children:
   - {fileID: 831178336}
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &553230369
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 553230362}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 929b14255c9cfa24780da48110579713, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clip: {fileID: 0}
+  RecButton: {fileID: 831178335}
+  cubeMarkerController: {fileID: 1107270643}
+  recorderTracker: {fileID: 1574468104}
 --- !u!21 &560678933
 Material:
   serializedVersion: 6
@@ -1339,7 +1355,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 5002fb7bb210446cbe8baa6f5b4745ba, type: 3}
+        m_Texture: {fileID: 2800000, guid: 2b7ecef222684e769e4be24b4c33a8ac, type: 3}
         m_Scale: {x: -1, y: -1}
         m_Offset: {x: 0, y: 0}
     m_Floats: []
@@ -1568,7 +1584,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 8c0b1a225d0045da96b60a55f8943a44, type: 3}
+        m_Texture: {fileID: 2800000, guid: bcbdff6964f4407fa142ab956f88da42, type: 3}
         m_Scale: {x: -1, y: -1}
         m_Offset: {x: 0, y: 0}
     m_Floats: []
@@ -1593,7 +1609,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: c3687ccf85ef4012b9da92a5902eef4c, type: 3}
+        m_Texture: {fileID: 2800000, guid: 981dbcbc17f64df1870eca29012ec1c2, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats: []
@@ -1618,7 +1634,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: d23c31635fb7439cb81ead4d070127e6, type: 3}
+        m_Texture: {fileID: 2800000, guid: 74de421bb91b43428625bd031acd0c47, type: 3}
         m_Scale: {x: -1, y: -1}
         m_Offset: {x: 0, y: 0}
     m_Floats: []
@@ -1984,18 +2000,18 @@ MonoBehaviour:
   mSensitivity: 1
   mHasUpdatedPose: 1
   mPrevTransform:
-    e00: 3.2305598
+    e00: 6.4611197
     e01: 0
     e02: 0
-    e03: 23.48
+    e03: 28.99
     e10: 0
-    e11: 10
+    e11: 20
     e12: 0
-    e13: 0.010000001
+    e13: 0.020000001
     e20: 0
     e21: 0
-    e22: 3.5
-    e23: -17.81
+    e22: 7
+    e23: -17.12
     e30: 0
     e31: 0
     e32: 0
@@ -2237,7 +2253,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!33 &1068841734
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -2819,7 +2835,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: f5a54ffbcd0e45dbb645479a0b115da5, type: 3}
+        m_Texture: {fileID: 2800000, guid: 3e55ab578fc1442d8acae3681542f9fb, type: 3}
         m_Scale: {x: -1, y: -1}
         m_Offset: {x: 0, y: 0}
     m_Floats: []
@@ -3416,12 +3432,53 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 0dc1f4d43c044b819efceb035802366b, type: 3}
+        m_Texture: {fileID: 2800000, guid: cb6333018f684b92b93485b182c09c64, type: 3}
         m_Scale: {x: -1, y: -1}
         m_Offset: {x: 0, y: 0}
     m_Floats: []
     m_Colors:
     - _Color: {r: 0.82089555, g: 0.82089555, b: 0.82089555, a: 1}
+--- !u!1 &1574468103
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1574468105}
+  - component: {fileID: 1574468104}
+  m_Layer: 0
+  m_Name: RecorderTracker
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1574468104
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1574468103}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7db2a1513dcfc52438abc973e82fa5e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  source: {fileID: 0}
+--- !u!4 &1574468105
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1574468103}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1585873647
 Prefab:
   m_ObjectHideFlags: 0
@@ -3632,7 +3689,7 @@ Mesh:
     vertexCount: 4
     localAABB:
       m_Center: {x: 0, y: 0, z: 0}
-      m_Extent: {x: 0.5, y: 0, z: 0.1953125}
+      m_Extent: {x: 0.5, y: 0, z: 0.1875}
   m_Shapes:
     vertices: []
     shapes: []
@@ -3685,7 +3742,7 @@ Mesh:
       format: 0
       dimension: 0
     m_DataSize: 128
-    _typelessdata: 000000bf00000000000048be000000000000803f000000000000000000000000000000bf000000000000483e000000000000803f00000000000000000000803f0000003f00000000000048be000000000000803f000000000000803f000000000000003f000000000000483e000000000000803f000000000000803f0000803f
+    _typelessdata: 000000bf00000000000040be000000000000803f000000000000000000000000000000bf000000000000403e000000000000803f00000000000000000000803f0000003f00000000000040be000000000000803f000000000000803f000000000000003f000000000000403e000000000000803f000000000000803f0000803f
   m_CompressedMesh:
     m_Vertices:
       m_NumItems: 0
@@ -3848,7 +3905,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 291aca0a44b94a8ba1f410f0d18f39cd, type: 3}
+        m_Texture: {fileID: 2800000, guid: 1db647e5b17c486eb4d8e9f2e394da62, type: 3}
         m_Scale: {x: -1, y: -1}
         m_Offset: {x: 0, y: 0}
     m_Floats: []
@@ -4071,7 +4128,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 1ed5d70392d84ba992d8d9186e1ab8da, type: 3}
+        m_Texture: {fileID: 2800000, guid: 2239e578a6ce4e48b4560d981e6ccc67, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats: []
@@ -4180,7 +4237,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 9e2b99e36dab4a0d8c9196b25d08b631, type: 3}
+        m_Texture: {fileID: 2800000, guid: c58c63587c294ef4a94e092c9a611f5e, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats: []
