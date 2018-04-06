@@ -67,7 +67,7 @@ namespace Assets.Scripts {
         }
 
         public void ObjectDetached(GameObject obj) {
-            this.gameObjectToRecord = null;
+            //this.gameObjectToRecord = null;
         }
     }
 }
