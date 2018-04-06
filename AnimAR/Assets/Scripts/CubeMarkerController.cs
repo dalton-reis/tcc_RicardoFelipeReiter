@@ -8,12 +8,15 @@ namespace Assets.Scripts {
     public class CubeMarkerController : MonoBehaviour {
 
         public CubeMarkerIndicatorController indicatorController;
+        public Transform indicatorDot;
         private const float secondsToHold = 2;
         private const float movementTolerance = 0.2f;
 
         private CubeMarkerInteractor interactor = null;
         private GameObject objectMarkerOver = null;
         private GameObject attachedObject = null;
+        private Vector3 attachedObjectPosOffset = Vector3.zero;
+        private Vector3 attachedObjectRotOffset = Vector3.zero;
         private CubeMarkerStatus currentStatus = CubeMarkerStatus.NOP;
         private LinkedList<CubeMarkerListener> listeners = new LinkedList<CubeMarkerListener>();
 
@@ -22,6 +25,10 @@ namespace Assets.Scripts {
 
         void FixedUpdate() {
             if (currentStatus == CubeMarkerStatus.MARKER_OVER_OBJECT || currentStatus == CubeMarkerStatus.OBJECT_ATTACHED) {
+                if (attachedObject) {
+                    attachedObject.transform.position = indicatorDot.position + attachedObjectPosOffset;
+                    attachedObject.transform.eulerAngles = indicatorDot.eulerAngles + attachedObjectRotOffset;
+                }
                 if (Math.Abs(Vector3.Distance(lastPos, transform.position)) > movementTolerance) {
                     currentTime = secondsToHold;
                 } else {
@@ -29,8 +36,9 @@ namespace Assets.Scripts {
                     if (currentTime <= 0) {
                         if (currentStatus == CubeMarkerStatus.MARKER_OVER_OBJECT) {
                             interactor.ObjectRemoved(objectMarkerOver);
-                            objectMarkerOver.transform.parent = this.transform;
                             attachedObject = objectMarkerOver;
+                            attachedObjectPosOffset = indicatorDot.position - attachedObject.transform.position;
+                            attachedObjectRotOffset = indicatorDot.eulerAngles - attachedObject.transform.eulerAngles;
                             objectMarkerOver = null;
                             NotifyObjectAttached(attachedObject);
                         } else if (attachedObject && interactor != null) {
@@ -44,7 +52,7 @@ namespace Assets.Scripts {
                     }
                 }
             }
-                lastPos = transform.position;
+            lastPos = transform.position;
         }
 
         void OnTriggerEnter(Collider other) {

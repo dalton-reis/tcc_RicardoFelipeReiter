@@ -11,7 +11,7 @@ namespace Assets.Scripts {
 
         void LateUpdate() {
             if (source) {
-                this.transform.SetPositionAndRotation(source.position, source.rotation);
+                this.transform.SetPositionAndRotation(source.localPosition, source.localRotation);
             }
         }
     }

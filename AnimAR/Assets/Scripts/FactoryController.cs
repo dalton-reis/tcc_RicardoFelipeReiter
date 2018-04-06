@@ -49,10 +49,7 @@ namespace Assets.Scripts {
         }
 
         public void ObjectRemoved(GameObject obj) {
-            Debug.Log(currentObject);
-            Debug.Log(obj);
             if (currentObject == obj) {
-                Debug.Log("lol2");
                 NewCurrentObject(obj);
             }
         }

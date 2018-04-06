@@ -25,6 +25,8 @@ namespace Assets.Scripts {
             recorder.BindComponent<Transform>(recorderTracker.gameObject, true);
 
             clip = new AnimationClip();
+            clip.name = "Take001";
+            clip.legacy = true;
             RecButton.GetComponent<VirtualButtonBehaviour>().RegisterEventHandler(this);
             cubeMarkerController.AddListener(this);
         }
@@ -45,7 +47,11 @@ namespace Assets.Scripts {
         public void OnButtonPressed(VirtualButtonBehaviour vb) {
             if (record) {
                 record = false;
-                AssetDatabase.CreateAsset(clip, "Assets/Test.anim");
+                var animation = gameObjectToRecord.GetComponent<Animation>();
+                animation.playAutomatically = false;
+                animation.AddClip(clip, "Take001");
+                animation.Play("Take001");
+                //AssetDatabase.CreateAsset(clip, "Assets/Test.anim");
             } else {
                 record = true;
             }
@@ -56,6 +62,7 @@ namespace Assets.Scripts {
 
         public void ObjectAttached(GameObject obj) {
             this.gameObjectToRecord = obj;
+            gameObjectToRecord.AddComponent<Animation>();
             recorderTracker.source = obj.transform;
         }
 
