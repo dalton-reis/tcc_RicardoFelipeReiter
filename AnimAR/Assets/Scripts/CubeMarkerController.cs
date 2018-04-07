@@ -14,21 +14,30 @@ namespace Assets.Scripts {
 
         private CubeMarkerInteractor interactor = null;
         private GameObject objectMarkerOver = null;
+
         private GameObject attachedObject = null;
+        private CubeMarkerInteractor attachedObjectInteractor = null;
         private Vector3 attachedObjectPosOffset = Vector3.zero;
         private Vector3 attachedObjectRotOffset = Vector3.zero;
+        private Vector3 attachedObjectInitialPos = Vector3.zero;
+        private Quaternion attachedObjectInitialRot = Quaternion.identity;
+
         private CubeMarkerStatus currentStatus = CubeMarkerStatus.NOP;
+        private CubeMarkerAttachMode attachMode = CubeMarkerAttachMode.NORMAL;
         private LinkedList<CubeMarkerListener> listeners = new LinkedList<CubeMarkerListener>();
 
         private float currentTime = 0;
         private Vector3 lastPos = Vector3.zero;
 
+        void Update() {
+            if (attachedObject && attachMode == CubeMarkerAttachMode.RECORD_MODE) {
+                attachedObject.transform.position = indicatorDot.position + attachedObjectPosOffset;
+                attachedObject.transform.eulerAngles = indicatorDot.eulerAngles + attachedObjectRotOffset;
+            }
+        }
+
         void FixedUpdate() {
             if (currentStatus == CubeMarkerStatus.MARKER_OVER_OBJECT || currentStatus == CubeMarkerStatus.OBJECT_ATTACHED) {
-                if (attachedObject) {
-                    attachedObject.transform.position = indicatorDot.position + attachedObjectPosOffset;
-                    attachedObject.transform.eulerAngles = indicatorDot.eulerAngles + attachedObjectRotOffset;
-                }
                 if (Math.Abs(Vector3.Distance(lastPos, transform.position)) > movementTolerance) {
                     currentTime = secondsToHold;
                 } else {
@@ -37,11 +46,18 @@ namespace Assets.Scripts {
                         if (currentStatus == CubeMarkerStatus.MARKER_OVER_OBJECT) {
                             interactor.ObjectRemoved(objectMarkerOver);
                             attachedObject = objectMarkerOver;
-                            attachedObjectPosOffset = indicatorDot.position - attachedObject.transform.position;
-                            attachedObjectRotOffset = indicatorDot.eulerAngles - attachedObject.transform.eulerAngles;
+                            attachedObjectInteractor = interactor;
+                            attachedObjectInitialPos = attachedObject.transform.localPosition;
+                            attachedObjectInitialRot = attachedObject.transform.localRotation;
+                            if (attachMode == CubeMarkerAttachMode.RECORD_MODE) {
+                                attachedObjectPosOffset = indicatorDot.position - attachedObject.transform.position;
+                                attachedObjectRotOffset = indicatorDot.eulerAngles - attachedObject.transform.eulerAngles;
+                            } else {
+                                attachedObject.transform.parent = this.transform;
+                            }
                             objectMarkerOver = null;
                             NotifyObjectAttached(attachedObject);
-                        } else if (attachedObject && interactor != null) {
+                        } else if (attachedObject && interactor != null && attachMode == CubeMarkerAttachMode.NORMAL) {
                             if (interactor.ObjectReceived(attachedObject)) {
                                 attachedObject = null;
                                 NotifyObjectDetached(attachedObject);
@@ -91,6 +107,22 @@ namespace Assets.Scripts {
 
         public void AddListener(CubeMarkerListener listener) {
             listeners.AddLast(listener);
+        }
+
+        public void SetAttachMode(CubeMarkerAttachMode attachMode) {
+            this.attachMode = attachMode;
+        }
+
+        public void ResetAttached() {
+            if (attachedObject) {
+                attachedObjectInteractor.ObjectReceived(attachedObject);
+                attachedObject.transform.localPosition = attachedObjectInitialPos;
+                attachedObject.transform.localRotation = attachedObjectInitialRot;
+                NotifyObjectDetached(attachedObject);
+                attachedObject = null;
+                attachedObjectInteractor = null;
+                UpdateStatus();
+            }
         }
 
         private void NotifyObjectAttached(GameObject obj) {
