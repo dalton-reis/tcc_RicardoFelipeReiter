@@ -1,0 +1,2 @@
+- GameObjectRecorder só funciona no editor
+- Vuforia recomendação de tamanho de marcador

@@ -5,7 +5,6 @@ using System.Text;
 using UnityEngine;
 using UnityEditor;
 using Vuforia;
-using UnityEditor.Experimental.Animations;
 
 namespace Assets.Scripts {
     public class AnimationController : MonoBehaviour {
@@ -45,7 +44,7 @@ namespace Assets.Scripts {
             }
         }
 
-        public void StopRecording(GameObjectRecorder recorder) {
+        public void StopRecording(GORecorder recorder) {
             var clip = new AnimationClip();
             clip.name = "clip";
             clip.legacy = true;
@@ -72,17 +71,15 @@ namespace Assets.Scripts {
         public void RewindAll() {
             foreach (Animation take in takes) {
                 AnimationState state = take["clip"];
-                state.enabled = true;
-                state.weight = 1;
-                state.normalizedTime = 0.01f;
+                if (state) {
+                    state.enabled = true;
+                    state.weight = 1;
+                    state.normalizedTime = 0.01f;
 
-                take.Sample();
+                    take.Sample();
 
-                state.enabled = false;
-                //take.Rewind();
-                //take.Play();
-                //take.Sample();
-                //take.Stop();
+                    state.enabled = false;
+                }
             }
             currentTime = 0.0f;
         }

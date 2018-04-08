@@ -5,7 +5,6 @@ using System.Text;
 using UnityEngine;
 using UnityEditor;
 using Vuforia;
-using UnityEditor.Experimental.Animations;
 
 namespace Assets.Scripts {
     public class RecorderController : MonoBehaviour, IVirtualButtonEventHandler, CubeMarkerListener {
@@ -17,15 +16,14 @@ namespace Assets.Scripts {
         public RecorderTracker recorderTracker;
         public AnimationController animationController;
 
-        private GameObjectRecorder recorder;
+        private GORecorder recorder;
         private GameObject gameObjectToRecord;
         private bool record = false;
         private bool waitingAttachedObject = false;
 
         void Start() {
-            recorder = new GameObjectRecorder();
-            recorder.root = recorderTracker.gameObject;
-            recorder.BindComponent<Transform>(recorderTracker.gameObject, true);
+            recorder = new GORecorder();
+            recorder.source = recorderTracker.gameObject;
 
             RecButton.GetComponent<VirtualButtonBehaviour>().RegisterEventHandler(this);
             PlayButton.GetComponent<VirtualButtonBehaviour>().RegisterEventHandler(this);
@@ -35,7 +33,6 @@ namespace Assets.Scripts {
 
         void LateUpdate() {
             if (record && gameObjectToRecord) {
-                Debug.Log("Snapshot");
                 recorder.TakeSnapshot(Time.deltaTime);
             }
         }
@@ -48,9 +45,8 @@ namespace Assets.Scripts {
                         cubeMarkerController.SetAttachMode(CubeMarkerAttachMode.NORMAL);
                         animationController.StopRecording(recorder);
                         recorder.ResetRecording();
-                        recorder = new GameObjectRecorder();
-                        recorder.root = recorderTracker.gameObject;
-                        recorder.BindComponent<Transform>(recorderTracker.gameObject, true);
+                        //recorder = new GORecorder();
+                        //recorder.source = recorderTracker.gameObject;
                         cubeMarkerController.ResetAttached();
                     } else {
                         if (waitingAttachedObject) {
