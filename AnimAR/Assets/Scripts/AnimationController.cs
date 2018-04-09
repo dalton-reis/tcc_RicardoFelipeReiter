@@ -11,7 +11,8 @@ namespace Assets.Scripts {
 
         public List<Animation> takes = new List<Animation>();
         private int currentTake = 0;
-        private float currentTime = 0.0f;
+        public float currentTime = 0.0f;
+        public float endTime = 0.0f;
         public bool isPlaying = false;
 
         void Update() {
@@ -30,7 +31,6 @@ namespace Assets.Scripts {
             Animation animation = objectToRecord.GetComponent<Animation>();
             if (animation) {
                 animation.RemoveClip("clip");
-                Debug.Log("Removed");
             } else {
                 animation = objectToRecord.AddComponent<Animation>();
             }
@@ -39,9 +39,9 @@ namespace Assets.Scripts {
             if (currentTake == takes.Count) {
                 takes.Add(animation);
             } else {
-                Debug.Log("added array");
                 takes[currentTake] = animation;
             }
+            currentTime = 0.0f;
         }
 
         public void StopRecording(GORecorder recorder) {
@@ -50,6 +50,9 @@ namespace Assets.Scripts {
             clip.legacy = true;
             recorder.SaveToClip(clip);
             takes[currentTake].AddClip(clip, "clip");
+
+            endTime = clip.length;
+            currentTime = 0.0f;
         }
 
         public void PlayAll() {

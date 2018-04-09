@@ -17,8 +17,6 @@ namespace Assets.Scripts {
 
         private GameObject attachedObject = null;
         private CubeMarkerInteractor attachedObjectInteractor = null;
-        private Vector3 attachedObjectPosOffset = Vector3.zero;
-        private Vector3 attachedObjectRotOffset = Vector3.zero;
         private Vector3 attachedObjectInitialPos = Vector3.zero;
         private Quaternion attachedObjectInitialRot = Quaternion.identity;
 
@@ -31,8 +29,8 @@ namespace Assets.Scripts {
 
         void Update() {
             if (attachedObject && attachMode == CubeMarkerAttachMode.RECORD_MODE) {
-                attachedObject.transform.position = indicatorDot.position + attachedObjectPosOffset;
-                attachedObject.transform.eulerAngles = indicatorDot.eulerAngles + attachedObjectRotOffset;
+                attachedObject.transform.position = indicatorDot.position;
+                attachedObject.transform.rotation = indicatorDot.rotation;
             }
         }
 
@@ -50,8 +48,8 @@ namespace Assets.Scripts {
                             attachedObjectInitialPos = attachedObject.transform.localPosition;
                             attachedObjectInitialRot = attachedObject.transform.localRotation;
                             if (attachMode == CubeMarkerAttachMode.RECORD_MODE) {
-                                attachedObjectPosOffset = indicatorDot.position - attachedObject.transform.position;
-                                attachedObjectRotOffset = indicatorDot.eulerAngles - attachedObject.transform.eulerAngles;
+                                indicatorDot.position = attachedObject.transform.position;
+                                indicatorDot.rotation = attachedObject.transform.rotation;
                             } else {
                                 attachedObject.transform.parent = this.transform;
                             }
