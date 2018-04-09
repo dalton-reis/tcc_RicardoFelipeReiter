@@ -2656,7 +2656,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mName: Record
-  mSensitivity: 1
+  mSensitivity: 2
   mHasUpdatedPose: 1
   mPrevTransform:
     e00: 5
@@ -3011,7 +3011,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mName: Play
-  mSensitivity: 1
+  mSensitivity: 2
   mHasUpdatedPose: 1
   mPrevTransform:
     e00: 5
@@ -4434,7 +4434,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mName: Rewind
-  mSensitivity: 1
+  mSensitivity: 2
   mHasUpdatedPose: 1
   mPrevTransform:
     e00: 5
