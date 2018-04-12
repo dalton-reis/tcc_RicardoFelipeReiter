@@ -6,34 +6,35 @@ using UnityEngine;
 using Vuforia;
 
 namespace Assets.Scripts {
-    public class FactoryController : MonoBehaviour, IVirtualButtonEventHandler, CubeMarkerInteractor {
+    public class ObjectFactorySelector : Selector {
 
-        public GameObject NextButton;
-        public GameObject PrevButton;
         public GameObject[] objList;
-        public Transform showingObjectRoot;
 
         private int currentObjIndex = 0;
         private GameObject currentObject = null;
 
         void Start() {
-            NextButton.GetComponent<VirtualButtonBehaviour>().RegisterEventHandler(this);
-            PrevButton.GetComponent<VirtualButtonBehaviour>().RegisterEventHandler(this);
             ChangeIndex(0);
         }
 
-        public void OnButtonPressed(VirtualButtonBehaviour vb) {
-            switch (vb.VirtualButtonName) {
-                case "Next":
-                    ChangeIndex(currentObjIndex + 1);
-                    break;
-                case "Prev":
-                    ChangeIndex(currentObjIndex - 1);
-                    break;
+        public override void Next() {
+            ChangeIndex(currentObjIndex + 1);
+        }
+
+        public override void Prev() {
+            ChangeIndex(currentObjIndex - 1);
+        }
+
+        public override void Active() {
+            if (currentObject) {
+                currentObject.SetActive(true);
             }
         }
 
-        public void OnButtonReleased(VirtualButtonBehaviour vb) {
+        public override void Desactive() {
+            if (currentObject) {
+                currentObject.SetActive(false);
+            }
         }
 
         private void ChangeIndex(int index) {
@@ -44,11 +45,11 @@ namespace Assets.Scripts {
             NewCurrentObject(objList[currentObjIndex]);
         }
 
-        public bool ObjectReceived(GameObject obj) {
+        public override bool ObjectReceived(GameObject obj) {
             return false;
         }
 
-        public void ObjectRemoved(GameObject obj) {
+        public override void ObjectRemoved(GameObject obj) {
             if (currentObject == obj) {
                 NewCurrentObject(obj);
             }

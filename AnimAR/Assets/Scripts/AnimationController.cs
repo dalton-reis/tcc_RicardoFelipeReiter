@@ -9,7 +9,7 @@ namespace Assets.Scripts {
     public class AnimationController : MonoBehaviour {
 
         public List<Animation> takes = new List<Animation>();
-        private int currentTake = 0;
+        public int currentTake = 0;
         public float currentTime = 0.0f;
         public float endTime = 0.0f;
         public bool isPlaying = false;
@@ -32,6 +32,11 @@ namespace Assets.Scripts {
                 animation.RemoveClip("clip");
             } else {
                 animation = objectToRecord.AddComponent<Animation>();
+            }
+
+            var animationIndex = takes.IndexOf(animation);
+            if (animationIndex >= 0) {
+                currentTake = animationIndex;
             }
 
             animation.playAutomatically = false;

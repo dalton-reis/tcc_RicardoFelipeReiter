@@ -1,2 +1,3 @@
 - GameObjectRecorder só funciona no editor
 - Vuforia recomendação de tamanho de marcador
+- Flickering no cubo colidindo com a cena
