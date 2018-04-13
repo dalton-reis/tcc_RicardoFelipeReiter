@@ -7,14 +7,13 @@ using UnityEngine.UI;
 using Vuforia;
 
 namespace Assets.Scripts {
-    public class SelectorController : MonoBehaviour, IVirtualButtonEventHandler, CubeMarkerInteractor {
+    public class SelectorController : MonoBehaviour, IVirtualButtonEventHandler, CubeMarkerInteractor, ITrackableEventHandler {
 
         public GameObject NextButton;
         public GameObject PrevButton;
         public GameObject ChangeSelectorButton;
         public Text SelectorLabel;
         public Selector[] Selectors;
-
 
         private int currentSelectorIndex = 0;
         private Selector currentSelector;
@@ -23,6 +22,7 @@ namespace Assets.Scripts {
             NextButton.GetComponent<VirtualButtonBehaviour>().RegisterEventHandler(this);
             PrevButton.GetComponent<VirtualButtonBehaviour>().RegisterEventHandler(this);
             ChangeSelectorButton.GetComponent<VirtualButtonBehaviour>().RegisterEventHandler(this);
+            GetComponent<ImageTargetBehaviour>().RegisterTrackableEventHandler(this);
 
             foreach (Selector selector in Selectors) {
                 selector.Desactive();
@@ -66,5 +66,14 @@ namespace Assets.Scripts {
             currentSelector.ObjectRemoved(obj);
         }
 
+        public void OnTrackableStateChanged(TrackableBehaviour.Status previousStatus, TrackableBehaviour.Status newStatus) {
+            if (currentSelector) {
+                if (newStatus == TrackableBehaviour.Status.DETECTED || newStatus == TrackableBehaviour.Status.TRACKED) {
+                    currentSelector.Active();
+                } else {
+                    currentSelector.Desactive();
+                }
+            }
+        }
     }
 }

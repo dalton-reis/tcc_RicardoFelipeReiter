@@ -70,9 +70,7 @@ namespace Assets.Scripts {
             currentObject = GameObject.Instantiate(TakePrefab, showingObjectRoot);
             currentObject.transform.localPosition = new Vector3(0, 0, 0);
             currentObject.GetComponent<TakeIcon>().SetLabel(label);
-            if (!isActive) {
-                Desactive();
-            }
+            currentObject.SetActive(isActive);
         }
 
         public void CurrentTakeChanged(int take) {

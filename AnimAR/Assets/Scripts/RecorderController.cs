@@ -20,6 +20,8 @@ namespace Assets.Scripts {
         private GameObject gameObjectToRecord;
         private RecorderStatus status;
 
+        // TODO: Mover recorder para AnimationController.
+
         void Start() {
             recorder = new GORecorder();
             recorder.source = recorderTracker.gameObject;
@@ -34,13 +36,13 @@ namespace Assets.Scripts {
             switch (status) {
                 case RecorderStatus.RECORDING:
                     recorder.TakeSnapshot(Time.deltaTime);
-                    recorderUIController.SetTime(recorder.currentTime, animationController.EndTime);
+                    recorderUIController.SetTime(recorder.currentTime, animationController.EndTime, animationController.GetTakesTime());
                     break;
                 case RecorderStatus.PLAYING:
                     if (animationController.isPlaying) {
-                        recorderUIController.SetTime(animationController.CurrentTime, animationController.EndTime);
+                        recorderUIController.SetTime(animationController.CurrentTime, animationController.EndTime, animationController.GetTakesTime());
                     } else {
-                        recorderUIController.SetTime(0, animationController.EndTime);
+                        recorderUIController.SetTime(0, animationController.EndTime, animationController.GetTakesTime());
                         SetStatus(RecorderStatus.IDLE);
                     }
                     break;
@@ -50,14 +52,14 @@ namespace Assets.Scripts {
         private void StopRecording() {
             SetStatus(RecorderStatus.IDLE);
             cubeMarkerController.SetAttachMode(CubeMarkerAttachMode.NORMAL);
-            animationController.StopRecording(recorder);
+            animationController.CreateNewTakeAtCurrentPos(recorder, this.gameObjectToRecord);
             recorder.ResetRecording();
             cubeMarkerController.ResetAttached();
         }
 
         private void SetStatus(RecorderStatus status) {
             this.status = status;
-            recorderUIController.SetRecorderStatus(status);
+            recorderUIController.SetRecorderStatus(status, animationController.CurrentTake);
         }
 
         public void OnButtonPressed(VirtualButtonBehaviour vb) {
@@ -66,6 +68,7 @@ namespace Assets.Scripts {
                     switch (status) {
                         case RecorderStatus.RECORDING:
                             StopRecording();
+                            recorderUIController.SetTime(animationController.CurrentTime, animationController.EndTime, animationController.GetTakesTime());
                             break;
                         case RecorderStatus.WAITING_OBJECT_TO_ATTACH:
                             SetStatus(RecorderStatus.IDLE);
@@ -98,7 +101,7 @@ namespace Assets.Scripts {
                         cubeMarkerController.ResetAttached();
                         animationController.StopAll();
                         animationController.RewindAll();
-                        recorderUIController.SetTime(animationController.CurrentTime, animationController.EndTime);
+                        recorderUIController.SetTime(animationController.CurrentTime, animationController.EndTime, animationController.GetTakesTime());
                     }
                     break;
             }
@@ -111,10 +114,11 @@ namespace Assets.Scripts {
             if (this.status == RecorderStatus.WAITING_OBJECT_TO_ATTACH) {
                 this.gameObjectToRecord = obj;
                 this.recorderTracker.source = obj.transform;
-                this.animationController.StartRecording(obj);
+                this.animationController.StopAll();
+                this.animationController.RewindAll();
                 SetStatus(RecorderStatus.RECORDING);
             }
-            recorderUIController.SetRecorderStatus(status);
+            recorderUIController.SetRecorderStatus(status, animationController.CurrentTake);
         }
 
         public void ObjectDetached(GameObject obj) {

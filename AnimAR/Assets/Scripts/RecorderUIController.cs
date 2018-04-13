@@ -9,20 +9,20 @@ using System.Globalization;
 namespace Assets.Scripts {
     public class RecorderUIController : MonoBehaviour {
 
-        public Slider TimeLineSlider;
+        public TimelineUI Timeline;
         public Text TimeText;
         public Text InformationText;
 
-        public void SetRecorderStatus(RecorderStatus status) {
+        public void SetRecorderStatus(RecorderStatus status, int currentTake) {
             switch (status) {
                 case RecorderStatus.IDLE:
-                    InformationText.text = "";
+                    InformationText.text = "Take " + currentTake;
                     break;
                 case RecorderStatus.PLAYING:
                     InformationText.text = "Executando Animação";
                     break;
                 case RecorderStatus.RECORDING:
-                    InformationText.text = "Gravando...";
+                    InformationText.text = "Gravando Take " + currentTake;
                     break;
                 case RecorderStatus.WAITING_OBJECT_TO_ATTACH:
                     InformationText.text = "Selecione um objeto que a gravação irá começar";
@@ -30,7 +30,7 @@ namespace Assets.Scripts {
             }
         }
 
-        public void SetTime(float currentTime, float endTime) {
+        public void SetTime(float currentTime, float endTime, float[] takesTime) {
             var endString = endTime.ToString("F", CultureInfo.InvariantCulture);
             if (endTime <= 0 || currentTime > endTime) {
                 endString = "-:--";
@@ -39,8 +39,7 @@ namespace Assets.Scripts {
 
             var currentString = currentTime.ToString("F", CultureInfo.InvariantCulture);
             TimeText.text = currentString + "/" + endString;
-            TimeLineSlider.maxValue = endTime;
-            TimeLineSlider.value = currentTime;
+            Timeline.SetTime(currentTime, endTime, takesTime);
         }
 
     }

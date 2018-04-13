@@ -55,24 +55,29 @@ namespace Assets.Scripts {
             }
         }
 
-        public void StartRecording(GameObject objectToRecord) {
-            StopAll();
-            RewindAll();
-
-            Animation animation = objectToRecord.GetComponent<Animation>();
+        public void CreateNewTakeAtCurrentPos(GORecorder recorder, GameObject recordedObject) {
+            Animation animation = recordedObject.GetComponent<Animation>();
             if (animation) {
                 animation.RemoveClip("clip");
             } else {
-                animation = objectToRecord.AddComponent<Animation>();
+                animation = recordedObject.AddComponent<Animation>();
             }
 
             var animationIndex = takes.FindIndex(take => take.Animation == animation);
+            // O objeto gravado já pertence à alguma take: substitui-la deverá
             if (animationIndex >= 0) {
                 CurrentTake = animationIndex;
             }
 
+            var clip = new AnimationClip();
+            clip.name = "clip";
+            clip.legacy = true;
+            recorder.SaveToClip(clip);
+
             animation.playAutomatically = false;
-            var newTake = new AnimationTake(animation, null, objectToRecord);
+            animation.AddClip(clip, "clip");
+
+            var newTake = new AnimationTake(animation, clip, recordedObject);
 
             if (CurrentTake == takes.Count) {
                 takes.Add(newTake);
@@ -80,18 +85,7 @@ namespace Assets.Scripts {
                 takes[CurrentTake] = newTake;
             }
 
-            NotifyCurrentTakeChanged();
-            currentTime = 0.0f;
-        }
-
-        public void StopRecording(GORecorder recorder) {
-            var clip = new AnimationClip();
-            clip.name = "clip";
-            clip.legacy = true;
-            recorder.SaveToClip(clip);
-
-            takes[CurrentTake].Animation.AddClip(clip, "clip");
-            takes[CurrentTake].Clip = clip;
+            NotifyCurrentTakeChanged();      
 
             foreach (var take in takes) {
                 if (endTime < take.Clip.length) {
@@ -143,6 +137,16 @@ namespace Assets.Scripts {
             foreach (var listener in listeners) {
                 listener.CurrentTakeChanged(currentTake);
             }
+        }
+
+        public float[] GetTakesTime() {
+            var times = new float[takes.Count];
+
+            for (var i = 0; i < takes.Count; i++) {
+                times[i] = takes[i].Clip.length;
+            }
+
+            return times;
         }
 
     }
