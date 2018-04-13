@@ -22,5 +22,6 @@ namespace Assets.Scripts {
 
         public abstract void ObjectRemoved(GameObject obj);
 
+        public abstract string GetLabel();
     }
 }

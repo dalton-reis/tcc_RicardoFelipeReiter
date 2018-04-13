@@ -1,3 +1,5 @@
 - UI de seletor
 - UI no recorder tool pra mostrar cena atual
 - Mudar para parar gravação ao perder o cubo
+- Remover take ao puxar take para lixeira
+- Atualizar take selector ui ao adicionar/remover takes

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using UnityEngine;
+using UnityEngine.UI;
 using Vuforia;
 
 namespace Assets.Scripts {
@@ -11,7 +12,9 @@ namespace Assets.Scripts {
         public GameObject NextButton;
         public GameObject PrevButton;
         public GameObject ChangeSelectorButton;
+        public Text SelectorLabel;
         public Selector[] Selectors;
+
 
         private int currentSelectorIndex = 0;
         private Selector currentSelector;
@@ -52,6 +55,7 @@ namespace Assets.Scripts {
             }
             currentSelector = Selectors[currentSelectorIndex];
             currentSelector.Active();
+            SelectorLabel.text = currentSelector.GetLabel();
         }
 
         public bool ObjectReceived(GameObject obj) {

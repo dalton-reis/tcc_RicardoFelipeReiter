@@ -53,6 +53,10 @@ namespace Assets.Scripts {
 
         }
 
+        public override string GetLabel() {
+            return "Selecionar Take Atual";
+        }
+
         public void NewCurrentObject(int index) {
             var label = index == AnimationController.takes.Count() ? index.ToString() + '+' : index.ToString();
 

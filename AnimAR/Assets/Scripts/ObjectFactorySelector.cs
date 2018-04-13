@@ -55,6 +55,10 @@ namespace Assets.Scripts {
             }
         }
 
+        public override string GetLabel() {
+            return "Fábrica de Objetos";
+        }
+
         public void NewCurrentObject(GameObject objToCopy) {
             currentObject = GameObject.Instantiate(objToCopy, showingObjectRoot);
             currentObject.transform.localPosition = new Vector3(0, 0, 0);
