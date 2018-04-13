@@ -34,13 +34,13 @@ namespace Assets.Scripts {
             switch (status) {
                 case RecorderStatus.RECORDING:
                     recorder.TakeSnapshot(Time.deltaTime);
-                    recorderUIController.SetTime(recorder.currentTime, recorder.currentTime);
+                    recorderUIController.SetTime(recorder.currentTime, animationController.EndTime);
                     break;
                 case RecorderStatus.PLAYING:
                     if (animationController.isPlaying) {
-                        recorderUIController.SetTime(animationController.currentTime, animationController.endTime);
+                        recorderUIController.SetTime(animationController.CurrentTime, animationController.EndTime);
                     } else {
-                        recorderUIController.SetTime(0, animationController.endTime);
+                        recorderUIController.SetTime(0, animationController.EndTime);
                         SetStatus(RecorderStatus.IDLE);
                     }
                     break;
@@ -98,7 +98,7 @@ namespace Assets.Scripts {
                         cubeMarkerController.ResetAttached();
                         animationController.StopAll();
                         animationController.RewindAll();
-                        recorderUIController.SetTime(animationController.currentTime, animationController.endTime);
+                        recorderUIController.SetTime(animationController.CurrentTime, animationController.EndTime);
                     }
                     break;
             }

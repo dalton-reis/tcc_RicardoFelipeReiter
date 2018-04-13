@@ -6,43 +6,50 @@ using UnityEngine;
 using Vuforia;
 
 namespace Assets.Scripts {
-    public class TakeSelector : Selector {
+    public class TakeSelector : Selector, AnimationControllerListener {
 
         public AnimationController AnimationController;
         public GameObject TakePrefab;
 
         private GameObject currentObject = null;
+        private bool isActive = false;
 
         void Start() {
-            ChangeIndex(0);
+            AnimationController.AddListener(this);
+            UpdateCurrentTake(0);
         }
 
         public override void Next() {
-            ChangeIndex(AnimationController.currentTake + 1);
+            UpdateCurrentTake(AnimationController.CurrentTake + 1);
         }
 
         public override void Prev() {
-            ChangeIndex(AnimationController.currentTake - 1);
+            UpdateCurrentTake(AnimationController.CurrentTake - 1);
         }
 
         public override void Active() {
             if (currentObject) {
                 currentObject.SetActive(true);
             }
+            isActive = true;
         }
 
         public override void Desactive() {
             if (currentObject) {
                 currentObject.SetActive(false);
             }
+            isActive = false;
         }
 
-        private void ChangeIndex(int index) {
-            AnimationController.currentTake = Math.Abs(index % (AnimationController.takes.Count() + 1));
+        private void UpdateCurrentTake(int takeIndex) {
+            AnimationController.CurrentTake = Math.Abs(takeIndex % (AnimationController.takes.Count() + 1));
+        }
+
+        private void ChangeTakeIcon(int index) {
             if (currentObject) {
                 Destroy(currentObject);
             }
-            NewCurrentObject(AnimationController.currentTake);
+            NewCurrentObject(AnimationController.CurrentTake);
         }
 
         public override bool ObjectReceived(GameObject obj) {
@@ -63,6 +70,13 @@ namespace Assets.Scripts {
             currentObject = GameObject.Instantiate(TakePrefab, showingObjectRoot);
             currentObject.transform.localPosition = new Vector3(0, 0, 0);
             currentObject.GetComponent<TakeIcon>().SetLabel(label);
+            if (!isActive) {
+                Desactive();
+            }
+        }
+
+        public void CurrentTakeChanged(int take) {
+            ChangeTakeIcon(take);
         }
 
     }

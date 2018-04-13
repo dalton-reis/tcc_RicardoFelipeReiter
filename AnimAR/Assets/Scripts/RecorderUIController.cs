@@ -32,7 +32,7 @@ namespace Assets.Scripts {
 
         public void SetTime(float currentTime, float endTime) {
             var endString = endTime.ToString("F", CultureInfo.InvariantCulture);
-            if (endTime <= 0) {
+            if (endTime <= 0 || currentTime > endTime) {
                 endString = "-:--";
                 endTime = currentTime;
             }

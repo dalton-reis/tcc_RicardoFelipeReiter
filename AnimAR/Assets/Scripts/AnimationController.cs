@@ -8,16 +8,48 @@ using Vuforia;
 namespace Assets.Scripts {
     public class AnimationController : MonoBehaviour {
 
-        public List<Animation> takes = new List<Animation>();
-        public int currentTake = 0;
-        public float currentTime = 0.0f;
-        public float endTime = 0.0f;
+        public List<AnimationTake> takes = new List<AnimationTake>();
         public bool isPlaying = false;
+
+        private AnimationTake longestTake;
+        private float currentTime = 0.0f;
+        private float endTime = 0.0f;
+        private int currentTake = 0;
+
+        public float CurrentTime {
+            get {
+                return currentTime;
+            }
+            private set {
+                currentTime = value;
+            }
+        }
+
+        public float EndTime {
+            get {
+                return endTime;
+            }
+            private set {
+                endTime = value;
+            }
+        }
+
+        public int CurrentTake {
+            get {
+                return currentTake;
+            }
+            set {
+                currentTake = value;
+                NotifyCurrentTakeChanged();
+            }
+        }
+
+        private LinkedList<AnimationControllerListener> listeners = new LinkedList<AnimationControllerListener>();
 
         void Update() {
             if (isPlaying) {
-                currentTime = takes[0]["clip"].time;
-                if (!takes[0].isPlaying) {
+                currentTime = longestTake.Animation["clip"].time;
+                if (!longestTake.Animation.isPlaying) {
                     isPlaying = false;
                 }
             }
@@ -34,17 +66,21 @@ namespace Assets.Scripts {
                 animation = objectToRecord.AddComponent<Animation>();
             }
 
-            var animationIndex = takes.IndexOf(animation);
+            var animationIndex = takes.FindIndex(take => take.Animation == animation);
             if (animationIndex >= 0) {
-                currentTake = animationIndex;
+                CurrentTake = animationIndex;
             }
 
             animation.playAutomatically = false;
-            if (currentTake == takes.Count) {
-                takes.Add(animation);
+            var newTake = new AnimationTake(animation, null, objectToRecord);
+
+            if (CurrentTake == takes.Count) {
+                takes.Add(newTake);
             } else {
-                takes[currentTake] = animation;
+                takes[CurrentTake] = newTake;
             }
+
+            NotifyCurrentTakeChanged();
             currentTime = 0.0f;
         }
 
@@ -53,15 +89,23 @@ namespace Assets.Scripts {
             clip.name = "clip";
             clip.legacy = true;
             recorder.SaveToClip(clip);
-            takes[currentTake].AddClip(clip, "clip");
 
-            endTime = clip.length;
+            takes[CurrentTake].Animation.AddClip(clip, "clip");
+            takes[CurrentTake].Clip = clip;
+
+            foreach (var take in takes) {
+                if (endTime < take.Clip.length) {
+                    endTime = take.Clip.length;
+                    longestTake = take;
+                }
+            }
+
             currentTime = 0.0f;
         }
 
         public void PlayAll() {
-            foreach (Animation take in takes) {
-                take.Play("clip");
+            foreach (AnimationTake take in takes) {
+                take.Animation.Play("clip");
             }
             if (takes.Count > 0) {
                 isPlaying = true;
@@ -69,26 +113,36 @@ namespace Assets.Scripts {
         }
 
         public void StopAll() {
-            foreach (Animation take in takes) {
-                take.Stop("clip");
+            foreach (AnimationTake take in takes) {
+                take.Animation.Stop("clip");
             }
             isPlaying = false;
         }
 
         public void RewindAll() {
-            foreach (Animation take in takes) {
-                AnimationState state = take["clip"];
+            foreach (AnimationTake take in takes) {
+                AnimationState state = take.Animation["clip"];
                 if (state) {
                     state.enabled = true;
                     state.weight = 1;
                     state.normalizedTime = 0.01f;
 
-                    take.Sample();
+                    take.Animation.Sample();
 
                     state.enabled = false;
                 }
             }
             currentTime = 0.0f;
+        }
+
+        public void AddListener(AnimationControllerListener listener) {
+            listeners.AddLast(listener);
+        }
+
+        public void NotifyCurrentTakeChanged() {
+            foreach (var listener in listeners) {
+                listener.CurrentTakeChanged(currentTake);
+            }
         }
 
     }
