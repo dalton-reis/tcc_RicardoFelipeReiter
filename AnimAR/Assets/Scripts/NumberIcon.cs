@@ -6,7 +6,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 namespace Assets.Scripts {
-    public class TakeIcon : MonoBehaviour {
+    public class NumberIcon : MonoBehaviour {
 
         public Text text1;
         public Text text2;

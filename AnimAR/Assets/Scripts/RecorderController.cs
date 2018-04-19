@@ -49,12 +49,14 @@ namespace Assets.Scripts {
             }
         }
 
-        private void StopRecording() {
-            SetStatus(RecorderStatus.IDLE);
-            cubeMarkerController.SetAttachMode(CubeMarkerAttachMode.NORMAL);
-            animationController.CreateNewTakeAtCurrentPos(recorder, this.gameObjectToRecord);
-            recorder.ResetRecording();
-            cubeMarkerController.ResetAttached();
+        public void StopRecording() {
+            if (status == RecorderStatus.RECORDING) {
+                SetStatus(RecorderStatus.IDLE);
+                cubeMarkerController.SetAttachMode(CubeMarkerAttachMode.NORMAL);
+                animationController.CreateNewTakeAtCurrentPos(recorder, this.gameObjectToRecord);
+                recorder.ResetRecording();
+                cubeMarkerController.ResetAttached();
+            }
         }
 
         private void SetStatus(RecorderStatus status) {

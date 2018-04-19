@@ -8,8 +8,8 @@ using Vuforia;
 namespace Assets.Scripts {
     public class AnimationController : MonoBehaviour {
 
-        public List<AnimationTake> takes = new List<AnimationTake>();
         public bool isPlaying = false;
+        public SceneController SceneController;
 
         private AnimationTake longestTake;
         private float currentTime = 0.0f;
@@ -63,12 +63,6 @@ namespace Assets.Scripts {
                 animation = recordedObject.AddComponent<Animation>();
             }
 
-            var animationIndex = takes.FindIndex(take => take.Animation == animation);
-            // O objeto gravado já pertence à alguma take: substitui-la deverá
-            if (animationIndex >= 0) {
-                CurrentTake = animationIndex;
-            }
-
             var clip = new AnimationClip();
             clip.name = "clip";
             clip.legacy = true;
@@ -79,42 +73,49 @@ namespace Assets.Scripts {
 
             var newTake = new AnimationTake(animation, clip, recordedObject);
 
-            if (CurrentTake == takes.Count) {
-                takes.Add(newTake);
+            var animationIndex = SceneController.GetCurrentScene().Takes.FindIndex(take => take.Animation == animation);
+            // O objeto gravado já pertence à alguma take: substitui-la deverá
+            if (animationIndex >= 0) {
+                CurrentTake = animationIndex;
+                SceneController.GetCurrentScene().Takes[CurrentTake] = newTake;
             } else {
-                takes[CurrentTake] = newTake;
+                CurrentTake = SceneController.GetCurrentScene().Takes.Count;
+                SceneController.GetCurrentScene().Takes.Add(newTake);
             }
 
-            NotifyCurrentTakeChanged();      
+            NotifyCurrentTakeChanged();
+            CalculateClipTimes();
 
-            foreach (var take in takes) {
+            currentTime = 0.0f;
+        }
+
+        public void CalculateClipTimes() {
+            foreach (var take in SceneController.GetCurrentScene().Takes) {
                 if (endTime < take.Clip.length) {
                     endTime = take.Clip.length;
                     longestTake = take;
                 }
             }
-
-            currentTime = 0.0f;
         }
 
         public void PlayAll() {
-            foreach (AnimationTake take in takes) {
+            foreach (AnimationTake take in SceneController.GetCurrentScene().Takes) {
                 take.Animation.Play("clip");
             }
-            if (takes.Count > 0) {
+            if (SceneController.GetCurrentScene().Takes.Count > 0) {
                 isPlaying = true;
             }
         }
 
         public void StopAll() {
-            foreach (AnimationTake take in takes) {
+            foreach (AnimationTake take in SceneController.GetCurrentScene().Takes) {
                 take.Animation.Stop("clip");
             }
             isPlaying = false;
         }
 
         public void RewindAll() {
-            foreach (AnimationTake take in takes) {
+            foreach (AnimationTake take in SceneController.GetCurrentScene().Takes) {
                 AnimationState state = take.Animation["clip"];
                 if (state) {
                     state.enabled = true;
@@ -140,13 +141,18 @@ namespace Assets.Scripts {
         }
 
         public float[] GetTakesTime() {
-            var times = new float[takes.Count];
+            var times = new float[SceneController.GetCurrentScene().Takes.Count];
 
-            for (var i = 0; i < takes.Count; i++) {
-                times[i] = takes[i].Clip.length;
+            for (var i = 0; i < SceneController.GetCurrentScene().Takes.Count; i++) {
+                times[i] = SceneController.GetCurrentScene().Takes[i].Clip.length;
             }
 
             return times;
+        }
+
+        public void SceneChanged() {
+            CurrentTake = 0;
+            NotifyCurrentTakeChanged();
         }
 
     }

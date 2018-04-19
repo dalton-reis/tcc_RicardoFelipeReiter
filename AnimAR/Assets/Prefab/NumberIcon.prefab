@@ -76,7 +76,7 @@ GameObject:
   - component: {fileID: 23194927569960854}
   - component: {fileID: 114358666439683400}
   m_Layer: 0
-  m_Name: TakeIcon
+  m_Name: NumberIcon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

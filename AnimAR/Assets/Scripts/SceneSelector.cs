@@ -6,26 +6,24 @@ using UnityEngine;
 using Vuforia;
 
 namespace Assets.Scripts {
-    public class TakeSelector : Selector, AnimationControllerListener {
+    public class SceneSelector : Selector {
 
-        public AnimationController AnimationController;
         public SceneController SceneController;
-        public GameObject TakePrefab;
+        public GameObject SceneNumberPrefab;
 
         private GameObject currentObject = null;
         private bool isActive = false;
 
         void Start() {
-            AnimationController.AddListener(this);
-            UpdateCurrentTake(0);
+            UpdateCurrentScene(0);
         }
 
         public override void Next() {
-            UpdateCurrentTake(AnimationController.CurrentTake + 1);
+            UpdateCurrentScene(SceneController.CurrentScene + 1);
         }
 
         public override void Prev() {
-            UpdateCurrentTake(AnimationController.CurrentTake - 1);
+            UpdateCurrentScene(SceneController.CurrentScene - 1);
         }
 
         public override void Active() {
@@ -42,15 +40,16 @@ namespace Assets.Scripts {
             isActive = false;
         }
 
-        private void UpdateCurrentTake(int takeIndex) {
-            AnimationController.CurrentTake = Math.Abs(takeIndex % (SceneController.GetCurrentScene().Takes.Count() + 1));
+        private void UpdateCurrentScene(int takeIndex) {
+            SceneController.CurrentScene = Math.Abs(takeIndex % SceneController.scenes.Count());
+            ChangeSceneIcon(SceneController.CurrentScene);
         }
 
-        private void ChangeTakeIcon(int index) {
+        private void ChangeSceneIcon(int index) {
             if (currentObject) {
                 Destroy(currentObject);
             }
-            NewCurrentObject(AnimationController.CurrentTake);
+            NewCurrentObject(SceneController.CurrentScene);
         }
 
         public override bool ObjectReceived(GameObject obj) {
@@ -62,20 +61,14 @@ namespace Assets.Scripts {
         }
 
         public override string GetLabel() {
-            return "Selecionar Take Atual";
+            return "Selecionar Cena Atual";
         }
 
         public void NewCurrentObject(int index) {
-            var label = index == SceneController.GetCurrentScene().Takes.Count() ? index.ToString() + '+' : index.ToString();
-
-            currentObject = GameObject.Instantiate(TakePrefab, showingObjectRoot);
+            currentObject = GameObject.Instantiate(SceneNumberPrefab, showingObjectRoot);
             currentObject.transform.localPosition = new Vector3(0, 0, 0);
-            currentObject.GetComponent<NumberIcon>().SetLabel(label);
+            currentObject.GetComponent<NumberIcon>().SetLabel(index.ToString());
             currentObject.SetActive(isActive);
-        }
-
-        public void CurrentTakeChanged(int take) {
-            ChangeTakeIcon(take);
         }
 
     }
