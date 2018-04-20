@@ -41,7 +41,11 @@ namespace Assets.Scripts {
         }
 
         private void UpdateCurrentScene(int takeIndex) {
-            SceneController.CurrentScene = Math.Abs(takeIndex % SceneController.scenes.Count());
+            if (takeIndex >= SceneController.scenes.Count()) {
+                SceneController.AddNewScene();
+            } else {
+                SceneController.CurrentScene = Math.Abs(takeIndex % SceneController.scenes.Count());
+            }
             ChangeSceneIcon(SceneController.CurrentScene);
         }
 

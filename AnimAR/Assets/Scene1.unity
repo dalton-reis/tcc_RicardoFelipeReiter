@@ -397,6 +397,8 @@ MonoBehaviour:
   scenes:
   - {fileID: 139813348}
   - {fileID: 1103804385}
+  EmptyScenePrefab: {fileID: 114959508393340566, guid: 85b8c2efec0595346bfbaebce44b286a,
+    type: 2}
   DesactivatedScenes: {fileID: 1531605170}
   CubeMarker: {fileID: 1107270643}
   RecorderController: {fileID: 553230369}

@@ -7,7 +7,8 @@ using UnityEngine;
 namespace Assets.Scripts {
     public class SceneController : MonoBehaviour, CubeMarkerInteractor {
 
-        public Scene[] scenes;
+        public List<Scene> scenes = new List<Scene>();
+        public Scene EmptyScenePrefab;
         public GameObject DesactivatedScenes;
         public CubeMarkerController CubeMarker;
         public RecorderController RecorderController;
@@ -31,6 +32,12 @@ namespace Assets.Scripts {
                 currentScene = value;
                 GetCurrentScene().Map.transform.parent = this.transform;
             }
+        }
+
+        public void AddNewScene() {
+            Scene newScene = GameObject.Instantiate(EmptyScenePrefab, this.transform);
+            scenes.Add(newScene);
+            CurrentScene = scenes.Count() - 1;
         }
 
         public Scene GetCurrentScene() {
