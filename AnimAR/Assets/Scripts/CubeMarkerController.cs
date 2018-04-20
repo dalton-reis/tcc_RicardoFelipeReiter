@@ -3,9 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using UnityEngine;
+using Vuforia;
 
 namespace Assets.Scripts {
-    public class CubeMarkerController : MonoBehaviour, SceneControllerListener {
+    public class CubeMarkerController : MonoBehaviour, SceneControllerListener, ITrackableEventHandler {
 
         public CubeMarkerIndicatorController indicatorController;
         public Transform indicatorDot;
@@ -29,6 +30,7 @@ namespace Assets.Scripts {
 
         void Start() {
             GameObject.FindObjectOfType<SceneController>().AddListener(this);
+            GetComponent<MultiTargetBehaviour>().RegisterTrackableEventHandler(this);
         }
 
         void Update() {
@@ -139,6 +141,12 @@ namespace Assets.Scripts {
             }
         }
 
+        private void NotifyCubeMarkerLost() {
+            foreach (CubeMarkerListener listener in listeners) {
+                listener.MarkerLost();
+            }
+        }
+
         private void UpdateStatus() {
             if (attachedObject) {
                 currentStatus = CubeMarkerStatus.OBJECT_ATTACHED;
@@ -156,6 +164,12 @@ namespace Assets.Scripts {
         }
 
         public void CurrentSceneChanged(Scene currentScene) {
+        }
+
+        public void OnTrackableStateChanged(TrackableBehaviour.Status previousStatus, TrackableBehaviour.Status newStatus) {
+            if (newStatus != TrackableBehaviour.Status.DETECTED && newStatus != TrackableBehaviour.Status.TRACKED) {
+                NotifyCubeMarkerLost();
+            }
         }
     }
 }

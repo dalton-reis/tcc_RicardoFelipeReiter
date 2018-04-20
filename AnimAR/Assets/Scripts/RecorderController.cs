@@ -50,6 +50,11 @@ namespace Assets.Scripts {
             }
         }
 
+        public void ResetController() {
+            SetStatus(RecorderStatus.IDLE);
+            recorderUIController.SetTime(animationController.CurrentTime, animationController.EndTime, animationController.GetTakesTime());
+        }
+
         public void StopRecording() {
             if (status == RecorderStatus.RECORDING) {
                 SetStatus(RecorderStatus.IDLE);
@@ -57,6 +62,7 @@ namespace Assets.Scripts {
                 animationController.CreateNewTakeAtCurrentPos(recorder, this.gameObjectToRecord);
                 recorder.ResetRecording();
                 cubeMarkerController.ResetAttached();
+                recorderUIController.SetTime(animationController.CurrentTime, animationController.EndTime, animationController.GetTakesTime());
             }
         }
 
@@ -71,7 +77,6 @@ namespace Assets.Scripts {
                     switch (status) {
                         case RecorderStatus.RECORDING:
                             StopRecording();
-                            recorderUIController.SetTime(animationController.CurrentTime, animationController.EndTime, animationController.GetTakesTime());
                             break;
                         case RecorderStatus.WAITING_OBJECT_TO_ATTACH:
                             SetStatus(RecorderStatus.IDLE);
@@ -133,11 +138,16 @@ namespace Assets.Scripts {
             }
         }
 
+        public void MarkerLost() {
+            StopRecording();
+        }
+
         public void CurrentSceneIsGoingToChange() {
             StopRecording();
         }
 
         public void CurrentSceneChanged(Scene currentScene) {
+            ResetController();
         }
     }
 }

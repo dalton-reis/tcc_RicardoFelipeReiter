@@ -161,6 +161,7 @@ namespace Assets.Scripts {
 
         public void CurrentSceneChanged(Scene currentScene) {
             CurrentTake = 0;
+            CalculateClipTimes();
         }
     }
 }

@@ -12,5 +12,6 @@ namespace Assets.Scripts {
 
         void ObjectDetached(GameObject obj);
 
+        void MarkerLost();
     }
 }
