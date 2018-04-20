@@ -6,7 +6,7 @@ using UnityEngine;
 using Vuforia;
 
 namespace Assets.Scripts {
-    public class RecorderController : MonoBehaviour, IVirtualButtonEventHandler, CubeMarkerListener {
+    public class RecorderController : MonoBehaviour, IVirtualButtonEventHandler, CubeMarkerListener, SceneControllerListener {
 
         public GameObject RecButton;
         public GameObject PlayButton;
@@ -30,6 +30,7 @@ namespace Assets.Scripts {
             PlayButton.GetComponent<VirtualButtonBehaviour>().RegisterEventHandler(this);
             RewindButton.GetComponent<VirtualButtonBehaviour>().RegisterEventHandler(this);
             cubeMarkerController.AddListener(this);
+            GameObject.FindObjectOfType<SceneController>().AddListener(this);
         }
 
         void LateUpdate() {
@@ -130,6 +131,13 @@ namespace Assets.Scripts {
                 Debug.Log("ObjectDetached durante gravação????");
                 StopRecording();
             }
+        }
+
+        public void CurrentSceneIsGoingToChange() {
+            StopRecording();
+        }
+
+        public void CurrentSceneChanged(Scene currentScene) {
         }
     }
 }

@@ -10,10 +10,8 @@ namespace Assets.Scripts {
         public List<Scene> scenes = new List<Scene>();
         public Scene EmptyScenePrefab;
         public GameObject DesactivatedScenes;
-        public CubeMarkerController CubeMarker;
-        public RecorderController RecorderController;
-        public AnimationController AnimationController;
 
+        private List<SceneControllerListener> listeners = new List<SceneControllerListener>();
         private int currentScene = -1;
 
         public int CurrentScene {
@@ -21,16 +19,14 @@ namespace Assets.Scripts {
                 return currentScene;
             }
             set {
-                // TODO: criar listener
-                CubeMarker.ResetAttached();
-                RecorderController.StopRecording();
-                AnimationController.SceneChanged();
-
                 if (currentScene > -1) {
+                    NotifyCurrentSceneIsGoingToChange();
                     GetCurrentScene().Map.transform.parent = DesactivatedScenes.transform;
                 }
                 currentScene = value;
                 GetCurrentScene().Map.transform.parent = this.transform;
+
+                NotifyCurrentSceneChanged();
             }
         }
 
@@ -51,6 +47,22 @@ namespace Assets.Scripts {
 
         public void ObjectRemoved(GameObject obj) {
 
+        }
+
+        public void AddListener(SceneControllerListener listener) {
+            listeners.Add(listener);
+        }
+
+        private void NotifyCurrentSceneIsGoingToChange() {
+            foreach (var listener in listeners) {
+                listener.CurrentSceneIsGoingToChange();
+            }
+        }
+
+        private void NotifyCurrentSceneChanged() {
+            foreach (var listener in listeners) {
+                listener.CurrentSceneChanged(GetCurrentScene());
+            }
         }
 
     }

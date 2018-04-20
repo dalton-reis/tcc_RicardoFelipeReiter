@@ -6,7 +6,7 @@ using UnityEngine;
 using Vuforia;
 
 namespace Assets.Scripts {
-    public class AnimationController : MonoBehaviour {
+    public class AnimationController : MonoBehaviour, SceneControllerListener {
 
         public bool isPlaying = false;
         public SceneController SceneController;
@@ -45,6 +45,10 @@ namespace Assets.Scripts {
         }
 
         private LinkedList<AnimationControllerListener> listeners = new LinkedList<AnimationControllerListener>();
+
+        void Start() {
+            GameObject.FindObjectOfType<SceneController>().AddListener(this);
+        }
 
         void Update() {
             if (isPlaying) {
@@ -150,10 +154,13 @@ namespace Assets.Scripts {
             return times;
         }
 
-        public void SceneChanged() {
-            CurrentTake = 0;
-            NotifyCurrentTakeChanged();
+        public void CurrentSceneIsGoingToChange() {
+            StopAll();
+            RewindAll();
         }
 
+        public void CurrentSceneChanged(Scene currentScene) {
+            CurrentTake = 0;
+        }
     }
 }

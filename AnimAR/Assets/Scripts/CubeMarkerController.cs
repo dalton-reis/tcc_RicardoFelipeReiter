@@ -5,7 +5,7 @@ using System.Text;
 using UnityEngine;
 
 namespace Assets.Scripts {
-    public class CubeMarkerController : MonoBehaviour {
+    public class CubeMarkerController : MonoBehaviour, SceneControllerListener {
 
         public CubeMarkerIndicatorController indicatorController;
         public Transform indicatorDot;
@@ -26,6 +26,10 @@ namespace Assets.Scripts {
 
         private float currentTime = 0;
         private Vector3 lastPos = Vector3.zero;
+
+        void Start() {
+            GameObject.FindObjectOfType<SceneController>().AddListener(this);
+        }
 
         void Update() {
             if (attachedObject && attachMode == CubeMarkerAttachMode.RECORD_MODE) {
@@ -146,5 +150,12 @@ namespace Assets.Scripts {
             indicatorController.SetStatus(currentStatus);
         }
 
+
+        public void CurrentSceneIsGoingToChange() {
+            ResetAttached();
+        }
+
+        public void CurrentSceneChanged(Scene currentScene) {
+        }
     }
 }

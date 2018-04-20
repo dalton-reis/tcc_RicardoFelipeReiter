@@ -400,9 +400,6 @@ MonoBehaviour:
   EmptyScenePrefab: {fileID: 114959508393340566, guid: 85b8c2efec0595346bfbaebce44b286a,
     type: 2}
   DesactivatedScenes: {fileID: 1531605170}
-  CubeMarker: {fileID: 1107270643}
-  RecorderController: {fileID: 553230369}
-  AnimationController: {fileID: 4654047}
 --- !u!65 &55684172
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -413,7 +410,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.3438358, y: 0.8784713, z: 1.3835078}
+  m_Size: {x: 1.1847563, y: 0.8784713, z: 1.2142931}
   m_Center: {x: 0, y: 0.3959926, z: 0}
 --- !u!43 &61878110
 Mesh:
