@@ -36,9 +36,11 @@ namespace Assets.Scripts {
             switch (vb.VirtualButtonName) {
                 case "Next":
                     currentSelector.Next();
+                    CubeMarkerController.ResetAttached();
                     break;
                 case "Prev":
                     currentSelector.Prev();
+                    CubeMarkerController.ResetAttached();
                     break;
                 case "ChangeSelector":
                     ChangeSelector(currentSelectorIndex + 1);

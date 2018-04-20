@@ -112,9 +112,11 @@ namespace Assets.Scripts {
 
         public void SetAttachMode(CubeMarkerAttachMode attachMode) {
             this.attachMode = attachMode;
+            ResetAttached();
         }
 
         public void ResetAttached() {
+            // TODO: Normalmente chamado no SelectorController e no RecorderController, talvez criar um listener para ambos e esse daqui ser um observer
             if (attachedObject) {
                 attachedObject.currentInteractor.ObjectReceived(attachedObject);
                 attachedObject.transform.localPosition = attachedObjectInitialPos;
