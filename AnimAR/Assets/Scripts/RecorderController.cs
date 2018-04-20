@@ -118,9 +118,9 @@ namespace Assets.Scripts {
         public void OnButtonReleased(VirtualButtonBehaviour vb) {
         }
 
-        public void ObjectAttached(GameObject obj) {
-            if (this.status == RecorderStatus.WAITING_OBJECT_TO_ATTACH) {
-                this.gameObjectToRecord = obj;
+        public void ObjectAttached(MovableObject obj) {
+            if (this.status == RecorderStatus.WAITING_OBJECT_TO_ATTACH && obj.type == MovableObject.TYPE.SCENE_OBJECT) {
+                this.gameObjectToRecord = obj.gameObject;
                 this.recorderTracker.source = obj.transform;
                 this.animationController.StopAll();
                 this.animationController.RewindAll();
@@ -129,7 +129,7 @@ namespace Assets.Scripts {
             recorderUIController.SetRecorderStatus(status, animationController.CurrentTake);
         }
 
-        public void ObjectDetached(GameObject obj) {
+        public void ObjectDetached(MovableObject obj) {
             this.gameObjectToRecord = null;
             // Não deveria chegar na situação abaixo, coloco aqui somente por segurança
             if (status == RecorderStatus.RECORDING) {

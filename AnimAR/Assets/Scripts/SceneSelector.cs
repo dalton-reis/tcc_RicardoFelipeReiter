@@ -56,12 +56,15 @@ namespace Assets.Scripts {
             NewCurrentObject(SceneController.CurrentScene);
         }
 
-        public override bool ObjectReceived(GameObject obj) {
+
+        public override bool CanReceiveObject(MovableObject obj) {
             return false;
         }
 
-        public override void ObjectRemoved(GameObject obj) {
+        public override void ObjectReceived(MovableObject obj) {
+        }
 
+        public override void ObjectRemoved(MovableObject obj) {
         }
 
         public override string GetLabel() {

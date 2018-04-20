@@ -14,7 +14,7 @@ namespace Assets.Scripts {
         private AnimationTake longestTake;
         private float currentTime = 0.0f;
         private float endTime = 0.0f;
-        private int currentTake = 0;
+        private int currentTake = -1;
 
         public float CurrentTime {
             get {
@@ -48,6 +48,7 @@ namespace Assets.Scripts {
 
         void Start() {
             GameObject.FindObjectOfType<SceneController>().AddListener(this);
+            ResetSceneData();
         }
 
         void Update() {
@@ -89,17 +90,17 @@ namespace Assets.Scripts {
 
             NotifyCurrentTakeChanged();
             CalculateClipTimes();
-
-            currentTime = 0.0f;
         }
 
-        public void CalculateClipTimes() {
+        private void CalculateClipTimes() {
             foreach (var take in SceneController.GetCurrentScene().Takes) {
                 if (endTime < take.Clip.length) {
                     endTime = take.Clip.length;
                     longestTake = take;
                 }
             }
+
+            currentTime = 0.0f;
         }
 
         public void PlayAll() {
@@ -160,8 +161,22 @@ namespace Assets.Scripts {
         }
 
         public void CurrentSceneChanged(Scene currentScene) {
-            CurrentTake = 0;
+            ResetSceneData();
+        }
+
+        public void RemoveTake(int index) {
+            SceneController.GetCurrentScene().Takes.RemoveAt(index);
+            ResetSceneData();
+        }
+
+        private void ResetSceneData() {
+            if (SceneController.GetCurrentScene().Takes.Count() > 0) {
+                CurrentTake = 0;
+            } else {
+                CurrentTake = -1;
+            }
             CalculateClipTimes();
         }
+
     }
 }

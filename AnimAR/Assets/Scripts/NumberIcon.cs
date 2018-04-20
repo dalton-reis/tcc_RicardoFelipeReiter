@@ -11,6 +11,17 @@ namespace Assets.Scripts {
         public Text text1;
         public Text text2;
 
+        private int number;
+
+        public int Number {
+            get {
+                return number;
+            }
+            set {
+                number = value;
+            }
+        }
+
         public void SetLabel(string label) {
             text1.text = label;
             text2.text = label;

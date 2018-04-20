@@ -7,18 +7,28 @@ using UnityEngine;
 namespace Assets.Scripts {
     public class TrashBinController : MonoBehaviour, CubeMarkerInteractor {
 
+        public AnimationController AnimationController;
         public GameObject IncinerateEffectGO;
 
-        public bool ObjectReceived(GameObject obj) {
-            Destroy(obj);
+        public bool CanReceiveObject(MovableObject obj) {
+            return true;
+        }
+
+        public void ObjectReceived(MovableObject obj) {
+            switch (obj.type) {
+                case MovableObject.TYPE.TAKE_OBJECT:
+                    AnimationController.RemoveTake(obj.GetComponent<NumberIcon>().Number);
+                    break;
+            }
+
+            Destroy(obj.gameObject);
             var effectObj = GameObject.Instantiate(IncinerateEffectGO);
             effectObj.transform.parent = this.transform;
             effectObj.transform.localPosition = Vector3.zero;
             effectObj.transform.localRotation = Quaternion.Euler(new Vector3(90, 0, 90));
-            return true;
         }
 
-        public void ObjectRemoved(GameObject obj) {
+        public void ObjectRemoved(MovableObject obj) {
 
         }
 

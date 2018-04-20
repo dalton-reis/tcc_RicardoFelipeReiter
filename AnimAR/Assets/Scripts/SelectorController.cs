@@ -14,6 +14,7 @@ namespace Assets.Scripts {
         public GameObject ChangeSelectorButton;
         public Text SelectorLabel;
         public Selector[] Selectors;
+        public CubeMarkerController CubeMarkerController;
 
         private int currentSelectorIndex = 0;
         private Selector currentSelector;
@@ -50,6 +51,7 @@ namespace Assets.Scripts {
 
         private void ChangeSelector(int index) {
             currentSelectorIndex = Math.Abs(index % Selectors.Length);
+            CubeMarkerController.ResetAttached();
             if (currentSelector) {
                 currentSelector.Desactive();
             }
@@ -58,11 +60,15 @@ namespace Assets.Scripts {
             SelectorLabel.text = currentSelector.GetLabel();
         }
 
-        public bool ObjectReceived(GameObject obj) {
-            return currentSelector.ObjectReceived(obj);
+        public bool CanReceiveObject(MovableObject obj) {
+            return currentSelector.CanReceiveObject(obj);
         }
 
-        public void ObjectRemoved(GameObject obj) {
+        public void ObjectReceived(MovableObject obj) {
+            currentSelector.ObjectReceived(obj);
+        }
+
+        public void ObjectRemoved(MovableObject obj) {
             currentSelector.ObjectRemoved(obj);
         }
 

@@ -17,7 +17,6 @@ namespace Assets.Scripts {
 
         void Start() {
             AnimationController.AddListener(this);
-            UpdateCurrentTake(0);
         }
 
         public override void Next() {
@@ -29,10 +28,11 @@ namespace Assets.Scripts {
         }
 
         public override void Active() {
-            if (currentObject) {
-                currentObject.SetActive(true);
-            }
+            //if (currentObject) {
+            //    currentObject.SetActive(true);
+            //}
             isActive = true;
+            ChangeTakeIcon(AnimationController.CurrentTake);
         }
 
         public override void Desactive() {
@@ -43,7 +43,9 @@ namespace Assets.Scripts {
         }
 
         private void UpdateCurrentTake(int takeIndex) {
-            AnimationController.CurrentTake = Math.Abs(takeIndex % (SceneController.GetCurrentScene().Takes.Count() + 1));
+            if (SceneController.GetCurrentScene().Takes.Count() > 0) {
+                AnimationController.CurrentTake = Math.Abs(takeIndex % SceneController.GetCurrentScene().Takes.Count());
+            }
         }
 
         private void ChangeTakeIcon(int index) {
@@ -53,12 +55,17 @@ namespace Assets.Scripts {
             NewCurrentObject(AnimationController.CurrentTake);
         }
 
-        public override bool ObjectReceived(GameObject obj) {
-            return false;
+        public override bool CanReceiveObject(MovableObject obj) {
+            return obj.type == MovableObject.TYPE.TAKE_OBJECT;
         }
 
-        public override void ObjectRemoved(GameObject obj) {
+        public override void ObjectReceived(MovableObject obj) {
+            Destroy(obj);
+            ChangeTakeIcon(AnimationController.CurrentTake);
+        }
 
+        public override void ObjectRemoved(MovableObject obj) {
+            currentObject = null;
         }
 
         public override string GetLabel() {
@@ -66,12 +73,15 @@ namespace Assets.Scripts {
         }
 
         public void NewCurrentObject(int index) {
-            var label = index == SceneController.GetCurrentScene().Takes.Count() ? index.ToString() + '+' : index.ToString();
-
             currentObject = GameObject.Instantiate(TakePrefab, showingObjectRoot);
             currentObject.transform.localPosition = new Vector3(0, 0, 0);
-            currentObject.GetComponent<NumberIcon>().SetLabel(label);
+            currentObject.GetComponent<MovableObject>().type = MovableObject.TYPE.TAKE_OBJECT;
+            currentObject.GetComponent<NumberIcon>().SetLabel(index < 0 ? "X" : index.ToString());
+            currentObject.GetComponent<NumberIcon>().Number = index;
+            currentObject.GetComponent<Collider>().enabled = index > -1;
             currentObject.SetActive(isActive);
+            Debug.Log("Lol1");
+            Debug.Log(isActive);
         }
 
         public void CurrentTakeChanged(int take) {

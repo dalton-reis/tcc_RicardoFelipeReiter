@@ -8,9 +8,9 @@ using UnityEngine.Events;
 namespace Assets.Scripts {
     public interface CubeMarkerListener {
 
-        void ObjectAttached(GameObject obj);
+        void ObjectAttached(MovableObject obj);
 
-        void ObjectDetached(GameObject obj);
+        void ObjectDetached(MovableObject obj);
 
         void MarkerLost();
     }

@@ -45,13 +45,17 @@ namespace Assets.Scripts {
             NewCurrentObject(objList[currentObjIndex]);
         }
 
-        public override bool ObjectReceived(GameObject obj) {
+        public override bool CanReceiveObject(MovableObject obj) {
             return false;
         }
 
-        public override void ObjectRemoved(GameObject obj) {
-            if (currentObject == obj) {
-                NewCurrentObject(obj);
+        public override void ObjectReceived(MovableObject obj) {
+
+        }
+
+        public override void ObjectRemoved(MovableObject obj) {
+            if (currentObject == obj.gameObject) {
+                NewCurrentObject(obj.gameObject);
             }
         }
 

@@ -40,13 +40,15 @@ namespace Assets.Scripts {
             return scenes[currentScene];
         }
 
-        public bool ObjectReceived(GameObject obj) {
-            obj.transform.parent = GetCurrentScene().Map.transform;
-            return true;
+        public bool CanReceiveObject(MovableObject obj) {
+            return obj.type == MovableObject.TYPE.SCENE_OBJECT;
         }
 
-        public void ObjectRemoved(GameObject obj) {
+        public void ObjectReceived(MovableObject obj) {
+            obj.transform.parent = GetCurrentScene().Map.transform;
+        }
 
+        public void ObjectRemoved(MovableObject obj) {
         }
 
         public void AddListener(SceneControllerListener listener) {

@@ -1,7 +1,5 @@
 - UI de seletor
 - UI no recorder tool pra mostrar cena atual
-- Mudar para parar gravação ao perder o cubo
-- Remover take ao puxar take para lixeira
 - Atualizar take selector ui ao adicionar/remover takes
 - Highlight objeto selecionado
 - Highlight do take selecionado quando o seletor estiver ativo, talvez rodar animação enquanto o seletor está ativo
@@ -11,3 +9,5 @@
    |- Para excluir deverá selecionar o take no seletor e jogar para a lixeira
 - Checar deletar objeto com take vinculado
 - Novos marcadores e repaginada na UI
+- Novos objetos para fábrica
+- Corrigir bug do NullPointer do interactor quando cube marker é detectado já dentro do trigger da scene

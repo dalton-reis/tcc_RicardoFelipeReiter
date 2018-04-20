@@ -140,6 +140,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4559496060232146}
   - component: {fileID: 65774838460271826}
+  - component: {fileID: 114786361672501062}
   m_Layer: 0
   m_Name: wolf_lod_0
   m_TagString: Movable
@@ -840,6 +841,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1.586635, z: 3.9166808}
   m_Center: {x: 0, y: 1.7591296, z: -0.49224472}
+--- !u!114 &114786361672501062
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1339802022538070}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bfd3e17d68c791e408c5ca651951c0f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 0
 --- !u!137 &137779679667495996
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1

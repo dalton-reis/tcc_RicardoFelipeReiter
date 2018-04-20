@@ -14,10 +14,9 @@ namespace Assets.Scripts {
         private const float movementTolerance = 0.2f;
 
         private CubeMarkerInteractor interactor = null;
-        private GameObject objectMarkerOver = null;
+        private MovableObject objectMarkerOver = null;
 
-        private GameObject attachedObject = null;
-        private CubeMarkerInteractor attachedObjectInteractor = null;
+        private MovableObject attachedObject = null;
         private Vector3 attachedObjectInitialPos = Vector3.zero;
         private Quaternion attachedObjectInitialRot = Quaternion.identity;
 
@@ -50,7 +49,6 @@ namespace Assets.Scripts {
                         if (currentStatus == CubeMarkerStatus.MARKER_OVER_OBJECT) {
                             interactor.ObjectRemoved(objectMarkerOver);
                             attachedObject = objectMarkerOver;
-                            attachedObjectInteractor = interactor;
                             attachedObjectInitialPos = attachedObject.transform.localPosition;
                             attachedObjectInitialRot = attachedObject.transform.localRotation;
                             if (attachMode == CubeMarkerAttachMode.RECORD_MODE) {
@@ -62,9 +60,11 @@ namespace Assets.Scripts {
                             objectMarkerOver = null;
                             NotifyObjectAttached(attachedObject);
                         } else if (attachedObject && interactor != null && attachMode == CubeMarkerAttachMode.NORMAL) {
-                            if (interactor.ObjectReceived(attachedObject)) {
-                                attachedObject = null;
+                            if (interactor.CanReceiveObject(attachedObject)) {
+                                attachedObject.currentInteractor = interactor;
+                                interactor.ObjectReceived(attachedObject);
                                 NotifyObjectDetached(attachedObject);
+                                attachedObject = null;
                             }
                         }
                         UpdateStatus();
@@ -76,35 +76,32 @@ namespace Assets.Scripts {
         }
 
         void OnTriggerEnter(Collider other) {
-            switch (other.tag) {
-                case "Movable":
-                    if (currentStatus == CubeMarkerStatus.NOP) {
-                        objectMarkerOver = other.gameObject;
-                        currentTime = secondsToHold;
-                    }
-                    break;
-                default:
-                    var newInteractor = other.gameObject.GetComponent<CubeMarkerInteractor>();
-                    if (newInteractor != null) {
-                        interactor = newInteractor;
-                    }
-                    break;
+            var movable = other.GetComponent<MovableObject>();
+            var newInteractor = other.GetComponent<CubeMarkerInteractor>();
+
+            if (movable != null) {
+                if (currentStatus == CubeMarkerStatus.NOP) {
+                    objectMarkerOver = movable;
+                    currentTime = secondsToHold;
+                }
+            } else if (newInteractor != null) {
+                interactor = newInteractor;
             }
             UpdateStatus();
         }
 
         void OnTriggerExit(Collider other) {
-            switch (other.tag) {
-                case "Movable":
-                    if (other.gameObject == objectMarkerOver) {
-                        objectMarkerOver = null;
-                    }
-                    break;
-                default:
-                    if (interactor == other.gameObject.GetComponent<CubeMarkerInteractor>()) {
-                        interactor = null;
-                    }
-                    break;
+            var movable = other.GetComponent<MovableObject>();
+            var newInteractor = other.GetComponent<CubeMarkerInteractor>();
+
+            if (movable != null) {
+                if (movable == objectMarkerOver) {
+                    objectMarkerOver = null;
+                }
+            } else if (newInteractor != null) {
+                if (newInteractor == interactor ) {
+                    interactor = null;
+                }
             }
             UpdateStatus();
         }
@@ -119,23 +116,22 @@ namespace Assets.Scripts {
 
         public void ResetAttached() {
             if (attachedObject) {
-                attachedObjectInteractor.ObjectReceived(attachedObject);
+                attachedObject.currentInteractor.ObjectReceived(attachedObject);
                 attachedObject.transform.localPosition = attachedObjectInitialPos;
                 attachedObject.transform.localRotation = attachedObjectInitialRot;
                 NotifyObjectDetached(attachedObject);
                 attachedObject = null;
-                attachedObjectInteractor = null;
                 UpdateStatus();
             }
         }
 
-        private void NotifyObjectAttached(GameObject obj) {
+        private void NotifyObjectAttached(MovableObject obj) {
             foreach (CubeMarkerListener listener in listeners) {
                 listener.ObjectAttached(obj);
             }
         }
 
-        private void NotifyObjectDetached(GameObject obj) {
+        private void NotifyObjectDetached(MovableObject obj) {
             foreach (CubeMarkerListener listener in listeners) {
                 listener.ObjectDetached(obj);
             }

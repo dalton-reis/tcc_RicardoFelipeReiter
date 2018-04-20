@@ -18,9 +18,11 @@ namespace Assets.Scripts {
 
         public abstract void Desactive();
 
-        public abstract bool ObjectReceived(GameObject obj);
+        public abstract bool CanReceiveObject(MovableObject obj);
 
-        public abstract void ObjectRemoved(GameObject obj);
+        public abstract void ObjectReceived(MovableObject obj);
+
+        public abstract void ObjectRemoved(MovableObject obj);
 
         public abstract string GetLabel();
     }

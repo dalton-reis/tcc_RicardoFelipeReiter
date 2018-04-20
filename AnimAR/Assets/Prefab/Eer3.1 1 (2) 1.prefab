@@ -82,6 +82,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4901143828041838}
   - component: {fileID: 136167515632171238}
+  - component: {fileID: 114730994384241890}
   m_Layer: 0
   m_Name: Eer3.1 1 (2) 1
   m_TagString: Movable
@@ -329,6 +330,18 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1679335702010694}
   m_Mesh: {fileID: 4300142, guid: b2c61055c4a01ad43b08434f8178e1c9, type: 3}
+--- !u!114 &114730994384241890
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1526462657309302}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bfd3e17d68c791e408c5ca651951c0f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 0
 --- !u!136 &136167515632171238
 CapsuleCollider:
   m_ObjectHideFlags: 1
