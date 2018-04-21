@@ -36,6 +36,7 @@ GameObject:
   - component: {fileID: 4512982032766754}
   - component: {fileID: 135694277881592442}
   - component: {fileID: 114032069376791008}
+  - component: {fileID: 114815757335776998}
   m_Layer: 0
   m_Name: Rock4 1
   m_TagString: Movable
@@ -154,6 +155,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 0
+  outliner: {fileID: 114815757335776998}
+--- !u!114 &114815757335776998
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1699436955156770}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 186a0af8dc9fa2e4f8226b44720c48a3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!135 &135694277881592442
 SphereCollider:
   m_ObjectHideFlags: 1

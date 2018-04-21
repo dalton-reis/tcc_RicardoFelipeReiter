@@ -13,6 +13,7 @@ namespace Assets.Scripts {
 
         public TYPE type;
         public CubeMarkerInteractor currentInteractor;
+        public ObjectOutliner outliner;
 
         void Awake() {
             currentInteractor = GetComponentInParent<CubeMarkerInteractor>();

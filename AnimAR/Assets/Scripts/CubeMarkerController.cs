@@ -82,6 +82,9 @@ namespace Assets.Scripts {
             if (movable != null) {
                 if (currentStatus == CubeMarkerStatus.NOP) {
                     objectMarkerOver = movable;
+                    if (objectMarkerOver.outliner) {
+                        objectMarkerOver.outliner.SetEnabled(true);
+                    }
                     currentTime = secondsToHold;
                 }
             } else if (newInteractor != null) {
@@ -96,6 +99,9 @@ namespace Assets.Scripts {
 
             if (movable != null) {
                 if (movable == objectMarkerOver) {
+                    if (objectMarkerOver.outliner) {
+                        objectMarkerOver.outliner.SetEnabled(false);
+                    }
                     objectMarkerOver = null;
                 }
             } else if (newInteractor != null) {
