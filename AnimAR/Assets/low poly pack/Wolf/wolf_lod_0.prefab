@@ -853,6 +853,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 0
+  outliner: {fileID: 0}
 --- !u!137 &137779679667495996
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1

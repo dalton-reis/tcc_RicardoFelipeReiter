@@ -758,11 +758,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fbf3575480402db40813e763382412fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <Renderer>k__BackingField: {fileID: 0}
-  color: 0
-  eraseRenderer: 0
-  originalLayer: 0
-  originalMaterials: []
 --- !u!1 &126314712
 GameObject:
   m_ObjectHideFlags: 0

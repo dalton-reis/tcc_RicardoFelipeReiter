@@ -38,6 +38,7 @@ namespace Assets.Scripts {
         }
 
         private void ChangeIndex(int index) {
+            index = index < 0 ? objList.Length + index : index;
             currentObjIndex = Math.Abs(index % objList.Length);
             if (currentObject) {
                 Destroy(currentObject);

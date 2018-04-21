@@ -40,8 +40,10 @@ namespace Assets.Scripts {
         }
 
         private void UpdateCurrentTake(int takeIndex) {
-            if (SceneController.GetCurrentScene().Takes.Count() > 0) {
-                AnimationController.CurrentTake = Math.Abs(takeIndex % SceneController.GetCurrentScene().Takes.Count());
+            var takesCount = SceneController.GetCurrentScene().Takes.Count();
+            if (takesCount > 0) {
+                takeIndex = takeIndex < 0 ? takesCount + takeIndex : takeIndex;
+                AnimationController.CurrentTake = Math.Abs(takeIndex % takesCount);
             }
         }
 

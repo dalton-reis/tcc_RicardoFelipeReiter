@@ -40,11 +40,12 @@ namespace Assets.Scripts {
             isActive = false;
         }
 
-        private void UpdateCurrentScene(int takeIndex) {
-            if (takeIndex >= SceneController.scenes.Count()) {
+        private void UpdateCurrentScene(int sceneIndex) {
+            if (sceneIndex >= SceneController.scenes.Count()) {
                 SceneController.AddNewScene();
             } else {
-                SceneController.CurrentScene = Math.Abs(takeIndex % SceneController.scenes.Count());
+                sceneIndex = sceneIndex < 0 ? SceneController.scenes.Count() + sceneIndex : sceneIndex;
+                SceneController.CurrentScene = Math.Abs(sceneIndex % SceneController.scenes.Count());
             }
             ChangeSceneIcon(SceneController.CurrentScene);
         }
