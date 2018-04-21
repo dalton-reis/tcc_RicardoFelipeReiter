@@ -127,6 +127,9 @@ namespace Assets.Scripts {
                 attachedObject.currentInteractor.ObjectReceived(attachedObject);
                 attachedObject.transform.localPosition = attachedObjectInitialPos;
                 attachedObject.transform.localRotation = attachedObjectInitialRot;
+                if (attachedObject.outliner) {
+                    attachedObject.outliner.SetEnabled(false);
+                }
                 NotifyObjectDetached(attachedObject);
                 attachedObject = null;
                 UpdateStatus();

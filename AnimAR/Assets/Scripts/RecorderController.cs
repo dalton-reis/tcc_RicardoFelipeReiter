@@ -43,7 +43,6 @@ namespace Assets.Scripts {
                     if (animationController.isPlaying) {
                         recorderUIController.SetTime(animationController.CurrentTime, animationController.EndTime, animationController.GetTakesTime());
                     } else {
-                        recorderUIController.SetTime(0, animationController.EndTime, animationController.GetTakesTime());
                         SetStatus(RecorderStatus.IDLE);
                     }
                     break;

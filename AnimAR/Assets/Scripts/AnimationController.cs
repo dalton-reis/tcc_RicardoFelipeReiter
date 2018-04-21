@@ -165,6 +165,8 @@ namespace Assets.Scripts {
         }
 
         public void RemoveTake(int index) {
+            StopAll();
+            RewindAll();
             SceneController.GetCurrentScene().Takes.RemoveAt(index);
             ResetSceneData();
         }

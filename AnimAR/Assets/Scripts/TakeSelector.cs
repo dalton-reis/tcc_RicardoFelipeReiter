@@ -28,9 +28,6 @@ namespace Assets.Scripts {
         }
 
         public override void Active() {
-            //if (currentObject) {
-            //    currentObject.SetActive(true);
-            //}
             isActive = true;
             ChangeTakeIcon(AnimationController.CurrentTake);
         }
@@ -60,7 +57,7 @@ namespace Assets.Scripts {
         }
 
         public override void ObjectReceived(MovableObject obj) {
-            Destroy(obj);
+            Destroy(obj.gameObject);
             ChangeTakeIcon(AnimationController.CurrentTake);
         }
 
