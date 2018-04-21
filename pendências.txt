@@ -1,8 +1,5 @@
-- UI de seletor
-- UI no recorder tool pra mostrar cena atual
 - Highlight do take selecionado quando o seletor estiver ativo, talvez rodar animação enquanto o seletor está ativo
 - Refactor AnimationController/RecorderController
-- Checar deletar objeto com take vinculado
 - Novos marcadores e repaginada na UI
 - Novos objetos para fábrica
 - Corrigir bug do NullPointer do interactor quando cube marker é detectado já dentro do trigger da scene

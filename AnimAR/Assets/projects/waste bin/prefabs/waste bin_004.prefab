@@ -114,6 +114,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AnimationController: {fileID: 0}
+  SceneController: {fileID: 0}
   IncinerateEffectGO: {fileID: 1469887687874594, guid: 3fcb294442adeeb4f81ee03eac241376,
     type: 2}
 --- !u!135 &135560349357202728

@@ -8750,6 +8750,11 @@ Prefab:
       propertyPath: AnimationController
       value: 
       objectReference: {fileID: 4654047}
+    - target: {fileID: 114608491566346672, guid: f43818c9cb19fac4fa43f52d4a211840,
+        type: 2}
+      propertyPath: SceneController
+      value: 
+      objectReference: {fileID: 55684171}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f43818c9cb19fac4fa43f52d4a211840, type: 2}
   m_IsPrefabParent: 0

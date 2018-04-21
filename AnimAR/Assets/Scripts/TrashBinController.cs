@@ -8,6 +8,7 @@ namespace Assets.Scripts {
     public class TrashBinController : MonoBehaviour, CubeMarkerInteractor {
 
         public AnimationController AnimationController;
+        public SceneController SceneController;
         public GameObject IncinerateEffectGO;
 
         public bool CanReceiveObject(MovableObject obj) {
@@ -19,6 +20,11 @@ namespace Assets.Scripts {
                 case MovableObject.TYPE.TAKE_OBJECT:
                     AnimationController.RemoveTake(obj.GetComponent<NumberIcon>().Number);
                     break;
+            }
+
+            int takeIndex = SceneController.GetCurrentScene().Takes.FindIndex(take => take.GameObject == obj.gameObject);
+            if (takeIndex > -1) {
+                AnimationController.RemoveTake(takeIndex);
             }
 
             Destroy(obj.gameObject);
