@@ -6,15 +6,25 @@ using UnityEngine;
 using Vuforia;
 
 namespace Assets.Scripts {
-    public class AnimationController : MonoBehaviour, SceneControllerListener {
+    public class AnimationController : MonoBehaviour, SceneControllerListener, CubeMarkerListener {
 
-        public bool isPlaying = false;
         public SceneController SceneController;
+        public RecorderTracker recorderTracker;
+        public AnimationUIController UIController;
+
+        public enum STATUS {
+            IDLE, WAITING_OBJECT_TO_ATTACH, RECORDING, PLAYING
+        }
+
+        private STATUS status;
 
         private AnimationTake longestTake;
         private float currentTime = 0.0f;
         private float endTime = 0.0f;
-        private int currentTake = -1;
+
+        private GORecorder recorder;
+
+        private CubeMarkerController cubeMarkerController;
 
         public float CurrentTime {
             get {
@@ -34,38 +44,51 @@ namespace Assets.Scripts {
             }
         }
 
-        public int CurrentTake {
+        public STATUS Status {
             get {
-                return currentTake;
+                return status;
             }
-            set {
-                currentTake = value;
-                NotifyCurrentTakeChanged();
+            private set {
+                status = value;
+                UIController.SetRecorderStatus(status);
             }
         }
 
         private LinkedList<AnimationControllerListener> listeners = new LinkedList<AnimationControllerListener>();
 
         void Start() {
+            recorder = new GORecorder();
+            recorder.source = recorderTracker.gameObject;
+
+            cubeMarkerController = GameObject.FindObjectOfType<CubeMarkerController>();
+            cubeMarkerController.AddListener(this);
             GameObject.FindObjectOfType<SceneController>().AddListener(this);
-            ResetSceneData();
+
+            ResetController();
         }
 
-        void Update() {
-            if (isPlaying) {
-                currentTime = longestTake.Animation["clip"].time;
-                if (!longestTake.Animation.isPlaying) {
-                    isPlaying = false;
-                }
+        void LateUpdate() {
+            switch (status) {
+                case STATUS.RECORDING:
+                    recorder.TakeSnapshot(Time.deltaTime);
+                    UIController.SetTime(recorder.currentTime, EndTime, GetTakesTime());
+                    break;
+                case STATUS.PLAYING:
+                    currentTime = longestTake.Animation["clip"].time;
+                    UIController.SetTime(CurrentTime, EndTime, GetTakesTime());
+                    if (!longestTake.Animation.isPlaying) {
+                        Status = STATUS.IDLE;
+                    }
+                    break;
             }
         }
 
-        public void CreateNewTakeAtCurrentPos(GORecorder recorder, GameObject recordedObject) {
-            Animation animation = recordedObject.GetComponent<Animation>();
+        public void CreateNewTakeAtCurrentPos() {
+            Animation animation = recorderTracker.source.GetComponent<Animation>();
             if (animation) {
                 animation.RemoveClip("clip");
             } else {
-                animation = recordedObject.AddComponent<Animation>();
+                animation = recorderTracker.source.gameObject.AddComponent<Animation>();
             }
 
             var clip = new AnimationClip();
@@ -76,19 +99,17 @@ namespace Assets.Scripts {
             animation.playAutomatically = false;
             animation.AddClip(clip, "clip");
 
-            var newTake = new AnimationTake(animation, clip, recordedObject);
+            var newTake = new AnimationTake(animation, clip, recorder.source);
 
             var animationIndex = SceneController.GetCurrentScene().Takes.FindIndex(take => take.Animation == animation);
             // O objeto gravado já pertence à alguma take: substitui-la deverá
             if (animationIndex >= 0) {
-                CurrentTake = animationIndex;
-                SceneController.GetCurrentScene().Takes[CurrentTake] = newTake;
+                SceneController.GetCurrentScene().Takes[animationIndex] = newTake;
             } else {
-                CurrentTake = SceneController.GetCurrentScene().Takes.Count;
                 SceneController.GetCurrentScene().Takes.Add(newTake);
+                NotifyTakeAdded(SceneController.GetCurrentScene().Takes.Count() - 1);
             }
 
-            NotifyCurrentTakeChanged();
             CalculateClipTimes();
         }
 
@@ -104,22 +125,27 @@ namespace Assets.Scripts {
         }
 
         public void PlayAll() {
+            // TODO: usar listener animation controller e dai o próprio cubeMarkerControler toma as ações próprias
+            cubeMarkerController.ResetAttached();
             foreach (AnimationTake take in SceneController.GetCurrentScene().Takes) {
                 take.Animation.Play("clip");
             }
             if (SceneController.GetCurrentScene().Takes.Count > 0) {
-                isPlaying = true;
+                Status = STATUS.PLAYING;
             }
         }
 
         public void StopAll() {
+            cubeMarkerController.ResetAttached();
             foreach (AnimationTake take in SceneController.GetCurrentScene().Takes) {
                 take.Animation.Stop("clip");
             }
-            isPlaying = false;
+            Status = STATUS.IDLE;
         }
 
         public void RewindAll() {
+            StopAll();
+            Status = STATUS.IDLE;
             foreach (AnimationTake take in SceneController.GetCurrentScene().Takes) {
                 AnimationState state = take.Animation["clip"];
                 if (state) {
@@ -133,15 +159,22 @@ namespace Assets.Scripts {
                 }
             }
             currentTime = 0.0f;
+            UIController.SetTime(CurrentTime, EndTime, GetTakesTime());
         }
 
         public void AddListener(AnimationControllerListener listener) {
             listeners.AddLast(listener);
         }
 
-        public void NotifyCurrentTakeChanged() {
+        public void NotifyTakeAdded(int take) {
             foreach (var listener in listeners) {
-                listener.CurrentTakeChanged(currentTake);
+                listener.TakeAdded(take);
+            }
+        }
+
+        public void NotifyTakeDeleted(int take) {
+            foreach (var listener in listeners) {
+                listener.TakeDeleted(take);
             }
         }
 
@@ -156,28 +189,68 @@ namespace Assets.Scripts {
         }
 
         public void CurrentSceneIsGoingToChange() {
+            StopRecording();
             StopAll();
             RewindAll();
+
         }
 
         public void CurrentSceneChanged(Scene currentScene) {
-            ResetSceneData();
+            ResetController();
         }
 
         public void RemoveTake(int index) {
-            StopAll();
-            RewindAll();
             SceneController.GetCurrentScene().Takes.RemoveAt(index);
-            ResetSceneData();
+            NotifyTakeDeleted(index);
+            ResetController();
         }
 
-        private void ResetSceneData() {
-            if (SceneController.GetCurrentScene().Takes.Count() > 0) {
-                CurrentTake = 0;
-            } else {
-                CurrentTake = -1;
+        public void StopRecording() {
+            if (status == STATUS.RECORDING) {
+                Status = STATUS.IDLE;
+                CreateNewTakeAtCurrentPos();
+                recorder.ResetRecording();
+                cubeMarkerController.SetAttachMode(CubeMarkerAttachMode.NORMAL);
+
+                // Mudar para função mais generica
+                UIController.SetTime(CurrentTime, EndTime, GetTakesTime());
             }
+        }
+
+        public void PrepareForRecording(bool prepare) {
+            if (prepare) {
+                Status = STATUS.IDLE;
+                cubeMarkerController.SetAttachMode(CubeMarkerAttachMode.NORMAL);
+            } else {
+                Status = STATUS.WAITING_OBJECT_TO_ATTACH;
+                cubeMarkerController.SetAttachMode(CubeMarkerAttachMode.RECORD_MODE);
+            }
+        }
+
+        private void ResetController() {
+            Status = STATUS.IDLE;
             CalculateClipTimes();
+            UIController.SetTime(CurrentTime, EndTime, GetTakesTime());
+        }
+
+        public void ObjectAttached(MovableObject obj) {
+            if (this.status == STATUS.WAITING_OBJECT_TO_ATTACH && obj.type == MovableObject.TYPE.SCENE_OBJECT) {
+                this.recorderTracker.source = obj.transform;
+                Status = STATUS.RECORDING;
+            }
+            UIController.SetRecorderStatus(status);
+        }
+
+        public void ObjectDetached(MovableObject obj) {
+            // Não deveria chegar na situação abaixo, coloco aqui somente por segurança
+            if (status == STATUS.RECORDING) {
+                Debug.Log("ObjectDetached durante gravação????");
+                StopRecording();
+            }
+        }
+
+        public void MarkerLost() {
+            StopRecording();
         }
 
     }

@@ -6,7 +6,7 @@ using UnityEngine;
 using Vuforia;
 
 namespace Assets.Scripts {
-    public class TakeSelector : Selector, AnimationControllerListener {
+    public class TakeSelector : Selector, SceneControllerListener, AnimationControllerListener {
 
         public AnimationController AnimationController;
         public SceneController SceneController;
@@ -14,22 +14,35 @@ namespace Assets.Scripts {
 
         private GameObject currentObject = null;
         private bool isActive = false;
+        private int currentTake = -1;
+
+        private int CurrentTake {
+            get {
+                return currentTake;
+            }
+            set {
+                currentTake = value;
+                ChangeTakeIcon();
+            }
+        }
 
         void Start() {
+            SceneController.AddListener(this);
             AnimationController.AddListener(this);
+            CurrentSceneChanged(SceneController.GetCurrentScene());
         }
 
         public override void Next() {
-            UpdateCurrentTake(AnimationController.CurrentTake + 1);
+            UpdateCurrentTake(CurrentTake + 1);
         }
 
         public override void Prev() {
-            UpdateCurrentTake(AnimationController.CurrentTake - 1);
+            UpdateCurrentTake(CurrentTake - 1);
         }
 
         public override void Active() {
             isActive = true;
-            ChangeTakeIcon(AnimationController.CurrentTake);
+            ChangeTakeIcon();
         }
 
         public override void Desactive() {
@@ -43,15 +56,15 @@ namespace Assets.Scripts {
             var takesCount = SceneController.GetCurrentScene().Takes.Count();
             if (takesCount > 0) {
                 takeIndex = takeIndex < 0 ? takesCount + takeIndex : takeIndex;
-                AnimationController.CurrentTake = Math.Abs(takeIndex % takesCount);
+                CurrentTake = Math.Abs(takeIndex % takesCount);
             }
         }
 
-        private void ChangeTakeIcon(int index) {
+        private void ChangeTakeIcon() {
             if (currentObject) {
                 Destroy(currentObject);
             }
-            NewCurrentObject(AnimationController.CurrentTake);
+            NewCurrentObject(CurrentTake);
         }
 
         public override bool CanReceiveObject(MovableObject obj) {
@@ -60,7 +73,7 @@ namespace Assets.Scripts {
 
         public override void ObjectReceived(MovableObject obj) {
             Destroy(obj.gameObject);
-            ChangeTakeIcon(AnimationController.CurrentTake);
+            ChangeTakeIcon();
         }
 
         public override void ObjectRemoved(MovableObject obj) {
@@ -79,13 +92,26 @@ namespace Assets.Scripts {
             currentObject.GetComponent<NumberIcon>().Number = index;
             currentObject.GetComponent<Collider>().enabled = index > -1;
             currentObject.SetActive(isActive);
-            Debug.Log("Lol1");
-            Debug.Log(isActive);
         }
 
-        public void CurrentTakeChanged(int take) {
-            ChangeTakeIcon(take);
+
+        public void CurrentSceneIsGoingToChange() {
         }
 
+        public void CurrentSceneChanged(Scene currentScene) {
+            if (currentScene.Takes.Count() > 0) {
+                CurrentTake = 0;
+            } else {
+                CurrentTake = -1;
+            }
+        }
+
+        public void TakeDeleted(int take) {
+            CurrentSceneChanged(SceneController.GetCurrentScene());
+        }
+
+        public void TakeAdded(int take) {
+            CurrentSceneChanged(SceneController.GetCurrentScene());
+        }
     }
 }

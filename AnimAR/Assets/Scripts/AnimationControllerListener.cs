@@ -8,7 +8,9 @@ using UnityEngine.Events;
 namespace Assets.Scripts {
     public interface AnimationControllerListener {
 
-        void CurrentTakeChanged(int take);
+        void TakeAdded(int take);
+
+        void TakeDeleted(int take);
 
     }
 }

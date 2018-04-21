@@ -16,18 +16,21 @@ namespace Assets.Scripts {
         }
 
         public void ObjectReceived(MovableObject obj) {
+            var takeNumber = -1;
             switch (obj.type) {
                 case MovableObject.TYPE.TAKE_OBJECT:
-                    AnimationController.RemoveTake(obj.GetComponent<NumberIcon>().Number);
+                    takeNumber = obj.GetComponent<NumberIcon>().Number;
+                    break;
+                case MovableObject.TYPE.SCENE_OBJECT:
+                    takeNumber = SceneController.GetCurrentScene().Takes.FindIndex(take => take.GameObject == obj.gameObject);
                     break;
             }
+            Destroy(obj.gameObject);
 
-            int takeIndex = SceneController.GetCurrentScene().Takes.FindIndex(take => take.GameObject == obj.gameObject);
-            if (takeIndex > -1) {
-                AnimationController.RemoveTake(takeIndex);
+            if (takeNumber > -1) {
+                AnimationController.RemoveTake(takeNumber);
             }
 
-            Destroy(obj.gameObject);
             var effectObj = GameObject.Instantiate(IncinerateEffectGO);
             effectObj.transform.parent = this.transform;
             effectObj.transform.localPosition = Vector3.zero;

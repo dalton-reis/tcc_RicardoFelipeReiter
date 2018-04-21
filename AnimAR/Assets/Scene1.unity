@@ -113,48 +113,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &4654046
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 4654048}
-  - component: {fileID: 4654047}
-  m_Layer: 0
-  m_Name: AnimationController
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &4654047
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 4654046}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 39dc58abaf27bf041b6b175c72a57f12, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isPlaying: 0
-  SceneController: {fileID: 55684171}
---- !u!4 &4654048
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 4654046}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 9
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!21 &6067503
 Material:
   serializedVersion: 6
@@ -742,22 +700,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1ecf5fd11ed2f334eac99f65fad96311, type: 2}
   m_IsPrefabParent: 0
---- !u!1 &121653121 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1811154412077490, guid: 1ecf5fd11ed2f334eac99f65fad96311,
-    type: 2}
-  m_PrefabInternal: {fileID: 121653120}
---- !u!114 &121653122
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 121653121}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fbf3575480402db40813e763382412fb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &126314712
 GameObject:
   m_ObjectHideFlags: 0
@@ -1821,7 +1763,6 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 382416627}
-  - component: {fileID: 382416628}
   m_Layer: 0
   m_Name: Information
   m_TagString: Untagged
@@ -1843,20 +1784,6 @@ Transform:
   m_Father: {fileID: 553230368}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: -25, y: 0, z: 0}
---- !u!114 &382416628
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 382416626}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9ab04c157d903c640badc5d15fb1e6d4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Timeline: {fileID: 1432566773}
-  TimeText: {fileID: 1295573830}
-  InformationText: {fileID: 1252754020}
 --- !u!1 &415876898
 GameObject:
   m_ObjectHideFlags: 0
@@ -2391,6 +2318,7 @@ GameObject:
   - component: {fileID: 553230365}
   - component: {fileID: 553230364}
   - component: {fileID: 553230363}
+  - component: {fileID: 553230370}
   - component: {fileID: 553230369}
   m_Layer: 0
   m_Name: RecordTools
@@ -2514,10 +2442,24 @@ MonoBehaviour:
   RecButton: {fileID: 831178335}
   PlayButton: {fileID: 956861617}
   RewindButton: {fileID: 1395802032}
-  cubeMarkerController: {fileID: 1107270643}
+  Timeline: {fileID: 1432566773}
+  TimeText: {fileID: 1295573830}
+  InformationText: {fileID: 1252754020}
+  animationController: {fileID: 553230370}
+--- !u!114 &553230370
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 553230362}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 39dc58abaf27bf041b6b175c72a57f12, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SceneController: {fileID: 55684171}
   recorderTracker: {fileID: 1574468104}
-  animationController: {fileID: 4654047}
-  recorderUIController: {fileID: 382416628}
+  UIController: {fileID: 553230369}
 --- !u!21 &560678933
 Material:
   serializedVersion: 6
@@ -4546,7 +4488,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   showingObjectRoot: {fileID: 1469972932}
-  AnimationController: {fileID: 4654047}
+  AnimationController: {fileID: 553230370}
   SceneController: {fileID: 55684171}
   TakePrefab: {fileID: 1768572006251906, guid: ad629c38771d775408011bde77ded6b7, type: 2}
 --- !u!114 &1068841744
@@ -8154,7 +8096,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1942647328
 GameObject:
@@ -8749,7 +8691,7 @@ Prefab:
         type: 2}
       propertyPath: AnimationController
       value: 
-      objectReference: {fileID: 4654047}
+      objectReference: {fileID: 553230370}
     - target: {fileID: 114608491566346672, guid: f43818c9cb19fac4fa43f52d4a211840,
         type: 2}
       propertyPath: SceneController

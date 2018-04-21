@@ -39,7 +39,7 @@ namespace Assets.Scripts {
                 markText.text = "Take " + (i + 1);
             }
 
-            for (var i = takesTime.Length; i < TakeMarkList.Count; i++) {
+            for (var i = takesTime.Length; i < TakeMarkList.Count(); i++) {
                 Destroy(TakeMarkList[i]);
                 TakeMarkList.RemoveAt(i);
             }
