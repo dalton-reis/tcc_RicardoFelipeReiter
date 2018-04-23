@@ -38,8 +38,7 @@ namespace Assets.Scripts {
                 markRectTransform.anchoredPosition = new Vector2((takesTime[i] * fillAreaWidth) / endTime, 0.0f);
                 markText.text = "Take " + (i + 1);
             }
-
-            for (var i = takesTime.Length; i < TakeMarkList.Count(); i++) {
+            for (var i = TakeMarkList.Count() - 1; i >= takesTime.Length; i--) {
                 Destroy(TakeMarkList[i]);
                 TakeMarkList.RemoveAt(i);
             }

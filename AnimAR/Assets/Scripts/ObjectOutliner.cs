@@ -11,12 +11,16 @@ namespace Assets.Scripts {
 
         void Awake() {
             Renderer[] renderers = GetComponentsInChildren<Renderer>();
+            outlines.Clear();
             foreach (var render in renderers) {
-                Outline outline = render.gameObject.AddComponent<Outline>();
-                outline.OutlineMode = Outline.Mode.OutlineAll;
-                outline.OutlineWidth = 2;
-                outline.OutlineColor = Color.red;
-                outline.enabled = false;
+                var outline = render.GetComponent<Outline>();
+                if (!outline) {
+                    outline = render.gameObject.AddComponent<Outline>();
+                    outline.OutlineMode = Outline.Mode.OutlineAll;
+                    outline.OutlineWidth = 2;
+                    outline.OutlineColor = Color.red;
+                    outline.enabled = false;
+                }
                 outlines.Add(outline);
             }
         }

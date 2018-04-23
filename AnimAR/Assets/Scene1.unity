@@ -119,7 +119,7 @@ Material:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: RecordToolsMarkerMaterial
+  m_Name: recorderMaterial
   m_Shader: {fileID: 10752, guid: 0000000000000000f000000000000000, type: 0}
   m_ShaderKeywords: 
   m_LightmapFlags: 5
@@ -132,7 +132,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 3dea08ff8af9405eac65fee64dc4ef1c, type: 3}
+        m_Texture: {fileID: 2800000, guid: 86a77ce8cb90490da405e9d62c142d67, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats: []
@@ -526,7 +526,7 @@ Transform:
   m_GameObject: {fileID: 104586674}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0.011, z: 0}
-  m_LocalScale: {x: 0.100001305, y: 0.1, z: 0.10999999}
+  m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_Children:
   - {fileID: 1128547696}
   m_Father: {fileID: 1083162199}
@@ -1978,7 +1978,7 @@ Transform:
   m_GameObject: {fileID: 462173980}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0.001, z: 0}
-  m_LocalScale: {x: 0.1, y: 0.1, z: 0.037}
+  m_LocalScale: {x: 0.10000009, y: 0.1, z: 0.038398996}
   m_Children: []
   m_Father: {fileID: 553230368}
   m_RootOrder: 4
@@ -2401,15 +2401,15 @@ MonoBehaviour:
   m_Script: {fileID: -1631628248, guid: bab6fa851cf5a1a4bba3cec5f191cb8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mTrackableName: RecordToolsMarker
+  mTrackableName: recorder
   mPreserveChildSize: 0
   mInitializedInEditor: 1
   mDataSetPath: Vuforia/AnimAR.xml
   mExtendedTracking: 0
-  mAspectRatio: 0.375
+  mAspectRatio: 0.390625
   mImageTargetType: 0
-  mWidth: 20
-  mHeight: 7.5
+  mWidth: 17
+  mHeight: 6.640625
 --- !u!4 &553230368
 Transform:
   m_ObjectHideFlags: 0
@@ -2418,7 +2418,7 @@ Transform:
   m_GameObject: {fileID: 553230362}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 28.99, y: 0, z: -17.12}
-  m_LocalScale: {x: 20, y: 20, z: 20}
+  m_LocalScale: {x: 17, y: 17, z: 17}
   m_Children:
   - {fileID: 831178336}
   - {fileID: 956861618}
@@ -2479,7 +2479,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 2b7ecef222684e769e4be24b4c33a8ac, type: 3}
+        m_Texture: {fileID: 2800000, guid: 3ca17c4506d94ec2a8336293477a1111, type: 3}
         m_Scale: {x: -1, y: -1}
         m_Offset: {x: 0, y: 0}
     m_Floats: []
@@ -2627,8 +2627,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 601692490}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.011000001, z: 0}
-  m_LocalScale: {x: 0.1, y: 0.1, z: 0.11}
+  m_LocalPosition: {x: 0, y: 0.011, z: 0}
+  m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_Children:
   - {fileID: 847784351}
   m_Father: {fileID: 1105556775}
@@ -2838,7 +2838,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: bcbdff6964f4407fa142ab956f88da42, type: 3}
+        m_Texture: {fileID: 2800000, guid: af9215998fd143bcb0192e926e1973b7, type: 3}
         m_Scale: {x: -1, y: -1}
         m_Offset: {x: 0, y: 0}
     m_Floats: []
@@ -2850,7 +2850,7 @@ Material:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: object_factory_v2Material
+  m_Name: selectorMaterial
   m_Shader: {fileID: 10752, guid: 0000000000000000f000000000000000, type: 0}
   m_ShaderKeywords: 
   m_LightmapFlags: 5
@@ -2863,7 +2863,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 981dbcbc17f64df1870eca29012ec1c2, type: 3}
+        m_Texture: {fileID: 2800000, guid: 319a8d3a42bd4d4198c9601071f6d68f, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats: []
@@ -2888,7 +2888,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 74de421bb91b43428625bd031acd0c47, type: 3}
+        m_Texture: {fileID: 2800000, guid: 18034bf682dc4050a08cd7500ed438bd, type: 3}
         m_Scale: {x: -1, y: -1}
         m_Offset: {x: 0, y: 0}
     m_Floats: []
@@ -3666,17 +3666,17 @@ MonoBehaviour:
   mSensitivity: 2
   mHasUpdatedPose: 1
   mPrevTransform:
-    e00: 5
+    e00: 4.25
     e01: 0
     e02: 0
     e03: 28.99
     e10: 0
-    e11: 20
+    e11: 17
     e12: 0
-    e13: 0.020000001
+    e13: 0.017
     e20: 0
     e21: 0
-    e22: 4.6
+    e22: 3.91
     e23: -17.12
     e30: 0
     e31: 0
@@ -3947,7 +3947,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 956861617}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.32599995, y: 0.001, z: 0}
+  m_LocalPosition: {x: 0.3259999, y: 0.001, z: 0}
   m_LocalScale: {x: 0.25, y: 1, z: 0.23}
   m_Children:
   - {fileID: 684821610}
@@ -4021,17 +4021,17 @@ MonoBehaviour:
   mSensitivity: 2
   mHasUpdatedPose: 1
   mPrevTransform:
-    e00: 5
+    e00: 4.25
     e01: 0
     e02: 0
-    e03: 35.51
+    e03: 34.531998
     e10: 0
-    e11: 20
+    e11: 17
     e12: 0
-    e13: 0.020000001
+    e13: 0.017
     e20: 0
     e21: 0
-    e22: 4.6
+    e22: 3.91
     e23: -17.12
     e30: 0
     e31: 0
@@ -4417,15 +4417,15 @@ MonoBehaviour:
   m_Script: {fileID: -1631628248, guid: bab6fa851cf5a1a4bba3cec5f191cb8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mTrackableName: object_factory_v2
+  mTrackableName: selector
   mPreserveChildSize: 0
   mInitializedInEditor: 1
   mDataSetPath: Vuforia/AnimAR.xml
   mExtendedTracking: 0
   mAspectRatio: 0.390625
   mImageTargetType: 0
-  mWidth: 10
-  mHeight: 3.90625
+  mWidth: 17
+  mHeight: 6.640625
 --- !u!4 &1068841740
 Transform:
   m_ObjectHideFlags: 0
@@ -4434,13 +4434,14 @@ Transform:
   m_GameObject: {fileID: 1068841733}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 24.76, y: 0, z: -5.96}
-  m_LocalScale: {x: 10, y: 10, z: 10}
+  m_LocalScale: {x: 17, y: 17, z: 17}
   m_Children:
   - {fileID: 1469972932}
   - {fileID: 1105556775}
   - {fileID: 1365530786}
   - {fileID: 1083162199}
   - {fileID: 1549396327}
+  - {fileID: 2080092454}
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -4533,7 +4534,7 @@ Transform:
   m_GameObject: {fileID: 1083162198}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0.001, z: 0}
-  m_LocalScale: {x: 0.3230558, y: 1, z: 0.35}
+  m_LocalScale: {x: 0.25, y: 1, z: 0.26}
   m_Children:
   - {fileID: 104586675}
   m_Father: {fileID: 1068841740}
@@ -4606,17 +4607,17 @@ MonoBehaviour:
   mSensitivity: 1
   mHasUpdatedPose: 1
   mPrevTransform:
-    e00: 3.230558
+    e00: 4.25
     e01: 0
     e02: 0
     e03: 24.76
     e10: 0
-    e11: 10
+    e11: 17
     e12: 0
-    e13: 0.010000001
+    e13: 0.017
     e20: 0
     e21: 0
-    e22: 3.5
+    e22: 4.42
     e23: -5.96
     e30: 0
     e31: 0
@@ -4733,7 +4734,7 @@ Transform:
   m_GameObject: {fileID: 1101865372}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0.011, z: 0}
-  m_LocalScale: {x: 0.1, y: 0.1, z: 0.11}
+  m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_Children:
   - {fileID: 443277171}
   m_Father: {fileID: 1365530786}
@@ -4882,8 +4883,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1105556774}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.3274996, y: 0.001, z: 0}
-  m_LocalScale: {x: 0.32305583, y: 1, z: 0.35}
+  m_LocalPosition: {x: 0.33100006, y: 0.001, z: 0}
+  m_LocalScale: {x: 0.25, y: 1, z: 0.26}
   m_Children:
   - {fileID: 601692491}
   m_Father: {fileID: 1068841740}
@@ -4956,17 +4957,17 @@ MonoBehaviour:
   mSensitivity: 1
   mHasUpdatedPose: 1
   mPrevTransform:
-    e00: 3.2305584
+    e00: 4.25
     e01: 0
     e02: 0
-    e03: 28.034996
+    e03: 30.387001
     e10: 0
-    e11: 10
+    e11: 17
     e12: 0
-    e13: 0.010000001
+    e13: 0.017
     e20: 0
     e21: 0
-    e22: 3.5
+    e22: 4.42
     e23: -5.96
     e30: 0
     e31: 0
@@ -5273,7 +5274,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 3e55ab578fc1442d8acae3681542f9fb, type: 3}
+        m_Texture: {fileID: 2800000, guid: 8b99797184504825a8c9d95c7546db1f, type: 3}
         m_Scale: {x: -1, y: -1}
         m_Offset: {x: 0, y: 0}
     m_Floats: []
@@ -5845,17 +5846,17 @@ MonoBehaviour:
   mSensitivity: 1
   mHasUpdatedPose: 1
   mPrevTransform:
-    e00: 3.230558
+    e00: 4.25
     e01: 0
     e02: 0
-    e03: 21.534
+    e03: 19.133
     e10: 0
-    e11: 10
+    e11: 17
     e12: 0
-    e13: 0.010000001
+    e13: 0.017
     e20: 0
     e21: 0
-    e22: 3.5
+    e22: 4.42
     e23: -5.96
     e30: 0
     e31: 0
@@ -5869,8 +5870,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1365530781}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.32259998, y: 0.001, z: 0}
-  m_LocalScale: {x: 0.3230558, y: 1, z: 0.35}
+  m_LocalPosition: {x: -0.33100006, y: 0.001, z: 0}
+  m_LocalScale: {x: 0.25, y: 1, z: 0.26}
   m_Children:
   - {fileID: 1101865373}
   m_Father: {fileID: 1068841740}
@@ -5976,17 +5977,17 @@ MonoBehaviour:
   mSensitivity: 2
   mHasUpdatedPose: 1
   mPrevTransform:
-    e00: 5
+    e00: 4.25
     e01: 0
     e02: 0
-    e03: 22.65
+    e03: 23.601
     e10: 0
-    e11: 20
+    e11: 17
     e12: 0
-    e13: 0.020000001
+    e13: 0.017
     e20: 0
     e21: 0
-    e22: 4.6
+    e22: 3.91
     e23: -17.12
     e30: 0
     e31: 0
@@ -6602,7 +6603,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1549396326}
   m_LocalRotation: {x: 0.5, y: 0, z: 0, w: 0.8660254}
-  m_LocalPosition: {x: 0, y: 0, z: 0.23}
+  m_LocalPosition: {x: 0, y: 0, z: 0.237}
   m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_Children:
   - {fileID: 674563545}
@@ -6612,7 +6613,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 60, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0.03}
+  m_AnchoredPosition: {x: 0, y: 0.026}
   m_SizeDelta: {x: 10, y: 1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1549396328
@@ -6691,7 +6692,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: cb6333018f684b92b93485b182c09c64, type: 3}
+        m_Texture: {fileID: 2800000, guid: 4235d25f7c4a4f2ca8291feaa5954e2a, type: 3}
         m_Scale: {x: -1, y: -1}
         m_Offset: {x: 0, y: 0}
     m_Floats: []
@@ -7267,7 +7268,7 @@ Mesh:
     vertexCount: 4
     localAABB:
       m_Center: {x: 0, y: 0, z: 0}
-      m_Extent: {x: 0.5, y: 0, z: 0.1875}
+      m_Extent: {x: 0.5, y: 0, z: 0.1953125}
   m_Shapes:
     vertices: []
     shapes: []
@@ -7320,7 +7321,7 @@ Mesh:
       format: 0
       dimension: 0
     m_DataSize: 128
-    _typelessdata: 000000bf00000000000040be000000000000803f000000000000000000000000000000bf000000000000403e000000000000803f00000000000000000000803f0000003f00000000000040be000000000000803f000000000000803f000000000000003f000000000000403e000000000000803f000000000000803f0000803f
+    _typelessdata: 000000bf00000000000048be000000000000803f000000000000000000000000000000bf000000000000483e000000000000803f00000000000000000000803f0000003f00000000000048be000000000000803f000000000000803f000000000000003f000000000000483e000000000000803f000000000000803f0000803f
   m_CompressedMesh:
     m_Vertices:
       m_NumItems: 0
@@ -7679,7 +7680,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 1db647e5b17c486eb4d8e9f2e394da62, type: 3}
+        m_Texture: {fileID: 2800000, guid: 909698b26ccf426eb629abb8a081fb00, type: 3}
         m_Scale: {x: -1, y: -1}
         m_Offset: {x: 0, y: 0}
     m_Floats: []
@@ -7903,7 +7904,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 2239e578a6ce4e48b4560d981e6ccc67, type: 3}
+        m_Texture: {fileID: 2800000, guid: 2e81fbebac8f4c1a8ee4302513bcd5cb, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats: []
@@ -8268,7 +8269,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: c58c63587c294ef4a94e092c9a611f5e, type: 3}
+        m_Texture: {fileID: 2800000, guid: 51aac52e14a34ddf83a7391c6fd16c29, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats: []
@@ -8406,6 +8407,77 @@ MeshFilter:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2066411266}
+  m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &2080092453
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 2080092454}
+  - component: {fileID: 2080092456}
+  - component: {fileID: 2080092455}
+  m_Layer: 0
+  m_Name: Background
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2080092454
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2080092453}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.001, z: 0}
+  m_LocalScale: {x: 0.1, y: 0.1, z: 0.038999896}
+  m_Children: []
+  m_Father: {fileID: 1068841740}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!23 &2080092455
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2080092453}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_Materials:
+  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 1
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+--- !u!33 &2080092456
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2080092453}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &2113826004
 GameObject:

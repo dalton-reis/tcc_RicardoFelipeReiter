@@ -65,8 +65,17 @@ namespace Assets.Scripts {
         }
 
         public void NewCurrentObject(GameObject objToCopy) {
+            var outliner = objToCopy.GetComponent<ObjectOutliner>();
+            if (outliner) {
+                outliner.SetEnabled(false);
+            }
+
             currentObject = GameObject.Instantiate(objToCopy, showingObjectRoot);
             currentObject.transform.localPosition = new Vector3(0, 0, 0);
+
+            if (outliner) {
+                outliner.SetEnabled(true);
+            }
         }
 
     }

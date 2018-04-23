@@ -114,14 +114,15 @@ namespace Assets.Scripts {
         }
 
         private void CalculateClipTimes() {
+            EndTime = 0.0f;
             foreach (var take in SceneController.GetCurrentScene().Takes) {
-                if (endTime < take.Clip.length) {
-                    endTime = take.Clip.length;
+                if (EndTime < take.Clip.length) {
+                    EndTime = take.Clip.length;
                     longestTake = take;
                 }
             }
 
-            currentTime = 0.0f;
+            CurrentTime = 0.0f;
         }
 
         public void PlayAll() {
@@ -137,8 +138,11 @@ namespace Assets.Scripts {
 
         public void StopAll() {
             cubeMarkerController.ResetAttached();
+            Debug.Log("Stopping");
+            Debug.Log(SceneController.GetCurrentScene().Takes);
             foreach (AnimationTake take in SceneController.GetCurrentScene().Takes) {
                 take.Animation.Stop("clip");
+                Debug.Log(take);
             }
             Status = STATUS.IDLE;
         }
