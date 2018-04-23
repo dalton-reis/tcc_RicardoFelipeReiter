@@ -10,7 +10,6 @@ namespace Assets.Scripts {
 
         public SceneController SceneController;
         public RecorderTracker recorderTracker;
-        public AnimationUIController UIController;
 
         public enum STATUS {
             IDLE, WAITING_OBJECT_TO_ATTACH, RECORDING, PLAYING
@@ -50,7 +49,7 @@ namespace Assets.Scripts {
             }
             private set {
                 status = value;
-                UIController.SetRecorderStatus(status);
+                NotifyStatusChanged();
             }
         }
 
@@ -71,11 +70,11 @@ namespace Assets.Scripts {
             switch (status) {
                 case STATUS.RECORDING:
                     recorder.TakeSnapshot(Time.deltaTime);
-                    UIController.SetTime(recorder.currentTime, EndTime, GetTakesTime());
+                    NotifyAnimationTimesChanged();
                     break;
                 case STATUS.PLAYING:
                     currentTime = longestTake.Animation["clip"].time;
-                    UIController.SetTime(CurrentTime, EndTime, GetTakesTime());
+                    NotifyAnimationTimesChanged();
                     if (!longestTake.Animation.isPlaying) {
                         Status = STATUS.IDLE;
                     }
@@ -138,11 +137,9 @@ namespace Assets.Scripts {
 
         public void StopAll() {
             cubeMarkerController.ResetAttached();
-            Debug.Log("Stopping");
             Debug.Log(SceneController.GetCurrentScene().Takes);
             foreach (AnimationTake take in SceneController.GetCurrentScene().Takes) {
                 take.Animation.Stop("clip");
-                Debug.Log(take);
             }
             Status = STATUS.IDLE;
         }
@@ -162,8 +159,8 @@ namespace Assets.Scripts {
                     state.enabled = false;
                 }
             }
-            currentTime = 0.0f;
-            UIController.SetTime(CurrentTime, EndTime, GetTakesTime());
+            CurrentTime = 0.0f;
+            NotifyAnimationTimesChanged();
         }
 
         public void AddListener(AnimationControllerListener listener) {
@@ -179,6 +176,18 @@ namespace Assets.Scripts {
         public void NotifyTakeDeleted(int take) {
             foreach (var listener in listeners) {
                 listener.TakeDeleted(take);
+            }
+        }
+
+        public void NotifyStatusChanged() {
+            foreach (var listener in listeners) {
+                listener.StatusChanged(Status);
+            }
+        }
+
+        public void NotifyAnimationTimesChanged() {
+            foreach (var listener in listeners) {
+                listener.AnimationTimesChanged(CurrentTime, EndTime, GetTakesTime());
             }
         }
 
@@ -216,8 +225,7 @@ namespace Assets.Scripts {
                 recorder.ResetRecording();
                 cubeMarkerController.SetAttachMode(CubeMarkerAttachMode.NORMAL);
 
-                // Mudar para função mais generica
-                UIController.SetTime(CurrentTime, EndTime, GetTakesTime());
+                NotifyAnimationTimesChanged();
             }
         }
 
@@ -234,7 +242,7 @@ namespace Assets.Scripts {
         private void ResetController() {
             Status = STATUS.IDLE;
             CalculateClipTimes();
-            UIController.SetTime(CurrentTime, EndTime, GetTakesTime());
+            NotifyAnimationTimesChanged();
         }
 
         public void ObjectAttached(MovableObject obj) {
@@ -242,7 +250,6 @@ namespace Assets.Scripts {
                 this.recorderTracker.source = obj.transform;
                 Status = STATUS.RECORDING;
             }
-            UIController.SetRecorderStatus(status);
         }
 
         public void ObjectDetached(MovableObject obj) {

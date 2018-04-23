@@ -113,5 +113,12 @@ namespace Assets.Scripts {
         public void TakeAdded(int take) {
             CurrentSceneChanged(SceneController.GetCurrentScene());
         }
+
+
+        public void StatusChanged(AnimationController.STATUS status) {
+        }
+
+        public void AnimationTimesChanged(float currentTime, float endTime, float[] takesTime) {
+        }
     }
 }

@@ -8,7 +8,7 @@ using Vuforia;
 using System.Globalization;
 
 namespace Assets.Scripts {
-    public class AnimationUIController : MonoBehaviour, IVirtualButtonEventHandler {
+    public class AnimationUIController : MonoBehaviour, IVirtualButtonEventHandler, AnimationControllerListener {
 
         public GameObject RecButton;
         public GameObject PlayButton;
@@ -23,6 +23,8 @@ namespace Assets.Scripts {
             RecButton.GetComponent<VirtualButtonBehaviour>().RegisterEventHandler(this);
             PlayButton.GetComponent<VirtualButtonBehaviour>().RegisterEventHandler(this);
             RewindButton.GetComponent<VirtualButtonBehaviour>().RegisterEventHandler(this);
+
+            animationController.AddListener(this);
         }
 
 
@@ -62,7 +64,7 @@ namespace Assets.Scripts {
         public void OnButtonReleased(VirtualButtonBehaviour vb) {
         }
 
-        public void SetRecorderStatus(AnimationController.STATUS status) {
+        private void SetRecorderStatus(AnimationController.STATUS status) {
             switch (status) {
                 case AnimationController.STATUS.IDLE:
                     InformationText.text = "IDLE";
@@ -79,7 +81,7 @@ namespace Assets.Scripts {
             }
         }
 
-        public void SetTime(float currentTime, float endTime, float[] takesTime) {
+        private void SetTime(float currentTime, float endTime, float[] takesTime) {
             var endString = endTime.ToString("F", CultureInfo.InvariantCulture);
             if (endTime <= 0 || currentTime > endTime) {
                 endString = "-:--";
@@ -91,5 +93,19 @@ namespace Assets.Scripts {
             Timeline.SetTime(currentTime, endTime, takesTime);
         }
 
+
+        public void TakeAdded(int take) {
+        }
+
+        public void TakeDeleted(int take) {
+        }
+
+        public void StatusChanged(AnimationController.STATUS status) {
+            SetRecorderStatus(status);
+        }
+
+        public void AnimationTimesChanged(float currentTime, float endTime, float[] takesTime) {
+            SetTime(currentTime, endTime, takesTime);
+        }
     }
 }

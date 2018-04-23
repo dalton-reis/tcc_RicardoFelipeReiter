@@ -12,5 +12,9 @@ namespace Assets.Scripts {
 
         void TakeDeleted(int take);
 
+        void StatusChanged(AnimationController.STATUS status);
+
+        void AnimationTimesChanged(float currentTime, float endTime, float[] takesTime);
+
     }
 }
