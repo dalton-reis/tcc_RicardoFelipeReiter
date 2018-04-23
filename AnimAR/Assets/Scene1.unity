@@ -2319,6 +2319,7 @@ GameObject:
   - component: {fileID: 553230364}
   - component: {fileID: 553230363}
   - component: {fileID: 553230370}
+  - component: {fileID: 553230371}
   - component: {fileID: 553230369}
   m_Layer: 0
   m_Name: RecordTools
@@ -2439,9 +2440,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 929b14255c9cfa24780da48110579713, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  RecButton: {fileID: 831178335}
-  PlayButton: {fileID: 956861617}
-  RewindButton: {fileID: 1395802032}
   Timeline: {fileID: 1432566773}
   TimeText: {fileID: 1295573830}
   InformationText: {fileID: 1252754020}
@@ -2459,7 +2457,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SceneController: {fileID: 55684171}
   recorderTracker: {fileID: 1574468104}
-  UIController: {fileID: 553230369}
+--- !u!114 &553230371
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 553230362}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02dd08d7f8baea04ead19f6bbb751d3d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  holdOnTime: 0.3
+  Buttons:
+  - {fileID: 831178335}
+  - {fileID: 956861617}
+  - {fileID: 1395802032}
 --- !u!21 &560678933
 Material:
   serializedVersion: 6
@@ -4311,6 +4324,7 @@ GameObject:
   - component: {fileID: 1068841739}
   - component: {fileID: 1068841738}
   - component: {fileID: 1068841737}
+  - component: {fileID: 1068841745}
   - component: {fileID: 1068841742}
   - component: {fileID: 1068841736}
   - component: {fileID: 1068841743}
@@ -4468,9 +4482,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa8d507474755114faa2eb47ac465c6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  NextButton: {fileID: 1105556774}
-  PrevButton: {fileID: 1365530781}
-  ChangeSelectorButton: {fileID: 1083162198}
   SelectorLabel: {fileID: 782665062}
   Selectors:
   - {fileID: 1068841736}
@@ -4507,6 +4518,22 @@ MonoBehaviour:
   SceneController: {fileID: 55684171}
   SceneNumberPrefab: {fileID: 1768572006251906, guid: ad629c38771d775408011bde77ded6b7,
     type: 2}
+--- !u!114 &1068841745
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1068841733}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02dd08d7f8baea04ead19f6bbb751d3d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  holdOnTime: 0.4
+  Buttons:
+  - {fileID: 1105556774}
+  - {fileID: 1365530781}
+  - {fileID: 1083162198}
 --- !u!1 &1083162198
 GameObject:
   m_ObjectHideFlags: 0

@@ -83,6 +83,7 @@ namespace Assets.Scripts {
                 if (currentStatus == CubeMarkerStatus.NOP) {
                     objectMarkerOver = movable;
                     if (objectMarkerOver.outliner) {
+                        objectMarkerOver.outliner.SetColor(Color.red);
                         objectMarkerOver.outliner.SetEnabled(true);
                     }
                     currentTime = secondsToHold;

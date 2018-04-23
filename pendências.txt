@@ -2,5 +2,4 @@
 - Novos marcadores e repaginada na UI
 - Novos objetos para fábrica
 - Corrigir bug do NullPointer do interactor quando cube marker é detectado já dentro do trigger da scene
-- Mudar lógica dos botões para só ativar depois de 1 segundo apertado
 - Bug resetAttached quando cubo sumiu, reativar renderers do objeto attached

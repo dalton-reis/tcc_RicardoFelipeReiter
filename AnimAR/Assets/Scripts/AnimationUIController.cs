@@ -8,60 +8,16 @@ using Vuforia;
 using System.Globalization;
 
 namespace Assets.Scripts {
-    public class AnimationUIController : MonoBehaviour, IVirtualButtonEventHandler, AnimationControllerListener {
-
-        public GameObject RecButton;
-        public GameObject PlayButton;
-        public GameObject RewindButton;
-        
+    public class AnimationUIController : MonoBehaviour, VirtualButtonListener, AnimationControllerListener {
+   
         public TimelineUI Timeline;
         public Text TimeText;
         public Text InformationText;
         public AnimationController animationController;
 
         void Start() {
-            RecButton.GetComponent<VirtualButtonBehaviour>().RegisterEventHandler(this);
-            PlayButton.GetComponent<VirtualButtonBehaviour>().RegisterEventHandler(this);
-            RewindButton.GetComponent<VirtualButtonBehaviour>().RegisterEventHandler(this);
-
+            GetComponent<VirtualButtonHandler>().AddListener(this);
             animationController.AddListener(this);
-        }
-
-
-        public void OnButtonPressed(VirtualButtonBehaviour vb) {
-            switch (vb.VirtualButtonName) {
-                case "Record":
-                    switch (animationController.Status) {
-                        case AnimationController.STATUS.RECORDING:
-                            animationController.StopRecording();
-                            break;
-                        case AnimationController.STATUS.WAITING_OBJECT_TO_ATTACH:
-                            animationController.PrepareForRecording(true);
-                            break;
-                        case AnimationController.STATUS.IDLE:
-                            animationController.PrepareForRecording(false);
-                            break;
-                    }
-                    break;
-                case "Play":
-                    switch (animationController.Status) {
-                        case AnimationController.STATUS.PLAYING:
-                            animationController.StopAll();
-                            break;
-                        case AnimationController.STATUS.IDLE:
-                            animationController.PlayAll();
-                            break;
-                    }
-                    break;
-                case "Rewind":
-                    if (animationController.Status == AnimationController.STATUS.IDLE || animationController.Status == AnimationController.STATUS.PLAYING) {
-                        animationController.RewindAll();
-                    }
-                    break;
-            }
-        }
-
-        public void OnButtonReleased(VirtualButtonBehaviour vb) {
         }
 
         private void SetRecorderStatus(AnimationController.STATUS status) {
@@ -106,6 +62,39 @@ namespace Assets.Scripts {
 
         public void AnimationTimesChanged(float currentTime, float endTime, float[] takesTime) {
             SetTime(currentTime, endTime, takesTime);
+        }
+
+        public void ButtonPressed(VirtualButtonBehaviour vb) {
+            switch (vb.VirtualButtonName) {
+                case "Record":
+                    switch (animationController.Status) {
+                        case AnimationController.STATUS.RECORDING:
+                            animationController.StopRecording();
+                            break;
+                        case AnimationController.STATUS.WAITING_OBJECT_TO_ATTACH:
+                            animationController.PrepareForRecording(true);
+                            break;
+                        case AnimationController.STATUS.IDLE:
+                            animationController.PrepareForRecording(false);
+                            break;
+                    }
+                    break;
+                case "Play":
+                    switch (animationController.Status) {
+                        case AnimationController.STATUS.PLAYING:
+                            animationController.StopAll();
+                            break;
+                        case AnimationController.STATUS.IDLE:
+                            animationController.PlayAll();
+                            break;
+                    }
+                    break;
+                case "Rewind":
+                    if (animationController.Status == AnimationController.STATUS.IDLE || animationController.Status == AnimationController.STATUS.PLAYING) {
+                        animationController.RewindAll();
+                    }
+                    break;
+            }
         }
     }
 }

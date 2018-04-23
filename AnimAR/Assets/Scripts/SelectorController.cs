@@ -7,11 +7,8 @@ using UnityEngine.UI;
 using Vuforia;
 
 namespace Assets.Scripts {
-    public class SelectorController : MonoBehaviour, IVirtualButtonEventHandler, CubeMarkerInteractor, ITrackableEventHandler {
+    public class SelectorController : MonoBehaviour, CubeMarkerInteractor, ITrackableEventHandler, VirtualButtonListener {
 
-        public GameObject NextButton;
-        public GameObject PrevButton;
-        public GameObject ChangeSelectorButton;
         public Text SelectorLabel;
         public Selector[] Selectors;
         public CubeMarkerController CubeMarkerController;
@@ -20,35 +17,14 @@ namespace Assets.Scripts {
         private Selector currentSelector;
 
         void Start() {
-            NextButton.GetComponent<VirtualButtonBehaviour>().RegisterEventHandler(this);
-            PrevButton.GetComponent<VirtualButtonBehaviour>().RegisterEventHandler(this);
-            ChangeSelectorButton.GetComponent<VirtualButtonBehaviour>().RegisterEventHandler(this);
             GetComponent<ImageTargetBehaviour>().RegisterTrackableEventHandler(this);
+            GetComponent<VirtualButtonHandler>().AddListener(this);
 
             foreach (Selector selector in Selectors) {
                 selector.Desactive();
             }
 
             ChangeSelector(0);
-        }
-
-        public void OnButtonPressed(VirtualButtonBehaviour vb) {
-            switch (vb.VirtualButtonName) {
-                case "Next":
-                    currentSelector.Next();
-                    CubeMarkerController.ResetAttached();
-                    break;
-                case "Prev":
-                    currentSelector.Prev();
-                    CubeMarkerController.ResetAttached();
-                    break;
-                case "ChangeSelector":
-                    ChangeSelector(currentSelectorIndex + 1);
-                    break;
-            }
-        }
-
-        public void OnButtonReleased(VirtualButtonBehaviour vb) {
         }
 
         private void ChangeSelector(int index) {
@@ -83,5 +59,22 @@ namespace Assets.Scripts {
                 }
             }
         }
+
+        public void ButtonPressed(VirtualButtonBehaviour vb) {
+            switch (vb.VirtualButtonName) {
+                case "Next":
+                    currentSelector.Next();
+                    CubeMarkerController.ResetAttached();
+                    break;
+                case "Prev":
+                    currentSelector.Prev();
+                    CubeMarkerController.ResetAttached();
+                    break;
+                case "ChangeSelector":
+                    ChangeSelector(currentSelectorIndex + 1);
+                    break;
+            }
+        }
+
     }
 }
