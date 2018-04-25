@@ -125,6 +125,7 @@ namespace Assets.Scripts {
         public void ResetAttached() {
             // TODO: Normalmente chamado no SelectorController e no RecorderController, talvez criar um listener para ambos e esse daqui ser um observer
             if (attachedObject) {
+                VuforiaUtils.EnableTargetObject(attachedObject.gameObject);
                 attachedObject.currentInteractor.ObjectReceived(attachedObject);
                 attachedObject.transform.localPosition = attachedObjectInitialPos;
                 attachedObject.transform.localRotation = attachedObjectInitialRot;

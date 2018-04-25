@@ -1,7 +1,6 @@
 - Highlight do take selecionado quando o seletor estiver ativo, talvez rodar animação enquanto o seletor está ativo
 - Novos marcadores e repaginada na UI
 - Novos objetos para fábrica
-- Bug resetAttached quando cubo sumiu, reativar renderers do objeto attached
 - Menu principal
 - Remover take parou de funcionar?
 - Tutorial
