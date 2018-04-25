@@ -47,7 +47,7 @@ namespace Assets.Scripts {
                     currentTime -= Time.fixedDeltaTime;
                     if (currentTime <= 0) {
                         if (currentStatus == CubeMarkerStatus.MARKER_OVER_OBJECT) {
-                            interactor.ObjectRemoved(objectMarkerOver);
+                            objectMarkerOver.currentInteractor.ObjectRemoved(objectMarkerOver);
                             attachedObject = objectMarkerOver;
                             attachedObjectInitialPos = attachedObject.transform.localPosition;
                             attachedObjectInitialRot = attachedObject.transform.localRotation;
