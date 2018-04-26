@@ -98,7 +98,7 @@ namespace Assets.Scripts {
             animation.playAutomatically = false;
             animation.AddClip(clip, "clip");
 
-            var newTake = new AnimationTake(animation, clip, recorder.source);
+            var newTake = new AnimationTake(animation, clip, recorderTracker.source.gameObject);
 
             var animationIndex = SceneController.GetCurrentScene().Takes.FindIndex(take => take.Animation == animation);
             // O objeto gravado já pertence à alguma take: substitui-la deverá

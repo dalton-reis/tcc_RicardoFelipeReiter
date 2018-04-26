@@ -4,3 +4,4 @@
 - Menu principal
 - Remover take parou de funcionar?
 - Tutorial
+- Save/Load
