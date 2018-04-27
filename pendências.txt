@@ -2,6 +2,6 @@
 - Novos marcadores e repaginada na UI
 - Novos objetos para fábrica
 - Menu principal
-- Remover take parou de funcionar?
 - Tutorial
 - Save/Load
+- Marcador de informações da cena?
