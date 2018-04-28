@@ -32,15 +32,15 @@ namespace Assets.Scripts {
         }
 
         public void ShowTutorial() {
-
+            WindowManager.Instance.OpenWindow("tutorial");
         }
 
         public void ShowAbout() {
-
+            WindowManager.Instance.OpenWindow("about");
         }
 
         public void CleanSavedData() {
-
+            WindowManager.Instance.OpenWindow("cleanSavedData");
         }
 
         public void Exit() {

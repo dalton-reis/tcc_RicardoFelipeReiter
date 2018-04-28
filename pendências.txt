@@ -1,7 +1,6 @@
 - Highlight do take selecionado quando o seletor estiver ativo, talvez rodar animação enquanto o seletor está ativo
 - Novos marcadores e repaginada na UI
 - Novos objetos para fábrica
-- Menu principal
 - Tutorial
 - Save/Load
 - Marcador de informações da cena?
