@@ -57,6 +57,7 @@ namespace Assets.Scripts {
                 } else {
                     currentSelector.Desactive();
                 }
+                PersistController.Instance.PersistEverything();
             }
         }
 

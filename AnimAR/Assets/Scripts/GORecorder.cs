@@ -12,7 +12,7 @@ namespace Assets.Scripts {
 
         private TransformCurves curves = new TransformCurves();
 
-        private class TransformCurves {
+        public class TransformCurves {
             public AnimationCurve posX = new AnimationCurve();
             public AnimationCurve posY = new AnimationCurve();
             public AnimationCurve posZ = new AnimationCurve();
@@ -75,6 +75,14 @@ namespace Assets.Scripts {
             clip.EnsureQuaternionContinuity();
 
             Debug.Log("Curve KeyFrame Quantity: " + curves.posX.keys.Count());
+        }
+
+        public TransformCurves GetCurves() {
+            return this.curves;
+        }
+
+        public void SetCurves(TransformCurves curves) {
+            this.curves = curves;
         }
 
     }

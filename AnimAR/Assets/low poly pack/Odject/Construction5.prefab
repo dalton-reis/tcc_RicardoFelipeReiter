@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 65535841819601318}
   - component: {fileID: 114368420285888546}
   - component: {fileID: 114740426906212336}
+  - component: {fileID: 114141976596113182}
   m_Layer: 0
   m_Name: Construction5
   m_TagString: Movable
@@ -127,6 +128,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.48247975, y: 0.86630034, z: 0.5633775}
   m_Center: {x: 0, y: 0.14567327, z: 0}
+--- !u!114 &114141976596113182
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1887759379008950}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9cc439ab384ebf5489737373b4fcfb68, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  UniqueName: Construction5
 --- !u!114 &114368420285888546
 MonoBehaviour:
   m_ObjectHideFlags: 1

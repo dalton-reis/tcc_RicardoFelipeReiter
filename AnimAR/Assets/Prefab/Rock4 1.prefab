@@ -37,6 +37,7 @@ GameObject:
   - component: {fileID: 135694277881592442}
   - component: {fileID: 114032069376791008}
   - component: {fileID: 114815757335776998}
+  - component: {fileID: 114693493635984512}
   m_Layer: 0
   m_Name: Rock4 1
   m_TagString: Movable
@@ -156,6 +157,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 0
   outliner: {fileID: 114815757335776998}
+--- !u!114 &114693493635984512
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1699436955156770}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9cc439ab384ebf5489737373b4fcfb68, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  UniqueName: Rock4 1
 --- !u!114 &114815757335776998
 MonoBehaviour:
   m_ObjectHideFlags: 1

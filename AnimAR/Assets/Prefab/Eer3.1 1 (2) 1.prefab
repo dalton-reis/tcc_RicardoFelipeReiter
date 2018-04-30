@@ -84,6 +84,7 @@ GameObject:
   - component: {fileID: 136167515632171238}
   - component: {fileID: 114730994384241890}
   - component: {fileID: 114774568241035466}
+  - component: {fileID: 114744164189070120}
   m_Layer: 0
   m_Name: Eer3.1 1 (2) 1
   m_TagString: Movable
@@ -344,6 +345,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 0
   outliner: {fileID: 114774568241035466}
+--- !u!114 &114744164189070120
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1526462657309302}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9cc439ab384ebf5489737373b4fcfb68, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  UniqueName: Eer3.1 1 (2) 1
 --- !u!114 &114774568241035466
 MonoBehaviour:
   m_ObjectHideFlags: 1

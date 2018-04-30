@@ -292,6 +292,7 @@ GameObject:
   - component: {fileID: 4411724157975832}
   - component: {fileID: 65531975929512766}
   - component: {fileID: 114768728698680146}
+  - component: {fileID: 114406410996016338}
   m_Layer: 0
   m_Name: wolf_lod_1
   m_TagString: Movable
@@ -841,6 +842,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1.4895648, z: 4.114715}
   m_Center: {x: 0, y: 1.8050911, z: -0.6745743}
+--- !u!114 &114406410996016338
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1649404721664366}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9cc439ab384ebf5489737373b4fcfb68, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  UniqueName: wolf_lod_1
 --- !u!114 &114768728698680146
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -7,6 +7,8 @@ using UnityEngine;
 namespace Assets.Scripts {
     public class SceneController : MonoBehaviour, CubeMarkerInteractor {
 
+        public static SceneController Instance;
+
         public List<Scene> scenes = new List<Scene>();
         public Scene EmptyScenePrefab;
         public GameObject DesactivatedScenes;
@@ -27,6 +29,14 @@ namespace Assets.Scripts {
                 GetCurrentScene().Map.transform.parent = this.transform;
 
                 NotifyCurrentSceneChanged();
+            }
+        }
+
+        void Awake() {
+            if (Instance == null) {
+                Instance = this;
+            } else if (Instance != this) {
+                Destroy(gameObject);
             }
         }
 
