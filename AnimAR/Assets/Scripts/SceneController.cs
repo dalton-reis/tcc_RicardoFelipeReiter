@@ -56,6 +56,7 @@ namespace Assets.Scripts {
 
         public void ObjectReceived(MovableObject obj) {
             obj.transform.parent = GetCurrentScene().Map.transform;
+            PersistController.Instance.PersistEverything();
         }
 
         public void ObjectRemoved(MovableObject obj) {

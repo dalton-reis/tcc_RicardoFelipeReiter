@@ -1,6 +1,5 @@
 - Highlight do take selecionado quando o seletor estiver ativo, talvez rodar animação enquanto o seletor está ativo
 - Novos marcadores e repaginada na UI
-- Novos objetos para fábrica
+- Novos objetos para fábrica -> Mover todos objetos para prefabList, e fazer o seletor puxar lista de lá
 - Tutorial
-- Save/Load
 - Marcador de informações da cena?

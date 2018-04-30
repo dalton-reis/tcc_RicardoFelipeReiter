@@ -5,7 +5,7 @@ using System.Text;
 using UnityEngine;
 
 namespace Assets.Scripts {
-    public class PersistController : MonoBehaviour {
+    public class PersistController : MonoBehaviour, AnimationControllerListener {
 
         public static PersistController Instance;
 
@@ -15,6 +15,11 @@ namespace Assets.Scripts {
             } else if (Instance != this) {
                 Destroy(gameObject);
             }
+        }
+
+        void Start() {
+            LoadFromPersistedData();
+            FindObjectOfType<AnimationController>().AddListener(this);
         }
 
         public void PersistEverything() {
@@ -29,13 +34,14 @@ namespace Assets.Scripts {
 
         public void LoadFromPersistedData() {
             var jsonData = PlayerPrefs.GetString("data");
-            if (jsonData != null) {
+            if (!String.IsNullOrEmpty(jsonData)) {
                 UserPersistData userData = JsonUtility.FromJson<UserPersistData>(jsonData);
                 SceneController.Instance.scenes.Clear();
                 foreach (var scene in userData.Scenes) {
-                    var newScene = new GameObject().AddComponent<Scene>();
+                    var newScene = new GameObject("Map").AddComponent<Scene>();
                     newScene.transform.parent = SceneController.Instance.DesactivatedScenes.transform;
-                    newScene.transform.localScale = new Vector3(0.6f, 0.6f, 0.6f);
+                    newScene.transform.localPosition = Vector3.zero;
+                    newScene.transform.localScale = new Vector3(0.06f, 0.06f, 0.06f);
                     newScene.LoadPersistData(scene);
                     SceneController.Instance.scenes.Add(newScene);
                     SceneController.Instance.CurrentScene = 0;
@@ -43,5 +49,19 @@ namespace Assets.Scripts {
             }
         }
 
+
+        public void TakeAdded(int take) {
+            PersistEverything();
+        }
+
+        public void TakeDeleted(int take) {
+            PersistEverything();
+        }
+
+        public void StatusChanged(AnimationController.STATUS status) {
+        }
+
+        public void AnimationTimesChanged(float currentTime, float endTime, float[] takesTime) {
+        }
     }
 }
