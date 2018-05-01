@@ -36,6 +36,10 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4683582314160470}
+  - component: {fileID: 114107331510387004}
+  - component: {fileID: 114835768399261802}
+  - component: {fileID: 114995470976970358}
+  - component: {fileID: 136043706225005390}
   m_Layer: 0
   m_Name: Eer3.1 1
   m_TagString: Untagged
@@ -180,7 +184,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1073544406208812}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -23.99474, y: 18.251417, z: 1.2071419}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4900115184998126}
@@ -299,3 +303,52 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1027092329154820}
   m_Mesh: {fileID: 4300140, guid: b2c61055c4a01ad43b08434f8178e1c9, type: 3}
+--- !u!114 &114107331510387004
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1073544406208812}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bfd3e17d68c791e408c5ca651951c0f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 0
+  outliner: {fileID: 114835768399261802}
+--- !u!114 &114835768399261802
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1073544406208812}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 186a0af8dc9fa2e4f8226b44720c48a3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &114995470976970358
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1073544406208812}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9cc439ab384ebf5489737373b4fcfb68, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  UniqueName: Eer3.1 1
+--- !u!136 &136043706225005390
+CapsuleCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1073544406208812}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 0.69850063
+  m_Height: 4.060074
+  m_Direction: 1
+  m_Center: {x: -0.0894289, y: 2.2115574, z: 0}

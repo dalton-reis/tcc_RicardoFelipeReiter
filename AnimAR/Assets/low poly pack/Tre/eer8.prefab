@@ -51,6 +51,10 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4059097751664302}
+  - component: {fileID: 114297848552690374}
+  - component: {fileID: 114149180279844468}
+  - component: {fileID: 114801781226309456}
+  - component: {fileID: 136062920505830644}
   m_Layer: 0
   m_Name: eer8
   m_TagString: Untagged
@@ -160,8 +164,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1232141677731116}
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: 0.006577841, y: 0.52315277, z: -0.010714427, w: 0.85214615}
+  m_LocalPosition: {x: -3.98, y: 0.29, z: -7.92}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4108229710723046}
@@ -170,7 +174,7 @@ Transform:
   - {fileID: 4340813156619060}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 1.2850001, y: 63.086002, z: -0.652}
 --- !u!4 &4108229710723046
 Transform:
   m_ObjectHideFlags: 1
@@ -443,3 +447,52 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1362425595699654}
   m_Mesh: {fileID: 4300346, guid: b2c61055c4a01ad43b08434f8178e1c9, type: 3}
+--- !u!114 &114149180279844468
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1232141677731116}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bfd3e17d68c791e408c5ca651951c0f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 0
+  outliner: {fileID: 114801781226309456}
+--- !u!114 &114297848552690374
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1232141677731116}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9cc439ab384ebf5489737373b4fcfb68, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  UniqueName: eer8
+--- !u!114 &114801781226309456
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1232141677731116}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 186a0af8dc9fa2e4f8226b44720c48a3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!136 &136062920505830644
+CapsuleCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1232141677731116}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 0.6356061
+  m_Height: 3.9845817
+  m_Direction: 1
+  m_Center: {x: -0.0000000032415775, y: 2.0931244, z: 0.13560626}

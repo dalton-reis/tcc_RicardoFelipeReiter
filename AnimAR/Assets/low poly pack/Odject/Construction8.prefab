@@ -19,7 +19,9 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4366423606122124}
-  - component: {fileID: 114377700256694298}
+  - component: {fileID: 114072456217976782}
+  - component: {fileID: 114515560792127560}
+  - component: {fileID: 65219905116011186}
   m_Layer: 0
   m_Name: Construction8
   m_TagString: Untagged
@@ -521,7 +523,19 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1802963414360730}
   m_Mesh: {fileID: 4300530, guid: b2c61055c4a01ad43b08434f8178e1c9, type: 3}
---- !u!114 &114377700256694298
+--- !u!65 &65219905116011186
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1099361045878194}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 4.016368, y: 2.4070103, z: 2.2424507}
+  m_Center: {x: -0.16340956, y: 0.9452355, z: 0.36839166}
+--- !u!114 &114072456217976782
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -529,6 +543,20 @@ MonoBehaviour:
   m_GameObject: {fileID: 1099361045878194}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 186a0af8dc9fa2e4f8226b44720c48a3, type: 3}
+  m_Script: {fileID: 11500000, guid: bfd3e17d68c791e408c5ca651951c0f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  type: 0
+  outliner: {fileID: 0}
+--- !u!114 &114515560792127560
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1099361045878194}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9cc439ab384ebf5489737373b4fcfb68, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  UniqueName: Construction8

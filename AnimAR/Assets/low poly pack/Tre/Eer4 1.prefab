@@ -36,6 +36,10 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4012717460233134}
+  - component: {fileID: 114545632247669778}
+  - component: {fileID: 114974546634673958}
+  - component: {fileID: 114713157259494746}
+  - component: {fileID: 136629787430519080}
   m_Layer: 0
   m_Name: Eer4 1
   m_TagString: Untagged
@@ -175,9 +179,9 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1248592676957254}
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: -0, y: 0.08124414, z: -0, w: -0.99669427}
+  m_LocalPosition: {x: -5.9, y: 0.19, z: 4.77}
+  m_LocalScale: {x: 1.1, y: 1.1, z: 1.1}
   m_Children:
   - {fileID: 4229586070801998}
   - {fileID: 4836167507394032}
@@ -186,7 +190,7 @@ Transform:
   - {fileID: 4954609543017802}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 350.68, z: 0}
 --- !u!4 &4069286362570340
 Transform:
   m_ObjectHideFlags: 1
@@ -472,3 +476,52 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1188517532785364}
   m_Mesh: {fileID: 4300306, guid: b2c61055c4a01ad43b08434f8178e1c9, type: 3}
+--- !u!114 &114545632247669778
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1248592676957254}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bfd3e17d68c791e408c5ca651951c0f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 0
+  outliner: {fileID: 114974546634673958}
+--- !u!114 &114713157259494746
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1248592676957254}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9cc439ab384ebf5489737373b4fcfb68, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  UniqueName: Eer4 1
+--- !u!114 &114974546634673958
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1248592676957254}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 186a0af8dc9fa2e4f8226b44720c48a3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!136 &136629787430519080
+CapsuleCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1248592676957254}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 0.61590713
+  m_Height: 2.4233024
+  m_Direction: 1
+  m_Center: {x: 0.0000000017526501, y: 1.9358608, z: 0.11590707}

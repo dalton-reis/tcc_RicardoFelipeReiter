@@ -71,6 +71,7 @@ GameObject:
   - component: {fileID: 65434448992748276}
   - component: {fileID: 114768474627991054}
   - component: {fileID: 114026941665311520}
+  - component: {fileID: 114646808104723042}
   m_Layer: 0
   m_Name: Stone
   m_TagString: Movable
@@ -368,6 +369,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 186a0af8dc9fa2e4f8226b44720c48a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114646808104723042
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1622960069724232}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9cc439ab384ebf5489737373b4fcfb68, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  UniqueName: StoneArch
 --- !u!114 &114768474627991054
 MonoBehaviour:
   m_ObjectHideFlags: 1

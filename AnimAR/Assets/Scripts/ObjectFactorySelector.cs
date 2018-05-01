@@ -14,6 +14,14 @@ namespace Assets.Scripts {
         private GameObject currentObject = null;
 
         void Start() {
+            LinkedList<GameObject> newList = new LinkedList<GameObject>();
+            foreach (var prefabItem in PersistentPrefabList.Instance.list) {
+                var movable = prefabItem.GetComponent<MovableObject>();
+                if (movable && movable.type == MovableObject.TYPE.SCENE_OBJECT) {
+                    newList.AddLast(movable.gameObject);
+                }
+            }
+            objList = newList.ToArray<GameObject>();
             ChangeIndex(0);
         }
 

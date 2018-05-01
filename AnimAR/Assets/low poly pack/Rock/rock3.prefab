@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 135776666614755274}
   - component: {fileID: 114945894886702010}
   - component: {fileID: 114388189074483528}
+  - component: {fileID: 114168445650446306}
   m_Layer: 0
   m_Name: rock3
   m_TagString: Movable
@@ -114,6 +115,18 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1757016060016768}
   m_Mesh: {fileID: 4300508, guid: b2c61055c4a01ad43b08434f8178e1c9, type: 3}
+--- !u!114 &114168445650446306
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1112839520750126}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9cc439ab384ebf5489737373b4fcfb68, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  UniqueName: rock3
 --- !u!114 &114388189074483528
 MonoBehaviour:
   m_ObjectHideFlags: 1
