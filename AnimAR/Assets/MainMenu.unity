@@ -744,6 +744,7 @@ GameObject:
   - component: {fileID: 352190303}
   - component: {fileID: 352190305}
   - component: {fileID: 352190304}
+  - component: {fileID: 352190306}
   m_Layer: 0
   m_Name: Image
   m_TagString: Untagged
@@ -788,7 +789,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 233362f5818736740a856183356a0fe2, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 2e67f0b7e85bb15419cb728115a8de5f, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -802,6 +803,20 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 352190302}
+--- !u!114 &352190306
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 352190302}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -900027084, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 0, g: 0, b: 0, a: 1}
+  m_EffectDistance: {x: 2, y: -2}
+  m_UseGraphicAlpha: 1
 --- !u!1 &472256875
 GameObject:
   m_ObjectHideFlags: 0
@@ -1123,12 +1138,53 @@ MonoBehaviour:
   Name: tutorial
   isDialog: 0
   steps:
-  - image: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
-    text: Test step 1
-  - image: {fileID: 21300000, guid: 233362f5818736740a856183356a0fe2, type: 3}
-    text: Test step 2
-  - image: {fileID: 10901, guid: 0000000000000000f000000000000000, type: 0}
-    text: Test final step 3
+  - image: {fileID: 21300000, guid: 2e67f0b7e85bb15419cb728115a8de5f, type: 3}
+    text: "Este \xE9 um pequeno tutorial que ir\xE1 introduzir o AnimAR \xE0 voc\xEA.\\\\nO
+      objetivo dessa aplica\xE7\xE3o \xE9 disponibilizar uma maneira f\xE1cil de se
+      criar anima\xE7\xF5es, fazendo uso experimental da Realidade Aumentada e Interface
+      de Usu\xE1rio Tang\xEDvel."
+  - image: {fileID: 21300000, guid: 2e67f0b7e85bb15419cb728115a8de5f, type: 3}
+    text: "O primeiro marcador e um dos principais \xE9 o Seletor.\\nEle atua como
+      e seletor e cria\xE7\xE3o de cenas, sele\xE7\xE3o de novos objetos de cena e
+      visualiza\xE7\xE3o e remo\xE7\xE3o de anima\xE7\xF5es.\\nO seletor que voc\xEA
+      v\xEA \xE9 o de sele\xE7\xE3o de objetos, tamb\xE9m conhecido como f\xE1brica
+      de objetos."
+  - image: {fileID: 21300000, guid: 0e30f9f334e04374fbdcdd770fe2b5e6, type: 3}
+    text: "Pressione Pr\xF3x ou Ante para navegar entre os objetos do seletor atual."
+  - image: {fileID: 21300000, guid: 833a4fc002dfeda459021d0c2bae8824, type: 3}
+    text: "Al\xE9m do seletor de objetos, existe tamb\xE9m os seletores de Cena e
+      de Anima\xE7\xE3o.\\nUma cena \xE9 um cen\xE1rio que pode conter v\xE1rias anima\xE7\xF5es,
+      simultaneas ou n\xE3o.\\nCaso uma cena n\xE3o possua anima\xE7\xF5es, o seletor
+      de anima\xE7\xF5es mostrar\xE1 um X."
+  - image: {fileID: 21300000, guid: 833a4fc002dfeda459021d0c2bae8824, type: 3}
+    text: "Este \xE9 o marcador cubo, que serve de ponteiro para mover os objetos
+      da cena, tanto na hora da constru\xE7\xE3o da cena, como tamb\xE9m para animar
+      os objetos."
+  - image: {fileID: 21300000, guid: ee181ba611d66c54694c35eb99462413, type: 3}
+    text: "Com o seletor de cena, voc\xEA pode alternar entre as cenas. A \xFAltima
+      cena sempre ser\xE1 uma nova."
+  - image: {fileID: 21300000, guid: 678b2553aecb973418af929b86ea78f9, type: 3}
+    text: "Selecione o objeto da f\xE1brica, para isso voc\xEA deve apontar o indicador
+      do cubo no objeto, e ficar parado por alguns segundos at\xE9 que o objeto seja
+      selecionado.\\nMovendo o objeto da f\xE1brica para a cena ir\xE1 adicion\xE1-lo
+      na mesma."
+  - image: {fileID: 21300000, guid: 0fe29042f89030343a4c599a93b69ab2, type: 3}
+    text: "Com o marcador de grava\xE7\xE3o, voc\xEA tem o controle de todas as anima\xE7\xF5es
+      daquela cena.\\nPrecione REC para come\xE7ar a grava\xE7\xE3o de uma nova anima\xE7\xE3o
+      e selecione o objeto que deseja animar."
+  - image: {fileID: 21300000, guid: d96145cd331687d42ba330777e3ee4a9, type: 3}
+    text: "Ao selecionar um objeto, a grava\xE7\xE3o ir\xE1 come\xE7ar automaticamente.\\nMovimente
+      o objeto conforme voc\xEA deseja e pressione o bot\xE3o de grava\xE7\xE3o para
+      parar de gravar."
+  - image: {fileID: 21300000, guid: 966e171ee6061614ea441a425ede97bd, type: 3}
+    text: "Se voc\xEA pressionar Gravar novamente, voc\xEA pode criar novas anima\xE7\xF5es
+      para a mesma cena.\\nSelecionar um novo objeto ir\xE1 gerar uma nova anima\xE7\xE3o.
+      Selecionar um objeto que j\xE1 cont\xE9m anima\xE7\xE3o, ir\xE1 excluir a antiga
+      e criar uma nova."
+  - image: {fileID: 21300000, guid: 7101d0cacc913c04ebb14eecddca0366, type: 3}
+    text: "Por fim, se voc\xEA deseja excluir uma anima\xE7\xE3o, selecione o seletor
+      de anima\xE7\xF5es, e com o cubo, mova o icone da anima\xE7\xE3o para a lixeira.\\nQualquer
+      objeto da cena pode ser jogado na lixeira, deletando-o."
   stepImage: {fileID: 352190304}
   stepText: {fileID: 516745651}
   stepExitButton: {fileID: 1409938171}

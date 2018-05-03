@@ -1,4 +1,6 @@
 - Highlight do take selecionado quando o seletor estiver ativo, talvez rodar animação enquanto o seletor está ativo
 - Novos marcadores e repaginada na UI
 - Tutorial
-- Marcador de informações da cena?
+- Marcador de informações da cena? Talvez mostrar informações da animação tb
+- Outline da cena/marcador que o objeto do cubo está interagindo
+- Excluir cena?

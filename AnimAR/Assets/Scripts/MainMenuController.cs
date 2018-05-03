@@ -14,6 +14,11 @@ namespace Assets.Scripts {
         void Start() {
             var vuforiaType = PlayerPrefs.GetString("vuforiaType");
             CardboardToggle.isOn = vuforiaType.Equals("vr");
+            var hasCompletedTutorial = PlayerPrefs.GetInt("hasCompletedTutorial");
+            if (hasCompletedTutorial == 0) {
+                WindowManager.Instance.OpenWindow("tutorial");
+                PlayerPrefs.SetInt("hasCompletedTutorial", 1);
+            }
         }
 
         public void LoadVuforiaScene() {
