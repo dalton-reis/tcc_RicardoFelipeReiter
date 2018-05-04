@@ -1139,10 +1139,9 @@ MonoBehaviour:
   isDialog: 0
   steps:
   - image: {fileID: 21300000, guid: 2e67f0b7e85bb15419cb728115a8de5f, type: 3}
-    text: "Este \xE9 um pequeno tutorial que ir\xE1 introduzir o AnimAR \xE0 voc\xEA.\\\\nO
-      objetivo dessa aplica\xE7\xE3o \xE9 disponibilizar uma maneira f\xE1cil de se
-      criar anima\xE7\xF5es, fazendo uso experimental da Realidade Aumentada e Interface
-      de Usu\xE1rio Tang\xEDvel."
+    text: "Este \xE9 um pequeno tutorial que ir\xE1 lhe introduzir o AnimAR.\\nO objetivo
+      dessa aplica\xE7\xE3o \xE9 disponibilizar uma maneira f\xE1cil de se criar anima\xE7\xF5es,
+      fazendo uso experimental da Realidade Aumentada e Interface de Usu\xE1rio Tang\xEDvel."
   - image: {fileID: 21300000, guid: 2e67f0b7e85bb15419cb728115a8de5f, type: 3}
     text: "O primeiro marcador e um dos principais \xE9 o Seletor.\\nEle atua como
       e seletor e cria\xE7\xE3o de cenas, sele\xE7\xE3o de novos objetos de cena e

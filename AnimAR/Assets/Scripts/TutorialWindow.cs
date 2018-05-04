@@ -27,7 +27,14 @@ namespace Assets.Scripts {
         void Start() {
             WindowManager.Instance.RegisterWindow(this);
             gameObject.SetActive(false);
+            AddLineBreaks();
             ChangeStep(0);
+        }
+
+        private void AddLineBreaks() {
+            foreach (var step in steps) {
+                step.text = step.text.Replace("\\n", "\n");
+            }
         }
 
         public void NextStep() {
