@@ -29,7 +29,7 @@ namespace Assets.Scripts {
                     InformationText.text = "Executando Animação";
                     break;
                 case AnimationController.STATUS.RECORDING:
-                    InformationText.text = "Gravando Take ";
+                    InformationText.text = "Gravando Animação ";
                     break;
                 case AnimationController.STATUS.WAITING_OBJECT_TO_ATTACH:
                     InformationText.text = "Selecione um objeto que a gravação irá começar";

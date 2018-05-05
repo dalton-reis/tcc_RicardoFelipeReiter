@@ -69,15 +69,17 @@ namespace Assets.Scripts {
         void LateUpdate() {
             switch (status) {
                 case STATUS.RECORDING:
+                    CurrentTime = recorder.currentTime;
                     recorder.TakeSnapshot(Time.deltaTime);
                     NotifyAnimationTimesChanged();
                     break;
                 case STATUS.PLAYING:
-                    currentTime = longestTake.Animation["clip"].time;
-                    NotifyAnimationTimesChanged();
+                    CurrentTime = longestTake.Animation["clip"].time;
                     if (!longestTake.Animation.isPlaying) {
+                        CurrentTime = longestTake.Animation["clip"].length;
                         Status = STATUS.IDLE;
                     }
+                    NotifyAnimationTimesChanged();
                     break;
             }
         }
@@ -185,6 +187,10 @@ namespace Assets.Scripts {
         }
 
         public void NotifyAnimationTimesChanged() {
+            if (CurrentTime <= 0) {
+                Debug.Log("NotifyAnimationTimesChanged");
+                Debug.Log(CurrentTime);
+            }
             foreach (var listener in listeners) {
                 listener.AnimationTimesChanged(CurrentTime, EndTime, GetTakesTime());
             }

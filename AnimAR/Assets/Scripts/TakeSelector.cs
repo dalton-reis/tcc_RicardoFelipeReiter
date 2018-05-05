@@ -10,9 +10,9 @@ namespace Assets.Scripts {
 
         public AnimationController AnimationController;
         public SceneController SceneController;
-        public GameObject TakePrefab;
+        public TakeIcon TakePrefab;
 
-        private GameObject currentObject = null;
+        private TakeIcon currentObject = null;
         private bool isActive = false;
         private int currentTake = -1;
 
@@ -46,9 +46,7 @@ namespace Assets.Scripts {
         }
 
         public override void Desactive() {
-            if (currentObject) {
-                currentObject.SetActive(false);
-            }
+            DestroyCurrentObject();
             isActive = false;
         }
 
@@ -61,10 +59,19 @@ namespace Assets.Scripts {
         }
 
         private void ChangeTakeIcon() {
-            if (currentObject) {
-                Destroy(currentObject);
-            }
+            DestroyCurrentObject();
             NewCurrentObject(CurrentTake);
+        }
+
+        private void DestroyCurrentObject() {
+            if (currentObject) {
+                var takeObject = currentObject.Take;
+                if (takeObject != null) {
+                    var outliner = takeObject.GameObject.GetComponent<ObjectOutliner>();
+                    outliner.SetEnabled(false);
+                }
+                Destroy(currentObject.gameObject);
+            }
         }
 
         public override bool CanReceiveObject(MovableObject obj) {
@@ -77,21 +84,34 @@ namespace Assets.Scripts {
         }
 
         public override void ObjectRemoved(MovableObject obj) {
+            if (currentObject) {
+                var takeObject = currentObject.Take;
+                if (takeObject != null) {
+                    var outliner = takeObject.GameObject.GetComponent<ObjectOutliner>();
+                    outliner.SetEnabled(false);
+                }
+            }
             currentObject = null;
         }
 
         public override string GetLabel() {
-            return "Selecionar Take Atual";
+            return "Selecionar Animação";
         }
 
         public void NewCurrentObject(int index) {
             currentObject = GameObject.Instantiate(TakePrefab, showingObjectRoot);
             currentObject.transform.localPosition = new Vector3(0, 0, 0);
-            currentObject.GetComponent<MovableObject>().type = MovableObject.TYPE.TAKE_OBJECT;
-            currentObject.GetComponent<NumberIcon>().SetLabel(index < 0 ? "X" : index.ToString());
-            currentObject.GetComponent<NumberIcon>().Number = index;
+            currentObject.SetLabel(index < 0 ? "X" : index.ToString());
+            currentObject.Number = index;
             currentObject.GetComponent<Collider>().enabled = index > -1;
-            currentObject.SetActive(isActive);
+            currentObject.gameObject.SetActive(isActive);
+
+            if (isActive && index > -1) {
+                currentObject.Take = SceneController.GetCurrentScene().Takes[index];
+                var outliner = currentObject.Take.GameObject.GetComponent<ObjectOutliner>();
+                outliner.SetColor(Color.cyan);
+                outliner.SetEnabled(true);
+            }
         }
 
 
