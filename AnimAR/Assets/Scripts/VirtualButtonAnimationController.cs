@@ -8,21 +8,21 @@ using Vuforia;
 namespace Assets.Scripts {
     public class VirtualButtonAnimationController : MonoBehaviour, IVirtualButtonEventHandler {
 
-        public Material standyByMaterial;
-        public Material overMaterial;
+        public Sprite standyBySprite;
+        public Sprite overSprite;
         public GameObject VirtualButton;
 
         void Start() {
             VirtualButton.GetComponent<VirtualButtonBehaviour>().RegisterEventHandler(this);
-            GetComponent<MeshRenderer>().material = standyByMaterial;
+            GetComponent<SpriteRenderer>().sprite = standyBySprite;
         }
 
         public void OnButtonPressed(VirtualButtonBehaviour vb) {
- 	        GetComponent<MeshRenderer>().material = overMaterial;
+            GetComponent<SpriteRenderer>().sprite = overSprite;
         }
 
         public void OnButtonReleased(VirtualButtonBehaviour vb) {
- 	        GetComponent<MeshRenderer>().material = standyByMaterial;
+            GetComponent<SpriteRenderer>().sprite = standyBySprite;
         }
     }
 }
