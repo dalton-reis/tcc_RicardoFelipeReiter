@@ -14,5 +14,9 @@ namespace Assets.Scripts {
 
         void ObjectRemoved(MovableObject obj);
 
+        void OnCubeMarkerEnter();
+
+        void OnCubeMarkerExit();
+
     }
 }

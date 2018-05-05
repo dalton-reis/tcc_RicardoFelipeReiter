@@ -11,7 +11,7 @@ namespace Assets.Scripts {
         public CubeMarkerIndicatorController indicatorController;
         public Transform indicatorDot;
         private const float secondsToHold = 2;
-        private const float movementTolerance = 0.2f;
+        private const float movementTolerance = 0.3f;
 
         private CubeMarkerInteractor interactor = null;
         private MovableObject objectMarkerOver = null;
@@ -81,6 +81,7 @@ namespace Assets.Scripts {
 
             if (movable != null) {
                 if (currentStatus == CubeMarkerStatus.NOP) {
+                    newInteractor = movable.currentInteractor;
                     objectMarkerOver = movable;
                     if (objectMarkerOver.outliner) {
                         objectMarkerOver.outliner.SetColor(Color.red);
@@ -88,8 +89,13 @@ namespace Assets.Scripts {
                     }
                     currentTime = secondsToHold;
                 }
-            } else if (newInteractor != null) {
+            }
+
+            if (newInteractor != null && currentStatus != CubeMarkerStatus.MARKER_OVER_OBJECT) {
+                if (interactor != null) interactor.OnCubeMarkerExit();
                 interactor = newInteractor;
+                interactor.OnCubeMarkerEnter();
+
             }
             UpdateStatus();
         }
@@ -106,7 +112,8 @@ namespace Assets.Scripts {
                     objectMarkerOver = null;
                 }
             } else if (newInteractor != null) {
-                if (newInteractor == interactor ) {
+                if (newInteractor == interactor) {
+                    interactor.OnCubeMarkerExit();
                     interactor = null;
                 }
             }
@@ -177,6 +184,10 @@ namespace Assets.Scripts {
 
         public void OnTrackableStateChanged(TrackableBehaviour.Status previousStatus, TrackableBehaviour.Status newStatus) {
             if (newStatus != TrackableBehaviour.Status.DETECTED && newStatus != TrackableBehaviour.Status.TRACKED) {
+                if (interactor != null) {
+                    interactor.OnCubeMarkerExit();
+                    interactor = null;
+                }
                 NotifyCubeMarkerLost();
             }
         }

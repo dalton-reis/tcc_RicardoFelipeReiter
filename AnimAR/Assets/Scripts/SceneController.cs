@@ -5,7 +5,7 @@ using System.Text;
 using UnityEngine;
 
 namespace Assets.Scripts {
-    public class SceneController : MonoBehaviour, CubeMarkerInteractor {
+    public class SceneController : CubeMarkerInteractorImpl {
 
         public static SceneController Instance;
 
@@ -50,16 +50,17 @@ namespace Assets.Scripts {
             return scenes[currentScene];
         }
 
-        public bool CanReceiveObject(MovableObject obj) {
+        public override bool CanReceiveObject(MovableObject obj) {
             return obj.type == MovableObject.TYPE.SCENE_OBJECT;
         }
 
-        public void ObjectReceived(MovableObject obj) {
+        public override void ObjectReceived(MovableObject obj) {
             obj.transform.parent = GetCurrentScene().Map.transform;
+            VuforiaUtils.EnableTargetObject(obj.gameObject);
             PersistController.Instance.PersistEverything();
         }
 
-        public void ObjectRemoved(MovableObject obj) {
+        public override void ObjectRemoved(MovableObject obj) {
         }
 
         public void AddListener(SceneControllerListener listener) {

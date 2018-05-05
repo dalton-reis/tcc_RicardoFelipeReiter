@@ -7,7 +7,7 @@ using UnityEngine.UI;
 using Vuforia;
 
 namespace Assets.Scripts {
-    public class SelectorController : MonoBehaviour, CubeMarkerInteractor, ITrackableEventHandler, VirtualButtonListener {
+    public class SelectorController : CubeMarkerInteractorImpl, ITrackableEventHandler, VirtualButtonListener {
 
         public Text SelectorLabel;
         public Selector[] Selectors;
@@ -38,15 +38,15 @@ namespace Assets.Scripts {
             SelectorLabel.text = currentSelector.GetLabel();
         }
 
-        public bool CanReceiveObject(MovableObject obj) {
+        public override bool CanReceiveObject(MovableObject obj) {
             return currentSelector.CanReceiveObject(obj);
         }
 
-        public void ObjectReceived(MovableObject obj) {
+        public override void ObjectReceived(MovableObject obj) {
             currentSelector.ObjectReceived(obj);
         }
 
-        public void ObjectRemoved(MovableObject obj) {
+        public override void ObjectRemoved(MovableObject obj) {
             currentSelector.ObjectRemoved(obj);
         }
 
