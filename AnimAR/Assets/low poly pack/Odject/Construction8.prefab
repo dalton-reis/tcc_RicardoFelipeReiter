@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4366423606122124}
   - component: {fileID: 114072456217976782}
   - component: {fileID: 114515560792127560}
+  - component: {fileID: 114601840592064748}
   - component: {fileID: 65219905116011186}
   m_Layer: 0
   m_Name: Construction8
@@ -195,7 +196,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1099361045878194}
   m_LocalRotation: {x: -0, y: 0.7144278, z: -0, w: 0.6997091}
-  m_LocalPosition: {x: -6.68, y: 1.38, z: -0.1}
+  m_LocalPosition: {x: 0.14211905, y: 12.644549, z: -38.656326}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4964105470018954}
@@ -547,7 +548,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 0
-  outliner: {fileID: 0}
+  outliner: {fileID: 114601840592064748}
 --- !u!114 &114515560792127560
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -560,3 +561,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   UniqueName: Construction8
+--- !u!114 &114601840592064748
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1099361045878194}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 186a0af8dc9fa2e4f8226b44720c48a3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
