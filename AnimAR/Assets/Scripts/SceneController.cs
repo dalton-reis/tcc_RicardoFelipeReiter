@@ -79,5 +79,31 @@ namespace Assets.Scripts {
             }
         }
 
+        private void NotifyCurrentSceneIsGoingToBeDeleted() {
+            foreach (var listener in listeners) {
+                listener.CurrentSceneIsGoingToBeDeleted();
+            }
+        }
+
+        public void RemoveScene(int sceneNumber) {
+            var newSceneNumber = sceneNumber;
+            if (newSceneNumber >= (scenes.Count() - 1)) {
+                newSceneNumber -= 1;
+            }
+
+            if (newSceneNumber >= 0) {
+                NotifyCurrentSceneIsGoingToBeDeleted();
+
+                Destroy(GetCurrentScene().Map);
+                scenes.RemoveAt(sceneNumber);
+
+                currentScene = newSceneNumber;
+                GetCurrentScene().Map.transform.parent = this.transform;
+
+                NotifyCurrentSceneChanged();
+            } else {
+                CurrentScene = 0;
+            }
+        }
     }
 }

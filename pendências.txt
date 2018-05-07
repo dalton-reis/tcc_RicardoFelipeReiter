@@ -2,4 +2,3 @@
 - Novos marcadores
 - Tutorial
 - Marcador de informações da cena? Talvez mostrar informações da animação tb - Renderizar linhas com objetos envolvidos
-- Excluir cena?

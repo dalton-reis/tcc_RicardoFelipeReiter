@@ -114,6 +114,8 @@ namespace Assets.Scripts {
             }
         }
 
+        public void CurrentSceneIsGoingToBeDeleted() {
+        }
 
         public void CurrentSceneIsGoingToChange() {
         }

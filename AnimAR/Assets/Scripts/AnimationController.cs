@@ -206,11 +206,13 @@ namespace Assets.Scripts {
             return times;
         }
 
+        public void CurrentSceneIsGoingToBeDeleted() {
+        }
+
         public void CurrentSceneIsGoingToChange() {
             StopRecording();
             StopAll();
             RewindAll();
-
         }
 
         public void CurrentSceneChanged(Scene currentScene) {

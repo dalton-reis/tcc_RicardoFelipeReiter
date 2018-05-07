@@ -6,7 +6,7 @@ using UnityEngine;
 using Vuforia;
 
 namespace Assets.Scripts {
-    public class SceneSelector : Selector {
+    public class SceneSelector : Selector, SceneControllerListener {
 
         public SceneController SceneController;
         public GameObject SceneNumberPrefab;
@@ -15,6 +15,7 @@ namespace Assets.Scripts {
         private bool isActive = false;
 
         void Start() {
+            SceneController.AddListener(this);
             UpdateCurrentScene(0);
         }
 
@@ -47,10 +48,9 @@ namespace Assets.Scripts {
                 sceneIndex = sceneIndex < 0 ? SceneController.scenes.Count() + sceneIndex : sceneIndex;
                 SceneController.CurrentScene = Math.Abs(sceneIndex % SceneController.scenes.Count());
             }
-            ChangeSceneIcon(SceneController.CurrentScene);
         }
 
-        private void ChangeSceneIcon(int index) {
+        private void UpdateSceneIcon() {
             if (currentObject) {
                 Destroy(currentObject);
             }
@@ -75,9 +75,20 @@ namespace Assets.Scripts {
         public void NewCurrentObject(int index) {
             currentObject = GameObject.Instantiate(SceneNumberPrefab, showingObjectRoot);
             currentObject.transform.localPosition = new Vector3(0, 0, 0);
+            currentObject.GetComponent<MovableObject>().type = MovableObject.TYPE.SCENE_INFO_OBJECT;
             currentObject.GetComponent<NumberIcon>().SetLabel(index.ToString());
+            currentObject.GetComponent<NumberIcon>().Number = index;
             currentObject.SetActive(isActive);
         }
 
+        public void CurrentSceneIsGoingToBeDeleted() {
+        }
+
+        public void CurrentSceneIsGoingToChange() {
+        }
+
+        public void CurrentSceneChanged(Scene currentScene) {
+            UpdateSceneIcon();
+        }
     }
 }

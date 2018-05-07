@@ -10,6 +10,8 @@ namespace Assets.Scripts {
 
         void CurrentSceneIsGoingToChange();
 
+        void CurrentSceneIsGoingToBeDeleted();
+
         void CurrentSceneChanged(Scene currentScene);
 
     }

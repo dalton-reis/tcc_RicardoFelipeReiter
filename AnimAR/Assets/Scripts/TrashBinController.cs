@@ -17,6 +17,7 @@ namespace Assets.Scripts {
 
         public override void ObjectReceived(MovableObject obj) {
             var takeNumber = -1;
+            var sceneNumber = -1;
             switch (obj.type) {
                 case MovableObject.TYPE.TAKE_OBJECT:
                     takeNumber = obj.GetComponent<NumberIcon>().Number;
@@ -24,11 +25,16 @@ namespace Assets.Scripts {
                 case MovableObject.TYPE.SCENE_OBJECT:
                     takeNumber = SceneController.GetCurrentScene().Takes.FindIndex(take => take.GameObject == obj.gameObject);
                     break;
+                case MovableObject.TYPE.SCENE_INFO_OBJECT:
+                    sceneNumber = obj.GetComponent<NumberIcon>().Number;
+                    break;
             }
             Destroy(obj.gameObject);
 
             if (takeNumber > -1) {
                 AnimationController.RemoveTake(takeNumber);
+            } else if (sceneNumber > -1) {
+                SceneController.RemoveScene(sceneNumber);
             }
 
             var effectObj = GameObject.Instantiate(IncinerateEffectGO);
