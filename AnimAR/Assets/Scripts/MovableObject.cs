@@ -19,5 +19,27 @@ namespace Assets.Scripts {
             currentInteractor = GetComponentInParent<CubeMarkerInteractor>();
         }
 
+        void OnTriggerEnter(Collider other) {
+            //var cubeMarker = other.GetComponent<CubeMarkerController>();
+            var inspector = other.GetComponent<InspectorController>();
+
+            if (inspector) {
+                if (outliner) {
+                    outliner.SetColor(Color.green);
+                    outliner.SetEnabled(true);
+                }
+            }
+        }
+
+        void OnTriggerExit(Collider other) {
+            var inspector = other.GetComponent<InspectorController>();
+
+            if (inspector) {
+                if (outliner) {
+                    outliner.SetEnabled(false);
+                }
+            }
+        }
+
     }
 }
