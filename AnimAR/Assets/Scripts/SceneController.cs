@@ -40,6 +40,12 @@ namespace Assets.Scripts {
             }
         }
 
+        void Update() {
+            if (Input.GetKeyDown(KeyCode.Escape)) {
+                UnityEngine.SceneManagement.SceneManager.LoadScene(0);
+            }
+        }
+
         public void AddNewScene() {
             Scene newScene = GameObject.Instantiate(EmptyScenePrefab, this.transform);
             scenes.Add(newScene);
