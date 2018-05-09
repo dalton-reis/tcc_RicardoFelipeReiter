@@ -132,7 +132,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 86a77ce8cb90490da405e9d62c142d67, type: 3}
+        m_Texture: {fileID: 2800000, guid: fb3134ea5b0c4ddaa9d75efde60298ed, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats: []
@@ -239,7 +239,7 @@ GameObject:
   - component: {fileID: 29967492}
   - component: {fileID: 29967491}
   m_Layer: 0
-  m_Name: CuboMarkerV2.Right
+  m_Name: CubeMarker.Right
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2376,7 +2376,7 @@ GameObject:
   - component: {fileID: 415876901}
   - component: {fileID: 415876900}
   m_Layer: 0
-  m_Name: CuboMarkerV2.Top
+  m_Name: CubeMarker.Top
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2454,7 +2454,7 @@ Material:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: trashbinMaterial
+  m_Name: inspectorMaterial
   m_Shader: {fileID: 10752, guid: 0000000000000000f000000000000000, type: 0}
   m_ShaderKeywords: 
   m_LightmapFlags: 5
@@ -2467,7 +2467,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 51aac52e14a34ddf83a7391c6fd16c29, type: 3}
+        m_Texture: {fileID: 2800000, guid: c83344ceff3c4db8aa4a5d08d012dda8, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats: []
@@ -2682,7 +2682,7 @@ GameObject:
   - component: {fileID: 544814477}
   - component: {fileID: 544814476}
   m_Layer: 0
-  m_Name: CuboMarkerV2.Back
+  m_Name: CubeMarker.Back
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2928,7 +2928,7 @@ Material:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: CuboMarkerV2.Left_scaledMaterial
+  m_Name: CubeMarker.Left_scaledMaterial
   m_Shader: {fileID: 10752, guid: 0000000000000000f000000000000000, type: 0}
   m_ShaderKeywords: 
   m_LightmapFlags: 5
@@ -2941,7 +2941,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 3ca17c4506d94ec2a8336293477a1111, type: 3}
+        m_Texture: {fileID: 2800000, guid: 26953df0051d42e0b8b81c04d859171d, type: 3}
         m_Scale: {x: -1, y: -1}
         m_Offset: {x: 0, y: 0}
     m_Floats: []
@@ -2966,7 +2966,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!33 &582761966
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -3048,8 +3048,8 @@ MonoBehaviour:
   mExtendedTracking: 0
   mAspectRatio: 1
   mImageTargetType: 0
-  mWidth: 5
-  mHeight: 5
+  mWidth: 6
+  mHeight: 6
 --- !u!4 &582761971
 Transform:
   m_ObjectHideFlags: 0
@@ -3058,7 +3058,7 @@ Transform:
   m_GameObject: {fileID: 582761965}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 11.72, y: 0, z: -13}
-  m_LocalScale: {x: 5, y: 5, z: 5}
+  m_LocalScale: {x: 6, y: 6, z: 6}
   m_Children:
   - {fileID: 2139207083}
   m_Father: {fileID: 0}
@@ -3368,7 +3368,7 @@ Material:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: CuboMarkerV2.Bottom_scaledMaterial
+  m_Name: CubeMarker.Bottom_scaledMaterial
   m_Shader: {fileID: 10752, guid: 0000000000000000f000000000000000, type: 0}
   m_ShaderKeywords: 
   m_LightmapFlags: 5
@@ -3381,7 +3381,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: af9215998fd143bcb0192e926e1973b7, type: 3}
+        m_Texture: {fileID: 2800000, guid: 9db235e01e3c41ea9d74bc35b2a42101, type: 3}
         m_Scale: {x: -1, y: -1}
         m_Offset: {x: 0, y: 0}
     m_Floats: []
@@ -3406,7 +3406,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 319a8d3a42bd4d4198c9601071f6d68f, type: 3}
+        m_Texture: {fileID: 2800000, guid: e9eadfbc84904bcc882df7f7b95f1e7a, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats: []
@@ -3418,7 +3418,7 @@ Material:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: CuboMarkerV2.Back_scaledMaterial
+  m_Name: CubeMarker.Back_scaledMaterial
   m_Shader: {fileID: 10752, guid: 0000000000000000f000000000000000, type: 0}
   m_ShaderKeywords: 
   m_LightmapFlags: 5
@@ -3431,7 +3431,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 18034bf682dc4050a08cd7500ed438bd, type: 3}
+        m_Texture: {fileID: 2800000, guid: ba5f896f506047c0ba7fa1a5351d4c38, type: 3}
         m_Scale: {x: -1, y: -1}
         m_Offset: {x: 0, y: 0}
     m_Floats: []
@@ -4800,15 +4800,15 @@ MonoBehaviour:
   m_Script: {fileID: -1631628248, guid: bab6fa851cf5a1a4bba3cec5f191cb8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mTrackableName: trashbin
+  mTrackableName: inspector
   mPreserveChildSize: 0
   mInitializedInEditor: 1
   mDataSetPath: Vuforia/AnimAR.xml
   mExtendedTracking: 0
   mAspectRatio: 1
   mImageTargetType: 0
-  mWidth: 5
-  mHeight: 5
+  mWidth: 6
+  mHeight: 6
 --- !u!4 &1001458059
 Transform:
   m_ObjectHideFlags: 0
@@ -4817,7 +4817,7 @@ Transform:
   m_GameObject: {fileID: 1001458052}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 5, y: 5, z: 5}
+  m_LocalScale: {x: 6, y: 6, z: 6}
   m_Children:
   - {fileID: 1696983510}
   m_Father: {fileID: 0}
@@ -5336,7 +5336,7 @@ GameObject:
   - component: {fileID: 1088460982}
   - component: {fileID: 1088460981}
   m_Layer: 0
-  m_Name: CuboMarkerV2.Bottom
+  m_Name: CubeMarker.Bottom
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5700,7 +5700,7 @@ MonoBehaviour:
   m_Script: {fileID: 1568443412, guid: bab6fa851cf5a1a4bba3cec5f191cb8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mTrackableName: CuboMarkerV2
+  mTrackableName: CubeMarker
   mPreserveChildSize: 0
   mInitializedInEditor: 1
   mDataSetPath: Vuforia/AnimAR.xml
@@ -5943,7 +5943,7 @@ Material:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: CuboMarkerV2.Right_scaledMaterial
+  m_Name: CubeMarker.Right_scaledMaterial
   m_Shader: {fileID: 10752, guid: 0000000000000000f000000000000000, type: 0}
   m_ShaderKeywords: 
   m_LightmapFlags: 5
@@ -5956,7 +5956,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 8b99797184504825a8c9d95c7546db1f, type: 3}
+        m_Texture: {fileID: 2800000, guid: 2a93dbf524194d6a946034ac024274a4, type: 3}
         m_Scale: {x: -1, y: -1}
         m_Offset: {x: 0, y: 0}
     m_Floats: []
@@ -7800,7 +7800,7 @@ Material:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: CuboMarkerV2.Top_scaledMaterial
+  m_Name: CubeMarker.Top_scaledMaterial
   m_Shader: {fileID: 10752, guid: 0000000000000000f000000000000000, type: 0}
   m_ShaderKeywords: 
   m_LightmapFlags: 5
@@ -7813,7 +7813,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 4235d25f7c4a4f2ca8291feaa5954e2a, type: 3}
+        m_Texture: {fileID: 2800000, guid: 3d94b08aa6de4387b779cc00ab20cda2, type: 3}
         m_Scale: {x: -1, y: -1}
         m_Offset: {x: 0, y: 0}
     m_Floats: []
@@ -8740,7 +8740,7 @@ GameObject:
   - component: {fileID: 1712460625}
   - component: {fileID: 1712460624}
   m_Layer: 0
-  m_Name: CuboMarkerV2.Left
+  m_Name: CubeMarker.Left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8947,7 +8947,7 @@ Material:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: CuboMarkerV2.Front_scaledMaterial
+  m_Name: CubeMarker.Front_scaledMaterial
   m_Shader: {fileID: 10752, guid: 0000000000000000f000000000000000, type: 0}
   m_ShaderKeywords: 
   m_LightmapFlags: 5
@@ -8960,7 +8960,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 909698b26ccf426eb629abb8a081fb00, type: 3}
+        m_Texture: {fileID: 2800000, guid: c90caeecea5b45fba656037e2466f98c, type: 3}
         m_Scale: {x: -1, y: -1}
         m_Offset: {x: 0, y: 0}
     m_Floats: []
@@ -9358,7 +9358,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 2e81fbebac8f4c1a8ee4302513bcd5cb, type: 3}
+        m_Texture: {fileID: 2800000, guid: fa95c4f8e2c8482daba7bdf99f1b5d5f, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats: []
@@ -9700,7 +9700,7 @@ GameObject:
   - component: {fileID: 1942647331}
   - component: {fileID: 1942647330}
   m_Layer: 0
-  m_Name: CuboMarkerV2.Front
+  m_Name: CubeMarker.Front
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9858,7 +9858,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 51aac52e14a34ddf83a7391c6fd16c29, type: 3}
+        m_Texture: {fileID: 2800000, guid: 52e9ab08ad0b481d88a389c3fb38e896, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats: []
