@@ -1145,51 +1145,72 @@ MonoBehaviour:
   isDialog: 0
   steps:
   - image: {fileID: 21300000, guid: 2e67f0b7e85bb15419cb728115a8de5f, type: 3}
-    text: "Este \xE9 um pequeno tutorial que ir\xE1 lhe introduzir o AnimAR.\\nO objetivo
-      dessa aplica\xE7\xE3o \xE9 disponibilizar uma maneira f\xE1cil de se criar anima\xE7\xF5es,
-      fazendo uso experimental da Realidade Aumentada e Interface de Usu\xE1rio Tang\xEDvel."
+    text: "Este \xE9 um pequeno tutorial que ir\xE1 introduzir o AnimAR \xE0 voc\xEA.\\nO
+      objetivo dessa aplica\xE7\xE3o \xE9 disponibilizar uma maneira f\xE1cil de se
+      criar anima\xE7\xF5es, fazendo uso experimental da Realidade Aumentada e Interface
+      de Usu\xE1rio Tang\xEDvel."
   - image: {fileID: 21300000, guid: 2e67f0b7e85bb15419cb728115a8de5f, type: 3}
-    text: "O primeiro marcador e um dos principais \xE9 o Seletor.\\nEle atua como
-      e seletor e cria\xE7\xE3o de cenas, sele\xE7\xE3o de novos objetos de cena e
-      visualiza\xE7\xE3o e remo\xE7\xE3o de anima\xE7\xF5es.\\nO seletor que voc\xEA
-      v\xEA \xE9 o de sele\xE7\xE3o de objetos, tamb\xE9m conhecido como f\xE1brica
-      de objetos."
+    text: "Antes de iniciar, voc\xEA deve aprender alguns conceitos do AnimAR.\\nUm
+      projeto consiste de v\xE1rias cenas, essa por si s\xF3, cont\xE9m v\xE1rios
+      objetos que fazem parte da cena como cen\xE1rio, e tamb\xE9m v\xE1rias anima\xE7\xF5es.\\nUma
+      anima\xE7\xE3o est\xE1 ligada unica e exclusivamente com um objeto. Voc\xEA
+      s\xF3 pode animar um objeto por vez."
   - image: {fileID: 21300000, guid: 0e30f9f334e04374fbdcdd770fe2b5e6, type: 3}
+    text: "O principal e mais utilizado marcador \xE9 o de cena. Nele voc\xEA consegue
+      visualizar a cena atual, objetos que comp\xF5em a cena, e tamb\xE9m as anima\xE7\xF5es
+      executando."
+  - image: {fileID: 21300000, guid: 833a4fc002dfeda459021d0c2bae8824, type: 3}
+    text: "Um marcador tamb\xE9m muito utilizado \xE9 o Seletor.\\nEle atua como seletor/criador
+      de cenas, sele\xE7\xE3o de novos objetos para a constru\xE7\xE3o da cena e a
+      visualiza\xE7\xE3o e remo\xE7\xE3o de anima\xE7\xF5es da cena.\\nO seletor que
+      voc\xEA v\xEA \xE9 o de sele\xE7\xE3o de objetos, tamb\xE9m conhecido como f\xE1brica
+      de objetos."
+  - image: {fileID: 21300000, guid: 833a4fc002dfeda459021d0c2bae8824, type: 3}
     text: "Pressione Pr\xF3x ou Ante para navegar entre os objetos do seletor atual."
-  - image: {fileID: 21300000, guid: 833a4fc002dfeda459021d0c2bae8824, type: 3}
-    text: "Al\xE9m do seletor de objetos, existe tamb\xE9m os seletores de Cena e
-      de Anima\xE7\xE3o.\\nUma cena \xE9 um cen\xE1rio que pode conter v\xE1rias anima\xE7\xF5es,
-      simultaneas ou n\xE3o.\\nCaso uma cena n\xE3o possua anima\xE7\xF5es, o seletor
-      de anima\xE7\xF5es mostrar\xE1 um X."
-  - image: {fileID: 21300000, guid: 833a4fc002dfeda459021d0c2bae8824, type: 3}
-    text: "Este \xE9 o marcador cubo, que serve de ponteiro para mover os objetos
-      da cena, tanto na hora da constru\xE7\xE3o da cena, como tamb\xE9m para animar
-      os objetos."
   - image: {fileID: 21300000, guid: ee181ba611d66c54694c35eb99462413, type: 3}
-    text: "Com o seletor de cena, voc\xEA pode alternar entre as cenas. A \xFAltima
-      cena sempre ser\xE1 uma nova."
+    text: "Al\xE9m do seletor de objetos, existe tamb\xE9m os seletores de Cena e
+      de Anima\xE7\xE3o.\\nCaso uma cena n\xE3o possua ainda anima\xE7\xF5es, o seletor
+      de anima\xE7\xF5es mostrar\xE1 um \xFAnico objeto com um X."
   - image: {fileID: 21300000, guid: 678b2553aecb973418af929b86ea78f9, type: 3}
-    text: "Selecione o objeto da f\xE1brica, para isso voc\xEA deve apontar o indicador
-      do cubo no objeto, e ficar parado por alguns segundos at\xE9 que o objeto seja
-      selecionado.\\nMovendo o objeto da f\xE1brica para a cena ir\xE1 adicion\xE1-lo
-      na mesma."
+    text: "Com o seletor de cena, voc\xEA pode alternar entre as cenas. Se voc\xEA
+      estiver selecionado a \xFAltima cena e avan\xE7ar o seletor, uma nova cena sempre
+      ser\xE1 criada."
   - image: {fileID: 21300000, guid: 0fe29042f89030343a4c599a93b69ab2, type: 3}
-    text: "Com o marcador de grava\xE7\xE3o, voc\xEA tem o controle de todas as anima\xE7\xF5es
-      daquela cena.\\nPrecione REC para come\xE7ar a grava\xE7\xE3o de uma nova anima\xE7\xE3o
-      e selecione o objeto que deseja animar."
+    text: "Este \xE9 o marcador cubo, que serve de ponteiro para mover os objetos
+      da cena, tanto na hora da constru\xE7\xE3o da cena, como tamb\xE9m ao animar
+      os objetos."
   - image: {fileID: 21300000, guid: d96145cd331687d42ba330777e3ee4a9, type: 3}
+    text: "Para adicionar objetos ao seu cen\xE1rio, selecione um objeto da f\xE1brica
+      e mova para sua cena. Para isso voc\xEA deve colocar o indicador do cubo dentro
+      do objeto e ficar alguns segundos sem se mexer. O objeto ent\xE3o ser\xE1 selecionado\\nMovendo
+      o objeto da f\xE1brica para a cena, posicione o objeto na posi\xE7\xE3o desejada
+      e segure por alguns segundos. O objeto ent\xE3o \xE9 adiciona \xE0 cena."
+  - image: {fileID: 21300000, guid: 966e171ee6061614ea441a425ede97bd, type: 3}
+    text: "Com o marcador de grava\xE7\xE3o, voc\xEA tem o controle das anima\xE7\xF5es
+      da cena atual selecionada.\\nPrecione o bot\xE3o de gravar para come\xE7ar a
+      gravar uma nova anima\xE7\xE3o. A aplica\xE7\xE3o ent\xE3o esperar\xE1 que voc\xEA
+      selecione o objeto da cena que deseja animar."
+  - image: {fileID: 21300000, guid: 7101d0cacc913c04ebb14eecddca0366, type: 3}
     text: "Ao selecionar um objeto, a grava\xE7\xE3o ir\xE1 come\xE7ar automaticamente.\\nMovimente
       o objeto conforme voc\xEA deseja e pressione o bot\xE3o de grava\xE7\xE3o para
-      parar de gravar."
-  - image: {fileID: 21300000, guid: 966e171ee6061614ea441a425ede97bd, type: 3}
+      parar de gravar. Outra forma de parar a grava\xE7\xE3o \xE9 esconder o marcador
+      cubo, tampando-o com a m\xE3o para que a aplica\xE7\xE3o n\xE3o o reconhe\xE7a."
+  - image: {fileID: 21300000, guid: 7101d0cacc913c04ebb14eecddca0366, type: 3}
     text: "Se voc\xEA pressionar Gravar novamente, voc\xEA pode criar novas anima\xE7\xF5es
       para a mesma cena.\\nSelecionar um novo objeto ir\xE1 gerar uma nova anima\xE7\xE3o.
-      Selecionar um objeto que j\xE1 cont\xE9m anima\xE7\xE3o, ir\xE1 excluir a antiga
+      Selecionar um objeto que j\xE1 cont\xE9m anima\xE7\xE3o ir\xE1 excluir a antiga
       e criar uma nova."
   - image: {fileID: 21300000, guid: 7101d0cacc913c04ebb14eecddca0366, type: 3}
-    text: "Por fim, se voc\xEA deseja excluir uma anima\xE7\xE3o, selecione o seletor
-      de anima\xE7\xF5es, e com o cubo, mova o icone da anima\xE7\xE3o para a lixeira.\\nQualquer
-      objeto da cena pode ser jogado na lixeira, deletando-o."
+    text: "Com o inspetor voc\xEA pode visualizar alguns dados do objeto selecionado.\\nExperimente
+      apontar o inspetor para objetos da cena. Experimente tamb\xE9m apontar para
+      cenas e anima\xE7\xF5es no marcador \"Seletor\"."
+  - image: {fileID: 21300000, guid: 7101d0cacc913c04ebb14eecddca0366, type: 3}
+    text: "Se em algum momento voc\xEA precisar excluir alguma anima\xE7\xE3o, objeto
+      ou cena, voc\xEA pode utilizar o marcador de lixeira.\\nSe voc\xEA deseja excluir
+      uma anima\xE7\xE3o, selecione o seletor de anima\xE7\xF5es, e com o cubo mova
+      o icone da anima\xE7\xE3o para a lixeira. Para excluir cenas, use tamb\xE9m
+      os \xEDcones do seletor de cenas. E por fim, para objetos da cena, mova os pr\xF3prios
+      objetos do marcador de cena para a lixeira."
   stepImage: {fileID: 352190304}
   stepText: {fileID: 516745651}
   stepExitButton: {fileID: 1409938171}

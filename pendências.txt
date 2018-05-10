@@ -1,4 +1,3 @@
 - Rodar animação enquanto o seletor de take está ativo?
-- Novos marcadores
-- Tutorial
+- Imagens finais Tutorial
 - Renderizar linhas com objetos envolvidos Marcador inspector?
