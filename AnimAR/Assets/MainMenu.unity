@@ -773,8 +773,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -179}
-  m_SizeDelta: {x: -20, y: 334.8}
+  m_AnchoredPosition: {x: 0, y: -335.33}
+  m_SizeDelta: {x: -20, y: 647.65}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &352190304
 MonoBehaviour:
@@ -1051,10 +1051,10 @@ RectTransform:
   m_Father: {fileID: 259539226}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0.5}
-  m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -129.19998}
-  m_SizeDelta: {x: -167, y: 258.3}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -0.00000049919, y: -263.5}
+  m_SizeDelta: {x: -93, y: -791.3}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &516745651
 MonoBehaviour:
@@ -1079,10 +1079,10 @@ MonoBehaviour:
     m_Font: {fileID: 12800000, guid: 6e4a1744cf113994799d3e46a7c45d99, type: 3}
     m_FontSize: 30
     m_FontStyle: 0
-    m_BestFit: 0
-    m_MinSize: 3
+    m_BestFit: 1
+    m_MinSize: 20
     m_MaxSize: 40
-    m_Alignment: 0
+    m_Alignment: 3
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
@@ -1144,73 +1144,74 @@ MonoBehaviour:
   Name: tutorial
   isDialog: 0
   steps:
-  - image: {fileID: 21300000, guid: 2e67f0b7e85bb15419cb728115a8de5f, type: 3}
+  - image: {fileID: 21300000, guid: 297bfabe5c5e517429f69bffda1b01c5, type: 3}
     text: "Este \xE9 um pequeno tutorial que ir\xE1 introduzir o AnimAR \xE0 voc\xEA.\\nO
       objetivo dessa aplica\xE7\xE3o \xE9 disponibilizar uma maneira f\xE1cil de se
       criar anima\xE7\xF5es, fazendo uso experimental da Realidade Aumentada e Interface
       de Usu\xE1rio Tang\xEDvel."
-  - image: {fileID: 21300000, guid: 2e67f0b7e85bb15419cb728115a8de5f, type: 3}
+  - image: {fileID: 21300000, guid: 297bfabe5c5e517429f69bffda1b01c5, type: 3}
     text: "Antes de iniciar, voc\xEA deve aprender alguns conceitos do AnimAR.\\nUm
-      projeto consiste de v\xE1rias cenas, essa por si s\xF3, cont\xE9m v\xE1rios
-      objetos que fazem parte da cena como cen\xE1rio, e tamb\xE9m v\xE1rias anima\xE7\xF5es.\\nUma
-      anima\xE7\xE3o est\xE1 ligada unica e exclusivamente com um objeto. Voc\xEA
-      s\xF3 pode animar um objeto por vez."
-  - image: {fileID: 21300000, guid: 0e30f9f334e04374fbdcdd770fe2b5e6, type: 3}
+      projeto consiste de v\xE1rias cenas. Uma cena cont\xE9m v\xE1rios objetos que
+      fazem parte representando o cen\xE1rio, que tamb\xE9m pode conter v\xE1rias
+      anima\xE7\xF5es.\\nUma anima\xE7\xE3o est\xE1 ligada \xFAnica e exclusivamente
+      com um objeto. Voc\xEA s\xF3 pode animar um objeto por vez."
+  - image: {fileID: 21300000, guid: 297bfabe5c5e517429f69bffda1b01c5, type: 3}
     text: "O principal e mais utilizado marcador \xE9 o de cena. Nele voc\xEA consegue
       visualizar a cena atual, objetos que comp\xF5em a cena, e tamb\xE9m as anima\xE7\xF5es
       executando."
+  - image: {fileID: 21300000, guid: 2e67f0b7e85bb15419cb728115a8de5f, type: 3}
+    text: "Outro marcador tamb\xE9m muito utilizado \xE9 o Seletor.\\nEle atua como
+      seletor/criador de cenas, sele\xE7\xE3o de novos objetos para a constru\xE7\xE3o
+      da cena e a visualiza\xE7\xE3o e remo\xE7\xE3o de anima\xE7\xF5es da cena.\\nO
+      seletor que voc\xEA v\xEA \xE9 o de sele\xE7\xE3o de objetos, tamb\xE9m conhecido
+      como F\xE1brica de Objetos."
+  - image: {fileID: 21300000, guid: 0e30f9f334e04374fbdcdd770fe2b5e6, type: 3}
+    text: Pressione "<" ou ">" para navegar entre os objetos do seletor atual.
   - image: {fileID: 21300000, guid: 833a4fc002dfeda459021d0c2bae8824, type: 3}
-    text: "Um marcador tamb\xE9m muito utilizado \xE9 o Seletor.\\nEle atua como seletor/criador
-      de cenas, sele\xE7\xE3o de novos objetos para a constru\xE7\xE3o da cena e a
-      visualiza\xE7\xE3o e remo\xE7\xE3o de anima\xE7\xF5es da cena.\\nO seletor que
-      voc\xEA v\xEA \xE9 o de sele\xE7\xE3o de objetos, tamb\xE9m conhecido como f\xE1brica
-      de objetos."
-  - image: {fileID: 21300000, guid: 833a4fc002dfeda459021d0c2bae8824, type: 3}
-    text: "Pressione Pr\xF3x ou Ante para navegar entre os objetos do seletor atual."
-  - image: {fileID: 21300000, guid: ee181ba611d66c54694c35eb99462413, type: 3}
-    text: "Al\xE9m do seletor de objetos, existe tamb\xE9m os seletores de Cena e
-      de Anima\xE7\xE3o.\\nCaso uma cena n\xE3o possua ainda anima\xE7\xF5es, o seletor
+    text: "Al\xE9m do seletor de objetos, existem tamb\xE9m os seletores de Cena e
+      de Anima\xE7\xE3o.\\nCaso uma cena ainda n\xE3o possua anima\xE7\xF5es, o seletor
       de anima\xE7\xF5es mostrar\xE1 um \xFAnico objeto com um X."
-  - image: {fileID: 21300000, guid: 678b2553aecb973418af929b86ea78f9, type: 3}
-    text: "Com o seletor de cena, voc\xEA pode alternar entre as cenas. Se voc\xEA
-      estiver selecionado a \xFAltima cena e avan\xE7ar o seletor, uma nova cena sempre
-      ser\xE1 criada."
-  - image: {fileID: 21300000, guid: 0fe29042f89030343a4c599a93b69ab2, type: 3}
+  - image: {fileID: 21300000, guid: ee181ba611d66c54694c35eb99462413, type: 3}
+    text: "Com o seletor de cena, voc\xEA pode alternar entre as cenas do projeto.\\nSe
+      voc\xEA estiver selecionado a \xFAltima cena e avan\xE7ar o seletor, uma nova
+      cena sempre ser\xE1 criada."
+  - image: {fileID: 21300000, guid: 297bfabe5c5e517429f69bffda1b01c5, type: 3}
     text: "Este \xE9 o marcador cubo, que serve de ponteiro para mover os objetos
       da cena, tanto na hora da constru\xE7\xE3o da cena, como tamb\xE9m ao animar
       os objetos."
-  - image: {fileID: 21300000, guid: d96145cd331687d42ba330777e3ee4a9, type: 3}
+  - image: {fileID: 21300000, guid: 678b2553aecb973418af929b86ea78f9, type: 3}
     text: "Para adicionar objetos ao seu cen\xE1rio, selecione um objeto da f\xE1brica
-      e mova para sua cena. Para isso voc\xEA deve colocar o indicador do cubo dentro
-      do objeto e ficar alguns segundos sem se mexer. O objeto ent\xE3o ser\xE1 selecionado\\nMovendo
-      o objeto da f\xE1brica para a cena, posicione o objeto na posi\xE7\xE3o desejada
-      e segure por alguns segundos. O objeto ent\xE3o \xE9 adiciona \xE0 cena."
-  - image: {fileID: 21300000, guid: 966e171ee6061614ea441a425ede97bd, type: 3}
+      e mova para sua cena.\\nPara mover voc\xEA deve colocar o indicador do cubo
+      dentro do objeto e aguardar alguns segundos sem mexer o cubo.\\nAp\xF3s selecionado,
+      voc\xEA pode mover o objeto da f\xE1brica para a cena. Posicione o objeto na
+      posi\xE7\xE3o desejada dentro da cena e aguarde alguns segundos. O objeto ent\xE3o
+      \xE9 adiciona \xE0 cena."
+  - image: {fileID: 21300000, guid: 0fe29042f89030343a4c599a93b69ab2, type: 3}
     text: "Com o marcador de grava\xE7\xE3o, voc\xEA tem o controle das anima\xE7\xF5es
-      da cena atual selecionada.\\nPrecione o bot\xE3o de gravar para come\xE7ar a
-      gravar uma nova anima\xE7\xE3o. A aplica\xE7\xE3o ent\xE3o esperar\xE1 que voc\xEA
-      selecione o objeto da cena que deseja animar."
-  - image: {fileID: 21300000, guid: 7101d0cacc913c04ebb14eecddca0366, type: 3}
+      da cena atual selecionada.\\nPrecione o bot\xE3o de grava\xE7\xE3o para come\xE7ar
+      a gravar uma nova anima\xE7\xE3o. A aplica\xE7\xE3o ent\xE3o esperar\xE1 que
+      voc\xEA selecione o objeto da cena que deseja animar."
+  - image: {fileID: 21300000, guid: d96145cd331687d42ba330777e3ee4a9, type: 3}
     text: "Ao selecionar um objeto, a grava\xE7\xE3o ir\xE1 come\xE7ar automaticamente.\\nMovimente
-      o objeto conforme voc\xEA deseja e pressione o bot\xE3o de grava\xE7\xE3o para
-      parar de gravar. Outra forma de parar a grava\xE7\xE3o \xE9 esconder o marcador
-      cubo, tampando-o com a m\xE3o para que a aplica\xE7\xE3o n\xE3o o reconhe\xE7a."
-  - image: {fileID: 21300000, guid: 7101d0cacc913c04ebb14eecddca0366, type: 3}
-    text: "Se voc\xEA pressionar Gravar novamente, voc\xEA pode criar novas anima\xE7\xF5es
-      para a mesma cena.\\nSelecionar um novo objeto ir\xE1 gerar uma nova anima\xE7\xE3o.
-      Selecionar um objeto que j\xE1 cont\xE9m anima\xE7\xE3o ir\xE1 excluir a antiga
-      e criar uma nova."
-  - image: {fileID: 21300000, guid: 7101d0cacc913c04ebb14eecddca0366, type: 3}
-    text: "Com o inspetor voc\xEA pode visualizar alguns dados do objeto selecionado.\\nExperimente
+      o objeto conforme voc\xEA deseja animar e pressione o bot\xE3o de grava\xE7\xE3o
+      para parar de gravar. Outra forma de parar a grava\xE7\xE3o \xE9 esconder o
+      marcador cubo, tampando-o com a m\xE3o para que a aplica\xE7\xE3o n\xE3o o reconhe\xE7a."
+  - image: {fileID: 21300000, guid: 966e171ee6061614ea441a425ede97bd, type: 3}
+    text: "Se voc\xEA pressionar para gravar novamente, voc\xEA poder\xE1 criar novas
+      anima\xE7\xF5es para a mesma cena.\\nSelecionar um novo objeto ir\xE1 gerar
+      uma nova anima\xE7\xE3o. Selecionar um objeto que j\xE1 cont\xE9m anima\xE7\xE3o
+      ir\xE1 excluir a antiga e criar uma nova."
+  - image: {fileID: 21300000, guid: 297bfabe5c5e517429f69bffda1b01c5, type: 3}
+    text: "Com o inspetor, voc\xEA pode visualizar alguns dados do objeto selecionado.\\nExperimente
       apontar o inspetor para objetos da cena. Experimente tamb\xE9m apontar para
-      cenas e anima\xE7\xF5es no marcador \"Seletor\"."
+      os \xEDcones de cena e anima\xE7\xF5es do marcador \"Seletor\"."
   - image: {fileID: 21300000, guid: 7101d0cacc913c04ebb14eecddca0366, type: 3}
     text: "Se em algum momento voc\xEA precisar excluir alguma anima\xE7\xE3o, objeto
       ou cena, voc\xEA pode utilizar o marcador de lixeira.\\nSe voc\xEA deseja excluir
-      uma anima\xE7\xE3o, selecione o seletor de anima\xE7\xF5es, e com o cubo mova
+      uma anima\xE7\xE3o, selecione o seletor de anima\xE7\xF5es e com o cubo mova
       o icone da anima\xE7\xE3o para a lixeira. Para excluir cenas, use tamb\xE9m
-      os \xEDcones do seletor de cenas. E por fim, para objetos da cena, mova os pr\xF3prios
-      objetos do marcador de cena para a lixeira."
+      os \xEDcones do seletor de cenas. Por fim, para objetos que comp\xF5em a cena,
+      voc\xEA pode mover os pr\xF3prios objetos da cena para a lixeira."
   stepImage: {fileID: 352190304}
   stepText: {fileID: 516745651}
   stepExitButton: {fileID: 1409938171}
@@ -2154,6 +2155,74 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1074941259}
+--- !u!1 &1107141096
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1107141097}
+  - component: {fileID: 1107141099}
+  - component: {fileID: 1107141098}
+  m_Layer: 0
+  m_Name: Background2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1107141097
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1107141096}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1109417415}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: -0.00000047683716}
+  m_SizeDelta: {x: -22.599998, y: -22.599998}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1107141098
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1107141096}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_Sprite: {fileID: 21300000, guid: a0c4441e403ea437ca79f6f9b5b15da8, type: 3}
+  m_Type: 1
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+--- !u!222 &1107141099
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1107141096}
 --- !u!1 &1109417414
 GameObject:
   m_ObjectHideFlags: 0
@@ -2179,6 +2248,8 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 1773931671}
+  - {fileID: 1107141097}
   - {fileID: 1409938171}
   - {fileID: 1469146160}
   m_Father: {fileID: 259539226}
@@ -2186,8 +2257,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: 0, y: 66.099976}
-  m_SizeDelta: {x: 0, y: 132.1}
+  m_AnchoredPosition: {x: 0, y: 58.95}
+  m_SizeDelta: {x: 0, y: 117.8}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1117900431
 GameObject:
@@ -2788,11 +2859,11 @@ RectTransform:
   m_Children:
   - {fileID: 1968176777}
   m_Father: {fileID: 1109417415}
-  m_RootOrder: 0
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 161, y: 66.05}
+  m_AnchoredPosition: {x: 145.3, y: 59}
   m_SizeDelta: {x: 230, y: 60}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1409938172
@@ -2910,11 +2981,11 @@ RectTransform:
   m_Children:
   - {fileID: 1202332328}
   m_Father: {fileID: 1109417415}
-  m_RootOrder: 1
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -161, y: 66.049995}
+  m_AnchoredPosition: {x: -145.3, y: 59}
   m_SizeDelta: {x: 230, y: 60}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1469146161
@@ -3315,6 +3386,74 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1698018735}
+--- !u!1 &1773931670
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1773931671}
+  - component: {fileID: 1773931673}
+  - component: {fileID: 1773931672}
+  m_Layer: 0
+  m_Name: Background
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1773931671
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1773931670}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1109417415}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: -0.000016942504}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1773931672
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1773931670}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_Sprite: {fileID: 21300000, guid: 8bba60bd272ff4978982a12a88f56b11, type: 3}
+  m_Type: 1
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+--- !u!222 &1773931673
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1773931670}
 --- !u!1 &1777074237
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,27 +1,27 @@
 Este é um pequeno tutorial que irá introduzir o AnimAR à você.\nO objetivo dessa aplicação é disponibilizar uma maneira fácil de se criar animações, fazendo uso experimental da Realidade Aumentada e Interface de Usuário Tangível.
 
-Antes de iniciar, você deve aprender alguns conceitos do AnimAR.\nUm projeto consiste de várias cenas, essa por si só, contém vários objetos que fazem parte da cena como cenário, e também várias animações.\nUma animação está ligada unica e exclusivamente com um objeto. Você só pode animar um objeto por vez.
+Antes de iniciar, você deve aprender alguns conceitos do AnimAR.\nUm projeto consiste de várias cenas. Uma cena contém vários objetos que fazem parte representando o cenário, que também pode conter várias animações.\nUma animação está ligada única e exclusivamente com um objeto. Você só pode animar um objeto por vez.
 
 O principal e mais utilizado marcador é o de cena. Nele você consegue visualizar a cena atual, objetos que compõem a cena, e também as animações executando.
 
-Um marcador também muito utilizado é o Seletor.\nEle atua como seletor/criador de cenas, seleção de novos objetos para a construção da cena e a visualização e remoção de animações da cena.\nO seletor que você vê é o de seleção de objetos, também conhecido como fábrica de objetos.
+Outro marcador também muito utilizado é o Seletor.\nEle atua como seletor/criador de cenas, seleção de novos objetos para a construção da cena e a visualização e remoção de animações da cena.\nO seletor que você vê é o de seleção de objetos, também conhecido como Fábrica de Objetos.
 
-Pressione Próx ou Ante para navegar entre os objetos do seletor atual.
+Pressione "<" ou ">" para navegar entre os objetos do seletor atual.
 
-Além do seletor de objetos, existe também os seletores de Cena e de Animação.\nCaso uma cena não possua ainda animações, o seletor de animações mostrará um único objeto com um X.
+Além do seletor de objetos, existem também os seletores de Cena e de Animação.\nCaso uma cena ainda não possua animações, o seletor de animações mostrará um único objeto com um X.
 
-Com o seletor de cena, você pode alternar entre as cenas. Se você estiver selecionado a última cena e avançar o seletor, uma nova cena sempre será criada.
+Com o seletor de cena, você pode alternar entre as cenas do projeto.\nSe você estiver selecionado a última cena e avançar o seletor, uma nova cena sempre será criada.
 
 Este é o marcador cubo, que serve de ponteiro para mover os objetos da cena, tanto na hora da construção da cena, como também ao animar os objetos.
 
-Para adicionar objetos ao seu cenário, selecione um objeto da fábrica e mova para sua cena. Para isso você deve colocar o indicador do cubo dentro do objeto e ficar alguns segundos sem se mexer. O objeto então será selecionado\nMovendo o objeto da fábrica para a cena, posicione o objeto na posição desejada e segure por alguns segundos. O objeto então é adiciona à cena.
+Para adicionar objetos ao seu cenário, selecione um objeto da fábrica e mova para sua cena.\nPara mover você deve colocar o indicador do cubo dentro do objeto e aguardar alguns segundos sem mexer o cubo.\nApós selecionado, você pode mover o objeto da fábrica para a cena. Posicione o objeto na posição desejada dentro da cena e aguarde alguns segundos. O objeto então é adiciona à cena.
 
-Com o marcador de gravação, você tem o controle das animações da cena atual selecionada.\nPrecione o botão de gravar para começar a gravar uma nova animação. A aplicação então esperará que você selecione o objeto da cena que deseja animar.
+Com o marcador de gravação, você tem o controle das animações da cena atual selecionada.\nPrecione o botão de gravação para começar a gravar uma nova animação. A aplicação então esperará que você selecione o objeto da cena que deseja animar.
 
-Ao selecionar um objeto, a gravação irá começar automaticamente.\nMovimente o objeto conforme você deseja e pressione o botão de gravação para parar de gravar. Outra forma de parar a gravação é esconder o marcador cubo, tampando-o com a mão para que a aplicação não o reconheça.
+Ao selecionar um objeto, a gravação irá começar automaticamente.\nMovimente o objeto conforme você deseja animar e pressione o botão de gravação para parar de gravar. Outra forma de parar a gravação é esconder o marcador cubo, tampando-o com a mão para que a aplicação não o reconheça.
 
-Se você pressionar Gravar novamente, você pode criar novas animações para a mesma cena.\nSelecionar um novo objeto irá gerar uma nova animação. Selecionar um objeto que já contém animação irá excluir a antiga e criar uma nova.
+Se você pressionar para gravar novamente, você poderá criar novas animações para a mesma cena.\nSelecionar um novo objeto irá gerar uma nova animação. Selecionar um objeto que já contém animação irá excluir a antiga e criar uma nova.
 
-Com o inspetor você pode visualizar alguns dados do objeto selecionado.\nExperimente apontar o inspetor para objetos da cena. Experimente também apontar para cenas e animações no marcador "Seletor".
+Com o inspetor, você pode visualizar alguns dados do objeto selecionado.\nExperimente apontar o inspetor para objetos da cena. Experimente também apontar para os ícones de cena e animações do marcador "Seletor".
 
-Se em algum momento você precisar excluir alguma animação, objeto ou cena, você pode utilizar o marcador de lixeira.\nSe você deseja excluir uma animação, selecione o seletor de animações, e com o cubo mova o icone da animação para a lixeira. Para excluir cenas, use também os ícones do seletor de cenas. E por fim, para objetos da cena, mova os próprios objetos do marcador de cena para a lixeira.
+Se em algum momento você precisar excluir alguma animação, objeto ou cena, você pode utilizar o marcador de lixeira.\nSe você deseja excluir uma animação, selecione o seletor de animações e com o cubo mova o icone da animação para a lixeira. Para excluir cenas, use também os ícones do seletor de cenas. Por fim, para objetos que compõem a cena, você pode mover os próprios objetos da cena para a lixeira.
