@@ -72,10 +72,10 @@ namespace Assets.Scripts {
                             animationController.StopRecording();
                             break;
                         case AnimationController.STATUS.WAITING_OBJECT_TO_ATTACH:
-                            animationController.PrepareForRecording(true);
+                            animationController.PrepareForRecording(false);
                             break;
                         case AnimationController.STATUS.IDLE:
-                            animationController.PrepareForRecording(false);
+                            animationController.PrepareForRecording(true);
                             break;
                     }
                     break;

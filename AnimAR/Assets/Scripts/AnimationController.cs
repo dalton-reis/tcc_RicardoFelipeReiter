@@ -128,21 +128,31 @@ namespace Assets.Scripts {
         public void PlayAll() {
             // TODO: usar listener animation controller e dai o próprio cubeMarkerControler toma as ações próprias
             cubeMarkerController.ResetAttached();
-            foreach (AnimationTake take in SceneController.GetCurrentScene().Takes) {
-                take.Animation.Play("clip");
-            }
+            InternalPlayAll();
             if (SceneController.GetCurrentScene().Takes.Count > 0) {
                 Status = STATUS.PLAYING;
             }
         }
 
+        private void InternalPlayAll() {
+            foreach (AnimationTake take in SceneController.GetCurrentScene().Takes) {
+                if (recorderTracker.source != null && recorderTracker.source.gameObject == take.GameObject) {
+                    continue;
+                }
+                take.Animation.Play("clip");
+            }
+        }
+
         public void StopAll() {
             cubeMarkerController.ResetAttached();
-            Debug.Log(SceneController.GetCurrentScene().Takes);
+            InternalStopAll();
+            Status = STATUS.IDLE;
+        }
+
+        private void InternalStopAll() {
             foreach (AnimationTake take in SceneController.GetCurrentScene().Takes) {
                 take.Animation.Stop("clip");
             }
-            Status = STATUS.IDLE;
         }
 
         public void RewindAll() {
@@ -187,10 +197,6 @@ namespace Assets.Scripts {
         }
 
         public void NotifyAnimationTimesChanged() {
-            if (CurrentTime <= 0) {
-                Debug.Log("NotifyAnimationTimesChanged");
-                Debug.Log(CurrentTime);
-            }
             foreach (var listener in listeners) {
                 listener.AnimationTimesChanged(CurrentTime, EndTime, GetTakesTime());
             }
@@ -228,19 +234,23 @@ namespace Assets.Scripts {
         public void StopRecording() {
             if (status == STATUS.RECORDING) {
                 Status = STATUS.IDLE;
+                InternalStopAll();
                 CreateNewTakeAtCurrentPos();
+                this.recorderTracker.source = null;
                 recorder.ResetRecording();
                 cubeMarkerController.SetAttachMode(CubeMarkerAttachMode.NORMAL);
+                RewindAll();
 
                 NotifyAnimationTimesChanged();
             }
         }
 
         public void PrepareForRecording(bool prepare) {
-            if (prepare) {
+            if (!prepare) {
                 Status = STATUS.IDLE;
                 cubeMarkerController.SetAttachMode(CubeMarkerAttachMode.NORMAL);
             } else {
+                RewindAll();
                 Status = STATUS.WAITING_OBJECT_TO_ATTACH;
                 cubeMarkerController.SetAttachMode(CubeMarkerAttachMode.RECORD_MODE);
             }
@@ -256,6 +266,7 @@ namespace Assets.Scripts {
             if (this.status == STATUS.WAITING_OBJECT_TO_ATTACH && obj.type == MovableObject.TYPE.SCENE_OBJECT) {
                 this.recorderTracker.source = obj.transform;
                 Status = STATUS.RECORDING;
+                InternalPlayAll();
             }
         }
 
