@@ -60,10 +60,11 @@ namespace Assets.Scripts {
             return obj.type == MovableObject.TYPE.SCENE_OBJECT;
         }
 
-        public override void ObjectReceived(MovableObject obj) {
+        public override bool ObjectReceived(MovableObject obj) {
             obj.transform.parent = GetCurrentScene().Map.transform;
             VuforiaUtils.EnableTargetObject(obj.gameObject);
             PersistController.Instance.PersistEverything();
+            return false;
         }
 
         public override void ObjectRemoved(MovableObject obj) {

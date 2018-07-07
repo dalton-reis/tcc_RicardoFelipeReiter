@@ -51,9 +51,9 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4059097751664302}
-  - component: {fileID: 114297848552690374}
   - component: {fileID: 114149180279844468}
   - component: {fileID: 114801781226309456}
+  - component: {fileID: 114297848552690374}
   - component: {fileID: 136062920505830644}
   m_Layer: 0
   m_Name: eer8

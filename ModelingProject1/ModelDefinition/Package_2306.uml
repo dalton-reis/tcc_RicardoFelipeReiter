@@ -1,0 +1,176 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm5="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/LogicalClassDesigner"
+  dslVersion="1.0.0.0"
+  Id="18dd59c4-b286-4c7e-afc9-81dae4ce1fef"
+  name="Vuforia"
+  visibility="Private" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
+  <referencesInternal>
+    <reference
+      Id="38f2f776-7be6-4ba9-aec6-5479177e0669"
+      handle="viewcode://./CodeSchema_Namespace?Namespace%3DVuforia"
+      tag="ViewCode" />
+  </referencesInternal>
+  <packagedElements>
+    <packageHasNamedElement>
+      <enumeration
+        Id="4d881121-fcfc-4d0e-a0a8-5cf25bcd241e"
+        name="Status"
+        isAbstract="false"
+        isLeaf="false">
+        <referencesInternal>
+          <reference
+            Id="96510552-fbee-4325-9392-2106f2c87f5d"
+            handle="viewcode://./CodeSchema_Enum?Assembly%3D&quot;file:%2F%2F%2FD:%2FSource Tree Repositories%2Fricardofilipereiter-tcc2%2FAnimAR%2FLibrary%2FUnityAssemblies%2FVuforia.UnityExtensions.dll&quot; Namespace%3DVuforia Type%3D(Name%3DStatus ParentType%3DTrackableBehaviour)"
+            tag="ViewCode" />
+        </referencesInternal>
+        <appliedStereotypesInternal>
+          <stereotypeInstance
+            Id="a86a3508-79a9-425e-8750-773a0cae8bd1"
+            name="enum"
+            profile="CSharpProfile">
+            <propertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="9e7765a5-7938-42df-b15f-74c93f0c143b">
+                <propertyInstance
+                  Id="2d4e9ac1-b378-4bfa-a9da-1e8b30426eb6"
+                  name="ClrAttributes" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="03eaf570-287f-4c95-94a8-177275aafdec">
+                <propertyInstance
+                  Id="4ea12045-e74c-4005-89af-18baa99e4e1e"
+                  name="BaseType"
+                  value="int" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="8a40a508-cd01-4cbe-99a3-5c2b56d84072">
+                <propertyInstance
+                  Id="21772ef2-160c-4c1e-9a91-b8e2bfd50a3a"
+                  name="PackageVisibility"
+                  value="internal" />
+              </stereotypeInstanceHasPropertyInstances>
+            </propertyInstances>
+          </stereotypeInstance>
+        </appliedStereotypesInternal>
+      </enumeration>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="18d750a2-fe80-4427-a180-3b6429d6eb0d"
+        name="VirtualButtonBehaviour"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <referencesInternal>
+          <reference
+            Id="57fe77e9-2612-4945-9b47-e4925c22e3d1"
+            handle="viewcode://./CodeSchema_Class?Assembly%3D&quot;file:%2F%2F%2FD:%2FSource Tree Repositories%2Fricardofilipereiter-tcc2%2FAnimAR%2FLibrary%2FUnityAssemblies%2FVuforia.UnityExtensions.dll&quot; Namespace%3DVuforia Type%3DVirtualButtonBehaviour"
+            tag="ViewCode" />
+        </referencesInternal>
+        <appliedStereotypesInternal>
+          <stereotypeInstance
+            Id="3fc00bbb-df84-4f12-90d9-99889da5992c"
+            name="class"
+            profile="CSharpProfile">
+            <propertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="2889d487-38af-4886-927f-d76eb376e58e">
+                <propertyInstance
+                  Id="8f8a0cf8-ba56-4f33-a9be-4e69c20cf0f8"
+                  name="ClrAttributes" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="eb24e985-23a6-4e8d-8fce-7b8befb935e5">
+                <propertyInstance
+                  Id="8c0c5b6e-992c-406b-bb81-8b59ddc80458"
+                  name="IsPartial"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="1831114d-da70-43b0-a9be-979ec76f478a">
+                <propertyInstance
+                  Id="f5931f12-9830-4952-88d4-8173c6050e84"
+                  name="IsStatic"
+                  value="False" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="40b3a75e-991f-4677-a64b-1989be84c978">
+                <propertyInstance
+                  Id="0a7d5ce4-ecee-40cc-8644-19c2ea7dbc05"
+                  name="IsUnsafe"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="980699ca-a3c4-4008-a12b-e498754cc7f4">
+                <propertyInstance
+                  Id="d73c7b24-5fb8-4793-8a28-2e113432d494"
+                  name="PackageVisibility"
+                  value="internal" />
+              </stereotypeInstanceHasPropertyInstances>
+            </propertyInstances>
+          </stereotypeInstance>
+        </appliedStereotypesInternal>
+        <generalsInternal>
+          <generalization
+            Id="2646e459-e5e9-44a4-8eb2-6161af2e327e"
+            isSubstitutable="false">
+            <classMoniker
+              Id="923805f0-8fac-40ef-9409-9e5bee8d219b"
+              LastKnownName="MonoBehaviour"
+              LastKnownLocation="Package5_2328.uml" />
+          </generalization>
+        </generalsInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <Interface
+        Id="5bb13c3e-81dd-495e-b6c9-9272ead99e81"
+        name="ITrackableEventHandler"
+        isAbstract="false"
+        isLeaf="false">
+        <referencesInternal>
+          <reference
+            Id="be5b8e35-29bb-45f5-b55d-b3c776a4e0c9"
+            handle="viewcode://./CodeSchema_Interface?Assembly%3D&quot;file:%2F%2F%2FD:%2FSource Tree Repositories%2Fricardofilipereiter-tcc2%2FAnimAR%2FLibrary%2FUnityAssemblies%2FVuforia.UnityExtensions.dll&quot; Namespace%3DVuforia Type%3DITrackableEventHandler"
+            tag="ViewCode" />
+        </referencesInternal>
+        <appliedStereotypesInternal>
+          <stereotypeInstance
+            Id="7bd598dc-b5e1-44cf-a001-f1f92d584c45"
+            name="interface"
+            profile="CSharpProfile">
+            <propertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="a55aaecf-5bb5-43aa-8126-785ff239367c">
+                <propertyInstance
+                  Id="f3e2a020-a044-4d99-a3a3-9bcb714a40f1"
+                  name="ClrAttributes" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="1f9dc799-34ef-4105-97b2-bfcb48d452de">
+                <propertyInstance
+                  Id="b42c493c-dc22-477d-bc04-a8009bcdd1ec"
+                  name="IsPartial"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="8470c5f7-ebe9-445d-8c96-f2b51e76770f">
+                <propertyInstance
+                  Id="7106bee9-80c0-49ea-92d7-280e20fff4e0"
+                  name="IsUnsafe"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="5c713c38-59fb-4873-93c8-5fa80cb9deae">
+                <propertyInstance
+                  Id="5dca0db2-eac4-4acb-aae7-34a1bf7628fe"
+                  name="PackageVisibility"
+                  value="internal" />
+              </stereotypeInstanceHasPropertyInstances>
+            </propertyInstances>
+          </stereotypeInstance>
+        </appliedStereotypesInternal>
+      </Interface>
+    </packageHasNamedElement>
+  </packagedElements>
+</package>

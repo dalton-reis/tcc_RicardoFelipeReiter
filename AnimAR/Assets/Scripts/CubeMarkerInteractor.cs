@@ -10,7 +10,7 @@ namespace Assets.Scripts {
 
         bool CanReceiveObject(MovableObject obj);
 
-        void ObjectReceived(MovableObject obj);
+        bool ObjectReceived(MovableObject obj);
 
         void ObjectRemoved(MovableObject obj);
 

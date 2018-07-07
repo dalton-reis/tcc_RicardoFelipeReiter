@@ -1,3 +1,5 @@
 - Rodar animação enquanto o seletor de take está ativo?
-- Imagens finais Tutorial
 - Renderizar linhas com objetos envolvidos Marcador inspector?
+- Criação de diversos projetos?
+- Controle de linha do tempo, "mover" animação na linha do tempo para frente e para trás
+- Permitir executar todas as cenas sequencialmente

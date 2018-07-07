@@ -58,8 +58,9 @@ namespace Assets.Scripts {
             return false;
         }
 
-        public override void ObjectReceived(MovableObject obj) {
-
+        public override bool ObjectReceived(MovableObject obj) {
+            Destroy(obj.gameObject);
+            return true;
         }
 
         public override void ObjectRemoved(MovableObject obj) {

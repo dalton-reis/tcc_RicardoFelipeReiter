@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="text/xsl" href="file:///D:/PROGRAM FILES (X86)/VISUAL STUDIO/COMMON7/IDE/EXTENSIONS/MICROSOFT/ARCHITECTURE TOOLS/EXTENSIBILITY/Logging/ReverseEngineeringLog.xslt"?>
+<Log xmlns="http://schemas.microsoft.com/VisualStudio/2010/CodeGen.RE.Log" Label="Code Generation/Text Transformation Log">
+  <MessageClass Name="Message" Label="Message" Option="Show informational messages" />
+  <MessageClass Name="Warning" Label="Warning" Option="Show warnings" />
+  <MessageClass Name="Error" Label="Error" Option="Show errors" />
+  <MessageClass Name="Property" Label="Property" Option="Show metadata" />
+  <MessageClass Name="Diagnostic" Label="Message" Option="Show diagnostic messages" />
+  <Message Timestamp="2018-05-16T23:06:23" Importance="High" Text="Reverse Engineering Started." />
+  <Message Timestamp="2018-05-16T23:06:24" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Boolean' -  (PrimitiveType)" />
+  <Message Timestamp="2018-05-16T23:06:24" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Integer' -  (PrimitiveType)" />
+  <Message Timestamp="2018-05-16T23:06:24" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'ModelingProject1::Assets' -  (Package)" />
+  <Message Timestamp="2018-05-16T23:06:24" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'ModelingProject1::Assets::Scripts' -  (Package)" />
+  <Message Timestamp="2018-05-16T23:06:24" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'ModelingProject1::Assets::Scripts::CubeMarkerController' -  (Class)   (partially reverse engineered - definition not updated) " />
+  <Message Timestamp="2018-05-16T23:06:24" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'ModelingProject1::Assets::Scripts::CubeMarkerInteractorImpl' -  (Class)   (partially reverse engineered - definition not updated) " />
+  <Message Timestamp="2018-05-16T23:06:24" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'ModelingProject1::Assets::Scripts::MovableObject' -  (Class)   (partially reverse engineered - definition not updated) " />
+  <Message Timestamp="2018-05-16T23:06:24" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'ModelingProject1::Assets::Scripts::Selector' -  (Class)   (partially reverse engineered - definition not updated) " />
+  <Message Timestamp="2018-05-16T23:06:24" Importance="Medium" Text="Element reverse engineered into the UML model: 'ModelingProject1::Assets::Scripts::SelectorController' -  (Class)" />
+  <Message Timestamp="2018-05-16T23:06:24" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'ModelingProject1::Assets::Scripts::SelectorController::ButtonPressed' -  (Operation)" />
+  <Message Timestamp="2018-05-16T23:06:24" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'ModelingProject1::Assets::Scripts::SelectorController::ButtonPressed::vb' -  (Parameter)" />
+  <Message Timestamp="2018-05-16T23:06:24" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'ModelingProject1::Assets::Scripts::SelectorController::CanReceiveObject' -  (Operation)" />
+  <Message Timestamp="2018-05-16T23:06:24" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'ModelingProject1::Assets::Scripts::SelectorController::CanReceiveObject::obj' -  (Parameter)" />
+  <Message Timestamp="2018-05-16T23:06:24" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'ModelingProject1::Assets::Scripts::SelectorController::ChangeSelector' -  (Operation)" />
+  <Message Timestamp="2018-05-16T23:06:24" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'ModelingProject1::Assets::Scripts::SelectorController::ChangeSelector::index' -  (Parameter)" />
+  <Message Timestamp="2018-05-16T23:06:24" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'ModelingProject1::Assets::Scripts::SelectorController::CubeMarkerController' -  (Property)" />
+  <Message Timestamp="2018-05-16T23:06:24" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'ModelingProject1::Assets::Scripts::SelectorController::currentSelector' -  (Property)" />
+  <Message Timestamp="2018-05-16T23:06:24" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'ModelingProject1::Assets::Scripts::SelectorController::currentSelectorIndex' -  (Property)" />
+  <Message Timestamp="2018-05-16T23:06:24" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'ModelingProject1::Assets::Scripts::SelectorController::ObjectReceived' -  (Operation)" />
+  <Message Timestamp="2018-05-16T23:06:24" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'ModelingProject1::Assets::Scripts::SelectorController::ObjectReceived::obj' -  (Parameter)" />
+  <Message Timestamp="2018-05-16T23:06:24" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'ModelingProject1::Assets::Scripts::SelectorController::ObjectRemoved' -  (Operation)" />
+  <Message Timestamp="2018-05-16T23:06:24" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'ModelingProject1::Assets::Scripts::SelectorController::ObjectRemoved::obj' -  (Parameter)" />
+  <Message Timestamp="2018-05-16T23:06:24" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'ModelingProject1::Assets::Scripts::SelectorController::OnTrackableStateChanged' -  (Operation)" />
+  <Message Timestamp="2018-05-16T23:06:24" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'ModelingProject1::Assets::Scripts::SelectorController::OnTrackableStateChanged::newStatus' -  (Parameter)" />
+  <Message Timestamp="2018-05-16T23:06:24" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'ModelingProject1::Assets::Scripts::SelectorController::OnTrackableStateChanged::previousStatus' -  (Parameter)" />
+  <Message Timestamp="2018-05-16T23:06:24" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'ModelingProject1::Assets::Scripts::SelectorController::SelectorController' -  (Operation)" />
+  <Message Timestamp="2018-05-16T23:06:24" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'ModelingProject1::Assets::Scripts::SelectorController::SelectorLabel' -  (Property)" />
+  <Message Timestamp="2018-05-16T23:06:24" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'ModelingProject1::Assets::Scripts::SelectorController::Selectors' -  (Property)" />
+  <Message Timestamp="2018-05-16T23:06:24" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'ModelingProject1::Assets::Scripts::SelectorController::Start' -  (Operation)" />
+  <Message Timestamp="2018-05-16T23:06:24" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'ModelingProject1::Assets::Scripts::VirtualButtonListener' -  (Interface)   (partially reverse engineered - definition not updated) " />
+  <Message Timestamp="2018-05-16T23:06:24" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'ModelingProject1::UnityEngine' -  (Package)" />
+  <Message Timestamp="2018-05-16T23:06:24" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'ModelingProject1::UnityEngine::UI' -  (Package)" />
+  <Message Timestamp="2018-05-16T23:06:24" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'ModelingProject1::UnityEngine::UI::Text' -  (Class)   (partially reverse engineered - definition not updated) " />
+  <Message Timestamp="2018-05-16T23:06:24" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'ModelingProject1::Vuforia' -  (Package)" />
+  <Message Timestamp="2018-05-16T23:06:24" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'ModelingProject1::Vuforia::ITrackableEventHandler' -  (Interface)   (partially reverse engineered - definition not updated) " />
+  <Message Timestamp="2018-05-16T23:06:24" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'ModelingProject1::Vuforia::Status' -  (Enumeration)   (partially reverse engineered - definition not updated) " />
+  <Message Timestamp="2018-05-16T23:06:24" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'ModelingProject1::Vuforia::VirtualButtonBehaviour' -  (Class)   (partially reverse engineered - definition not updated) " />
+  <Message Timestamp="2018-05-16T23:06:24" Importance="Diagnostic" Text="Relationship reverse engineered into the UML model: ModelingProject1::Assets::Scripts::SelectorController to ModelingProject1::Vuforia::ITrackableEventHandler (InterfaceRealization)" />
+  <Message Timestamp="2018-05-16T23:06:24" Importance="Diagnostic" Text="Relationship reverse engineered into the UML model: ModelingProject1::Assets::Scripts::SelectorController to ModelingProject1::Assets::Scripts::VirtualButtonListener (InterfaceRealization)" />
+  <Message Timestamp="2018-05-16T23:06:24" Importance="Diagnostic" Text="Relationship reverse engineered into the UML model: ModelingProject1::Assets::Scripts::SelectorController to ModelingProject1::Assets::Scripts::CubeMarkerInteractorImpl (Generalization)" />
+  <Message Timestamp="2018-05-16T23:06:24" Importance="Diagnostic" Text="Relationship reverse engineered into the UML model: ModelingProject1::Assets::Scripts::MovableObject to ModelingProject1::UnityEngine::MonoBehaviour (Generalization)" />
+  <Message Timestamp="2018-05-16T23:06:24" Importance="Diagnostic" Text="Relationship reverse engineered into the UML model: ModelingProject1::Vuforia::VirtualButtonBehaviour to ModelingProject1::UnityEngine::MonoBehaviour (Generalization)" />
+  <Message Timestamp="2018-05-16T23:06:24" Importance="Diagnostic" Text="Relationship reverse engineered into the UML model: ModelingProject1::Assets::Scripts::CubeMarkerController to ModelingProject1::Assets::Scripts::SceneControllerListener (InterfaceRealization)" />
+  <Message Timestamp="2018-05-16T23:06:24" Importance="Diagnostic" Text="Relationship reverse engineered into the UML model: ModelingProject1::Assets::Scripts::CubeMarkerController to ModelingProject1::Vuforia::ITrackableEventHandler (InterfaceRealization)" />
+  <Message Timestamp="2018-05-16T23:06:24" Importance="Diagnostic" Text="Relationship reverse engineered into the UML model: ModelingProject1::Assets::Scripts::CubeMarkerController to ModelingProject1::UnityEngine::MonoBehaviour (Generalization)" />
+  <Message Timestamp="2018-05-16T23:06:24" Importance="Diagnostic" Text="Relationship reverse engineered into the UML model: ModelingProject1::Assets::Scripts::Selector to ModelingProject1::UnityEngine::MonoBehaviour (Generalization)" />
+  <Message Timestamp="2018-05-16T23:06:24" Importance="Diagnostic" Text="Relationship reverse engineered into the UML model: ModelingProject1::Assets::Scripts::ObjectFactorySelector to ModelingProject1::Assets::Scripts::Selector (Generalization)" />
+  <Message Timestamp="2018-05-16T23:06:24" Importance="Diagnostic" Text="Relationship reverse engineered into the UML model: ModelingProject1::Assets::Scripts::SceneSelector to ModelingProject1::Assets::Scripts::Selector (Generalization)" />
+  <Message Timestamp="2018-05-16T23:06:24" Importance="Diagnostic" Text="Relationship reverse engineered into the UML model: ModelingProject1::Assets::Scripts::TakeSelector to ModelingProject1::Assets::Scripts::Selector (Generalization)" />
+  <Message Timestamp="2018-05-16T23:06:24" Importance="Diagnostic" Text="Relationship reverse engineered into the UML model: ModelingProject1::Assets::Scripts::CubeMarkerInteractorImpl to ModelingProject1::UnityEngine::MonoBehaviour (Generalization)" />
+  <Message Timestamp="2018-05-16T23:06:24" Importance="Diagnostic" Text="Relationship reverse engineered into the UML model: ModelingProject1::Assets::Scripts::SceneController to ModelingProject1::Assets::Scripts::CubeMarkerInteractorImpl (Generalization)" />
+  <Message Timestamp="2018-05-16T23:06:24" Importance="High" Text="(1) type(s) fully reverse engineered." />
+  <Message Timestamp="2018-05-16T23:06:24" Importance="High" Text="(9) type(s) partially reverse engineered.  These types were not included in the original selection so their full definitions are not reverse engineered.  Instead, this shallow operation has simply ensured these types exist in the UML model because they are needed in order to fully describe other elements." />
+  <Message Timestamp="2018-05-16T23:06:24" Importance="High" Text="The reverse engineering operation completed with (0) error(s), and (0) warning(s)." />
+</Log>

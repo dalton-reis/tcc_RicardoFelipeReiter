@@ -133,11 +133,12 @@ namespace Assets.Scripts {
             // TODO: Normalmente chamado no SelectorController e no RecorderController, talvez criar um listener para ambos e esse daqui ser um observer
             if (attachedObject) {
                 VuforiaUtils.EnableTargetObject(attachedObject.gameObject);
-                attachedObject.currentInteractor.ObjectReceived(attachedObject);
-                attachedObject.transform.localPosition = attachedObjectInitialPos;
-                attachedObject.transform.localRotation = attachedObjectInitialRot;
-                if (attachedObject.outliner) {
-                    attachedObject.outliner.SetEnabled(false);
+                if (!attachedObject.currentInteractor.ObjectReceived(attachedObject)) {
+                    attachedObject.transform.localPosition = attachedObjectInitialPos;
+                    attachedObject.transform.localRotation = attachedObjectInitialRot;
+                    if (attachedObject.outliner) {
+                        attachedObject.outliner.SetEnabled(false);
+                    }
                 }
                 NotifyObjectDetached(attachedObject);
                 attachedObject = null;

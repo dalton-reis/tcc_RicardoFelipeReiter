@@ -68,7 +68,9 @@ namespace Assets.Scripts {
                 var takeObject = currentObject.Take;
                 if (takeObject != null) {
                     var outliner = takeObject.GameObject.GetComponent<ObjectOutliner>();
-                    outliner.SetEnabled(false);
+                    if (outliner) {
+                        outliner.SetEnabled(false);
+                    }
                 }
                 Destroy(currentObject.gameObject);
             }
@@ -78,9 +80,10 @@ namespace Assets.Scripts {
             return obj.type == MovableObject.TYPE.TAKE_OBJECT;
         }
 
-        public override void ObjectReceived(MovableObject obj) {
+        public override bool ObjectReceived(MovableObject obj) {
             Destroy(obj.gameObject);
             ChangeTakeIcon();
+            return true;
         }
 
         public override void ObjectRemoved(MovableObject obj) {
@@ -88,7 +91,9 @@ namespace Assets.Scripts {
                 var takeObject = currentObject.Take;
                 if (takeObject != null) {
                     var outliner = takeObject.GameObject.GetComponent<ObjectOutliner>();
-                    outliner.SetEnabled(false);
+                    if (outliner) {
+                        outliner.SetEnabled(false);
+                    }
                 }
             }
             currentObject = null;
@@ -109,8 +114,10 @@ namespace Assets.Scripts {
             if (isActive && index > -1) {
                 currentObject.Take = SceneController.GetCurrentScene().Takes[index];
                 var outliner = currentObject.Take.GameObject.GetComponent<ObjectOutliner>();
-                outliner.SetColor(Color.cyan);
-                outliner.SetEnabled(true);
+                if (outliner) {
+                    outliner.SetColor(Color.cyan);
+                    outliner.SetEnabled(true);
+                }
             }
         }
 

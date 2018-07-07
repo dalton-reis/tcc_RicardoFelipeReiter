@@ -42,8 +42,8 @@ namespace Assets.Scripts {
             return currentSelector.CanReceiveObject(obj);
         }
 
-        public override void ObjectReceived(MovableObject obj) {
-            currentSelector.ObjectReceived(obj);
+        public override bool ObjectReceived(MovableObject obj) {
+            return currentSelector.ObjectReceived(obj);
         }
 
         public override void ObjectRemoved(MovableObject obj) {

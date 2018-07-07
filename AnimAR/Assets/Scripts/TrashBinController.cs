@@ -15,7 +15,7 @@ namespace Assets.Scripts {
             return true;
         }
 
-        public override void ObjectReceived(MovableObject obj) {
+        public override bool ObjectReceived(MovableObject obj) {
             var takeNumber = -1;
             var sceneNumber = -1;
             switch (obj.type) {
@@ -41,6 +41,7 @@ namespace Assets.Scripts {
             effectObj.transform.parent = this.transform;
             effectObj.transform.localPosition = Vector3.zero;
             effectObj.transform.localRotation = Quaternion.Euler(new Vector3(90, 0, 90));
+            return true;
         }
 
         public override void ObjectRemoved(MovableObject obj) {
