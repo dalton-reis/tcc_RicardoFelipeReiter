@@ -1,0 +1,4 @@
+Versão Unity utilizada - 2017.4
+
+- Abrir projeto com o Unity 2017.4 ou superior. Recomendado uma versão não muito distante disso, pois podem haver quebra de compatibilidade.
+- Database do Vuforia já importado no Unity, caso deseje modificar os marcadores, deve-se criar um novo Database no site de dev do Vuforia e importar no Unity depois.
