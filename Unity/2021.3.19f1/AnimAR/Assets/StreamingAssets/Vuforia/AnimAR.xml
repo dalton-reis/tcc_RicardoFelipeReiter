@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<QCARConfig>
+    <Tracking>
+        <ImageTarget name="inspector" size="6.000000 6.000000"/>
+        <ImageTarget name="trashbin" size="6.000000 6.000000"/>
+        <ImageTarget name="Scene_1" size="15.000000 15.000000"/>
+        <ImageTarget name="selector" size="17.000000 6.640625"/>
+        <ImageTarget name="recorder" size="17.000000 6.640625"/>
+        <ImageTarget name="CubeMarker.Front" size="5.000000 5.000000"/>
+        <ImageTarget name="CubeMarker.Back" size="5.000000 5.000000"/>
+        <ImageTarget name="CubeMarker.Top" size="5.000000 5.000000"/>
+        <ImageTarget name="CubeMarker.Left" size="5.000000 5.000000"/>
+        <ImageTarget name="CubeMarker.Bottom" size="5.000000 5.000000"/>
+        <ImageTarget name="CubeMarker.Right" size="5.000000 5.000000"/>
+        <MultiTarget name="CubeMarker">
+            <Part name="CubeMarker.Left" translation="-2.5 0 0" rotation="AD: 0 1 0 -90"/>
+            <Part name="CubeMarker.Right" translation="2.5 0 0" rotation="AD: 0 1 0 90"/>
+            <Part name="CubeMarker.Front" translation="0 0 2.5" rotation="AD: 1 0 0 0"/>
+            <Part name="CubeMarker.Back" translation="0 0 -2.5" rotation="AD: 0 1 0 180"/>
+            <Part name="CubeMarker.Top" translation="0 2.5 0" rotation="AD: 1 0 0 -90"/>
+            <Part name="CubeMarker.Bottom" translation="0 -2.5 0" rotation="AD: 1 0 0 90"/>
+        </MultiTarget>
+    </Tracking>
+</QCARConfig>
